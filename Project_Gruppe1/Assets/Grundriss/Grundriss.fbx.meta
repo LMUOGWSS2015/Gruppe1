@@ -1,0 +1,1157 @@
+fileFormatVersion: 2
+guid: 7b47ba395e50e2241958d776268869be
+timeCreated: 1432300932
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Bad
+    100002: Erdgeschoss
+    100004: Fenster_Bad
+    100006: Fenster_Esszimmer
+    100008: Fenster_innen
+    100010: Fenster_innen_2
+    100012: Fenster_innen_3
+    100014: Fenster_innen_4
+    100016: Fenster_innen_5
+    100018: Fenster_innen_6
+    100020: Fenster_innen_l
+    100022: Fenster_innen_r
+    100024: Fenster_Kinderzimmer
+    100026: Fenster_Kueche_l
+    100028: Fenster_Kueche_r
+    100030: Fenster_Schlafzimmer
+    100032: Fenster_Wohnzimmer
+    100034: Fensterladen
+    100036: Fensterladen_1
+    100038: Fensterladen_1_2
+    100040: Fensterladen_2
+    100042: Fensterladen_3
+    100044: Fensterladen_4
+    100046: Fensterladen_5
+    100048: Fensterladen_6
+    100050: Fensterladen_Rahmen
+    100052: Fensterladen_Rahmen_2
+    100054: Fensterladen_Rahmen_3
+    100056: Fensterladen_Rahmen_4
+    100058: Fensterladen_Rahmen_5
+    100060: Fensterladen_Rahmen_6
+    100062: Fensterladen_Rahmen_7
+    100064: Fensterladen_Rahmen_8
+    100066: Flur_oben
+    100068: Griff
+    100070: Griff_1
+    100072: Griff_1_2
+    100074: Griff_1_3
+    100076: Griff_1_4
+    100078: Griff_1_5
+    100080: Griff_1_6
+    100082: Griff_1_7
+    100084: Griff_2
+    100086: //RootNode
+    100088: holz
+    100090: holz_1
+    100092: holz_2
+    100094: holz_3
+    100096: holz_quer
+    100098: holz_quer2
+    100100: Kinderzimmer
+    100102: Kueche
+    100104: Laden
+    100106: Lamellen
+    100108: Lamellen_2
+    100110: Lamellen_3
+    100112: Lamellen_4
+    100114: Lamellen_5
+    100116: Lamellen_6
+    100118: Lamellen_7
+    100120: Lamellen_8
+    100122: Mittelstrebe
+    100124: Mittelstrebe_2
+    100126: Obergeschoss
+    100128: Rahmen
+    100130: Rahmen_2
+    100132: Rahmen_3
+    100134: Rahmen_4
+    100136: Rahmen_5
+    100138: Rahmen_6
+    100140: Rahmen_7
+    100142: Rahmen_innen
+    100144: Rahmen_innen_1
+    100146: Rahmen_innen_1_2
+    100148: Rahmen_innen_1_3
+    100150: Rahmen_innen_1_4
+    100152: Rahmen_innen_1_5
+    100154: Rahmen_innen_1_6
+    100156: Rahmen_innen_1_7
+    100158: Rahmen_innen_2
+    100160: Rahmen_l
+    100162: Rahmen_l_2
+    100164: Rahmen_l_3
+    100166: Rahmen_l_4
+    100168: Rahmen_l_5
+    100170: Rahmen_l_6
+    100172: Rahmen_l_7
+    100174: Rahmen_oben
+    100176: Rahmen_oben_2
+    100178: Rahmen_oben_3
+    100180: Rahmen_oben_4
+    100182: Rahmen_oben_5
+    100184: Rahmen_oben_6
+    100186: Rahmen_oben_7
+    100188: Rahmen_r
+    100190: Rahmen_r_2
+    100192: Rahmen_r_3
+    100194: Rahmen_r_4
+    100196: Rahmen_r_5
+    100198: Rahmen_r_6
+    100200: Rahmen_r_7
+    100202: Rahmen_unten
+    100204: Rahmen_unten_2
+    100206: Rahmen_unten_3
+    100208: Rahmen_unten_4
+    100210: Rahmen_unten_5
+    100212: Rahmen_unten_6
+    100214: Rahmen_unten_7
+    100216: Scheibe
+    100218: Scheibe_1
+    100220: Scheibe_1_2
+    100222: Scheibe_2
+    100224: Scheibe_3
+    100226: Scheibe_4
+    100228: Scheibe_5
+    100230: Scheibe_6
+    100232: Scheibe_7
+    100234: Scheibe_8
+    100236: Schlafzimmer
+    100238: Treppe
+    100240: Treppenhaus
+    100242: "T\xFCrrahmen"
+    100244: "T\xFCrrahmen_1"
+    100246: "T\xFCrrahmen_1_2"
+    100248: "T\xFCrrahmen_1_3"
+    100250: "T\xFCrrahmen_1_4"
+    100252: "T\xFCrrahmen_1_5"
+    100254: Wohnzimmer
+    100256: Zimmer
+    100258: Zimmer_2
+    100260: TrennleisteBoden
+    100262: Lamellen_l
+    100264: Lamellen_r
+    100266: Rahmen_innen_3
+    100268: Rahmen_innen_4
+    100270: Rahmen_innen_5
+    100272: Rahmen_innen_6
+    100274: Rahmen_innen_7
+    100276: Randleiste
+    100278: "T\xFCrrahmen_2"
+    100280: Laden_quer
+    100282: Flur_Group
+    100284: Kinderzimmer_Group
+    100286: Randleiste_1
+    100288: Randleiste_1_2
+    100290: Randleiste_2
+    100292: Randleiste_2_2
+    100294: Randleiste_2_3
+    100296: Randleiste_3
+    100298: Randleiste_3_2
+    100300: Randleiste_6
+    100302: Balken_oben
+    100304: Balken_unten
+    100306: "K\xFCche_Group"
+    100308: Treppenhaus_Group
+    100310: Wohnzimmer_Group
+    400000: Bad
+    400002: Erdgeschoss
+    400004: Fenster_Bad
+    400006: Fenster_Esszimmer
+    400008: Fenster_innen
+    400010: Fenster_innen_2
+    400012: Fenster_innen_3
+    400014: Fenster_innen_4
+    400016: Fenster_innen_5
+    400018: Fenster_innen_6
+    400020: Fenster_innen_l
+    400022: Fenster_innen_r
+    400024: Fenster_Kinderzimmer
+    400026: Fenster_Kueche_l
+    400028: Fenster_Kueche_r
+    400030: Fenster_Schlafzimmer
+    400032: Fenster_Wohnzimmer
+    400034: Fensterladen
+    400036: Fensterladen_1
+    400038: Fensterladen_1_2
+    400040: Fensterladen_2
+    400042: Fensterladen_3
+    400044: Fensterladen_4
+    400046: Fensterladen_5
+    400048: Fensterladen_6
+    400050: Fensterladen_Rahmen
+    400052: Fensterladen_Rahmen_2
+    400054: Fensterladen_Rahmen_3
+    400056: Fensterladen_Rahmen_4
+    400058: Fensterladen_Rahmen_5
+    400060: Fensterladen_Rahmen_6
+    400062: Fensterladen_Rahmen_7
+    400064: Fensterladen_Rahmen_8
+    400066: Flur_oben
+    400068: Griff
+    400070: Griff_1
+    400072: Griff_1_2
+    400074: Griff_1_3
+    400076: Griff_1_4
+    400078: Griff_1_5
+    400080: Griff_1_6
+    400082: Griff_1_7
+    400084: Griff_2
+    400086: //RootNode
+    400088: holz
+    400090: holz_1
+    400092: holz_2
+    400094: holz_3
+    400096: holz_quer
+    400098: holz_quer2
+    400100: Kinderzimmer
+    400102: Kueche
+    400104: Laden
+    400106: Lamellen
+    400108: Lamellen_2
+    400110: Lamellen_3
+    400112: Lamellen_4
+    400114: Lamellen_5
+    400116: Lamellen_6
+    400118: Lamellen_7
+    400120: Lamellen_8
+    400122: Mittelstrebe
+    400124: Mittelstrebe_2
+    400126: Obergeschoss
+    400128: Rahmen
+    400130: Rahmen_2
+    400132: Rahmen_3
+    400134: Rahmen_4
+    400136: Rahmen_5
+    400138: Rahmen_6
+    400140: Rahmen_7
+    400142: Rahmen_innen
+    400144: Rahmen_innen_1
+    400146: Rahmen_innen_1_2
+    400148: Rahmen_innen_1_3
+    400150: Rahmen_innen_1_4
+    400152: Rahmen_innen_1_5
+    400154: Rahmen_innen_1_6
+    400156: Rahmen_innen_1_7
+    400158: Rahmen_innen_2
+    400160: Rahmen_l
+    400162: Rahmen_l_2
+    400164: Rahmen_l_3
+    400166: Rahmen_l_4
+    400168: Rahmen_l_5
+    400170: Rahmen_l_6
+    400172: Rahmen_l_7
+    400174: Rahmen_oben
+    400176: Rahmen_oben_2
+    400178: Rahmen_oben_3
+    400180: Rahmen_oben_4
+    400182: Rahmen_oben_5
+    400184: Rahmen_oben_6
+    400186: Rahmen_oben_7
+    400188: Rahmen_r
+    400190: Rahmen_r_2
+    400192: Rahmen_r_3
+    400194: Rahmen_r_4
+    400196: Rahmen_r_5
+    400198: Rahmen_r_6
+    400200: Rahmen_r_7
+    400202: Rahmen_unten
+    400204: Rahmen_unten_2
+    400206: Rahmen_unten_3
+    400208: Rahmen_unten_4
+    400210: Rahmen_unten_5
+    400212: Rahmen_unten_6
+    400214: Rahmen_unten_7
+    400216: Scheibe
+    400218: Scheibe_1
+    400220: Scheibe_1_2
+    400222: Scheibe_2
+    400224: Scheibe_3
+    400226: Scheibe_4
+    400228: Scheibe_5
+    400230: Scheibe_6
+    400232: Scheibe_7
+    400234: Scheibe_8
+    400236: Schlafzimmer
+    400238: Treppe
+    400240: Treppenhaus
+    400242: "T\xFCrrahmen"
+    400244: "T\xFCrrahmen_1"
+    400246: "T\xFCrrahmen_1_2"
+    400248: "T\xFCrrahmen_1_3"
+    400250: "T\xFCrrahmen_1_4"
+    400252: "T\xFCrrahmen_1_5"
+    400254: Wohnzimmer
+    400256: Zimmer
+    400258: Zimmer_2
+    400260: TrennleisteBoden
+    400262: Lamellen_l
+    400264: Lamellen_r
+    400266: Rahmen_innen_3
+    400268: Rahmen_innen_4
+    400270: Rahmen_innen_5
+    400272: Rahmen_innen_6
+    400274: Rahmen_innen_7
+    400276: Randleiste
+    400278: "T\xFCrrahmen_2"
+    400280: Laden_quer
+    400282: Flur_Group
+    400284: Kinderzimmer_Group
+    400286: Randleiste_1
+    400288: Randleiste_1_2
+    400290: Randleiste_2
+    400292: Randleiste_2_2
+    400294: Randleiste_2_3
+    400296: Randleiste_3
+    400298: Randleiste_3_2
+    400300: Randleiste_6
+    400302: Balken_oben
+    400304: Balken_unten
+    400306: "K\xFCche_Group"
+    400308: Treppenhaus_Group
+    400310: Wohnzimmer_Group
+    2300000: Bad
+    2300002: Fensterladen_Rahmen
+    2300004: Fensterladen_Rahmen_2
+    2300006: Fensterladen_Rahmen_3
+    2300008: Fensterladen_Rahmen_4
+    2300010: Fensterladen_Rahmen_5
+    2300012: Fensterladen_Rahmen_6
+    2300014: Fensterladen_Rahmen_7
+    2300016: Fensterladen_Rahmen_8
+    2300018: Flur_oben
+    2300020: Griff
+    2300022: Griff_1
+    2300024: Griff_1_2
+    2300026: Griff_1_3
+    2300028: Griff_1_4
+    2300030: Griff_1_5
+    2300032: Griff_1_6
+    2300034: Griff_1_7
+    2300036: Griff_2
+    2300038: holz
+    2300040: holz_1
+    2300042: holz_2
+    2300044: holz_3
+    2300046: holz_quer
+    2300048: holz_quer2
+    2300050: Kinderzimmer
+    2300052: Kueche
+    2300054: Lamellen
+    2300056: Lamellen_2
+    2300058: Lamellen_3
+    2300060: Lamellen_4
+    2300062: Lamellen_5
+    2300064: Lamellen_6
+    2300066: Lamellen_7
+    2300068: Lamellen_8
+    2300070: Mittelstrebe
+    2300072: Mittelstrebe_2
+    2300074: Rahmen_innen
+    2300076: Rahmen_innen_1
+    2300078: Rahmen_innen_1_2
+    2300080: Rahmen_innen_1_3
+    2300082: Rahmen_innen_1_4
+    2300084: Rahmen_innen_1_5
+    2300086: Rahmen_innen_1_6
+    2300088: Rahmen_innen_1_7
+    2300090: Rahmen_innen_2
+    2300092: Rahmen_l
+    2300094: Rahmen_l_2
+    2300096: Rahmen_l_3
+    2300098: Rahmen_l_4
+    2300100: Rahmen_l_5
+    2300102: Rahmen_l_6
+    2300104: Rahmen_l_7
+    2300106: Rahmen_oben
+    2300108: Rahmen_oben_2
+    2300110: Rahmen_oben_3
+    2300112: Rahmen_oben_4
+    2300114: Rahmen_oben_5
+    2300116: Rahmen_oben_6
+    2300118: Rahmen_oben_7
+    2300120: Rahmen_r
+    2300122: Rahmen_r_2
+    2300124: Rahmen_r_3
+    2300126: Rahmen_r_4
+    2300128: Rahmen_r_5
+    2300130: Rahmen_r_6
+    2300132: Rahmen_r_7
+    2300134: Rahmen_unten
+    2300136: Rahmen_unten_2
+    2300138: Rahmen_unten_3
+    2300140: Rahmen_unten_4
+    2300142: Rahmen_unten_5
+    2300144: Rahmen_unten_6
+    2300146: Rahmen_unten_7
+    2300148: Scheibe
+    2300150: Scheibe_1
+    2300152: Scheibe_1_2
+    2300154: Scheibe_2
+    2300156: Scheibe_3
+    2300158: Scheibe_4
+    2300160: Scheibe_5
+    2300162: Scheibe_6
+    2300164: Scheibe_7
+    2300166: Scheibe_8
+    2300168: Schlafzimmer
+    2300170: Treppe
+    2300172: Treppenhaus
+    2300174: "T\xFCrrahmen"
+    2300176: "T\xFCrrahmen_1"
+    2300178: "T\xFCrrahmen_1_2"
+    2300180: "T\xFCrrahmen_1_3"
+    2300182: "T\xFCrrahmen_1_4"
+    2300184: "T\xFCrrahmen_1_5"
+    2300186: Wohnzimmer
+    2300188: TrennleisteBoden
+    2300190: Laden
+    2300192: Lamellen_l
+    2300194: Lamellen_r
+    2300196: Rahmen
+    2300198: Rahmen_2
+    2300200: Rahmen_3
+    2300202: Rahmen_4
+    2300204: Rahmen_5
+    2300206: Rahmen_6
+    2300208: Rahmen_7
+    2300210: Rahmen_innen_3
+    2300212: Rahmen_innen_4
+    2300214: Rahmen_innen_5
+    2300216: Rahmen_innen_6
+    2300218: Rahmen_innen_7
+    2300220: Randleiste
+    2300222: "T\xFCrrahmen_2"
+    2300224: Laden_quer
+    2300226: Randleiste_1
+    2300228: Randleiste_1_2
+    2300230: Randleiste_2
+    2300232: Randleiste_2_2
+    2300234: Randleiste_2_3
+    2300236: Randleiste_3
+    2300238: Randleiste_3_2
+    2300240: Randleiste_6
+    2300242: Balken_oben
+    2300244: Balken_unten
+    3300000: Bad
+    3300002: Fensterladen_Rahmen
+    3300004: Fensterladen_Rahmen_2
+    3300006: Fensterladen_Rahmen_3
+    3300008: Fensterladen_Rahmen_4
+    3300010: Fensterladen_Rahmen_5
+    3300012: Fensterladen_Rahmen_6
+    3300014: Fensterladen_Rahmen_7
+    3300016: Fensterladen_Rahmen_8
+    3300018: Flur_oben
+    3300020: Griff
+    3300022: Griff_1
+    3300024: Griff_1_2
+    3300026: Griff_1_3
+    3300028: Griff_1_4
+    3300030: Griff_1_5
+    3300032: Griff_1_6
+    3300034: Griff_1_7
+    3300036: Griff_2
+    3300038: holz
+    3300040: holz_1
+    3300042: holz_2
+    3300044: holz_3
+    3300046: holz_quer
+    3300048: holz_quer2
+    3300050: Kinderzimmer
+    3300052: Kueche
+    3300054: Lamellen
+    3300056: Lamellen_2
+    3300058: Lamellen_3
+    3300060: Lamellen_4
+    3300062: Lamellen_5
+    3300064: Lamellen_6
+    3300066: Lamellen_7
+    3300068: Lamellen_8
+    3300070: Mittelstrebe
+    3300072: Mittelstrebe_2
+    3300074: Rahmen_innen
+    3300076: Rahmen_innen_1
+    3300078: Rahmen_innen_1_2
+    3300080: Rahmen_innen_1_3
+    3300082: Rahmen_innen_1_4
+    3300084: Rahmen_innen_1_5
+    3300086: Rahmen_innen_1_6
+    3300088: Rahmen_innen_1_7
+    3300090: Rahmen_innen_2
+    3300092: Rahmen_l
+    3300094: Rahmen_l_2
+    3300096: Rahmen_l_3
+    3300098: Rahmen_l_4
+    3300100: Rahmen_l_5
+    3300102: Rahmen_l_6
+    3300104: Rahmen_l_7
+    3300106: Rahmen_oben
+    3300108: Rahmen_oben_2
+    3300110: Rahmen_oben_3
+    3300112: Rahmen_oben_4
+    3300114: Rahmen_oben_5
+    3300116: Rahmen_oben_6
+    3300118: Rahmen_oben_7
+    3300120: Rahmen_r
+    3300122: Rahmen_r_2
+    3300124: Rahmen_r_3
+    3300126: Rahmen_r_4
+    3300128: Rahmen_r_5
+    3300130: Rahmen_r_6
+    3300132: Rahmen_r_7
+    3300134: Rahmen_unten
+    3300136: Rahmen_unten_2
+    3300138: Rahmen_unten_3
+    3300140: Rahmen_unten_4
+    3300142: Rahmen_unten_5
+    3300144: Rahmen_unten_6
+    3300146: Rahmen_unten_7
+    3300148: Scheibe
+    3300150: Scheibe_1
+    3300152: Scheibe_1_2
+    3300154: Scheibe_2
+    3300156: Scheibe_3
+    3300158: Scheibe_4
+    3300160: Scheibe_5
+    3300162: Scheibe_6
+    3300164: Scheibe_7
+    3300166: Scheibe_8
+    3300168: Schlafzimmer
+    3300170: Treppe
+    3300172: Treppenhaus
+    3300174: "T\xFCrrahmen"
+    3300176: "T\xFCrrahmen_1"
+    3300178: "T\xFCrrahmen_1_2"
+    3300180: "T\xFCrrahmen_1_3"
+    3300182: "T\xFCrrahmen_1_4"
+    3300184: "T\xFCrrahmen_1_5"
+    3300186: Wohnzimmer
+    3300188: TrennleisteBoden
+    3300190: Laden
+    3300192: Lamellen_l
+    3300194: Lamellen_r
+    3300196: Rahmen
+    3300198: Rahmen_2
+    3300200: Rahmen_3
+    3300202: Rahmen_4
+    3300204: Rahmen_5
+    3300206: Rahmen_6
+    3300208: Rahmen_7
+    3300210: Rahmen_innen_3
+    3300212: Rahmen_innen_4
+    3300214: Rahmen_innen_5
+    3300216: Rahmen_innen_6
+    3300218: Rahmen_innen_7
+    3300220: Randleiste
+    3300222: "T\xFCrrahmen_2"
+    3300224: Laden_quer
+    3300226: Randleiste_1
+    3300228: Randleiste_1_2
+    3300230: Randleiste_2
+    3300232: Randleiste_2_2
+    3300234: Randleiste_2_3
+    3300236: Randleiste_3
+    3300238: Randleiste_3_2
+    3300240: Randleiste_6
+    3300242: Balken_oben
+    3300244: Balken_unten
+    4300000: "T\xFCrrahmen_1"
+    4300002: "T\xFCrrahmen_1_2"
+    4300004: "T\xFCrrahmen_1_3"
+    4300006: "T\xFCrrahmen_1_4"
+    4300008: Griff_1
+    4300010: Scheibe
+    4300012: Lamellen
+    4300014: Fensterladen_Rahmen
+    4300016: Rahmen_innen_1
+    4300018: Rahmen_r
+    4300020: Rahmen_l
+    4300022: Rahmen_oben
+    4300024: Rahmen_unten
+    4300026: Scheibe_2
+    4300028: Lamellen_2
+    4300030: Fensterladen_Rahmen_2
+    4300032: Lamellen_3
+    4300034: Fensterladen_Rahmen_3
+    4300036: Griff_1_2
+    4300038: Rahmen_innen_1_2
+    4300040: Griff
+    4300042: Rahmen_innen
+    4300044: Rahmen_r_2
+    4300046: Mittelstrebe
+    4300048: Rahmen_l_2
+    4300050: Rahmen_oben_2
+    4300052: Rahmen_unten_2
+    4300054: Lamellen_4
+    4300056: Fensterladen_Rahmen_4
+    4300058: Lamellen_5
+    4300060: Fensterladen_Rahmen_5
+    4300062: Scheibe_3
+    4300064: Scheibe_1
+    4300066: Griff_2
+    4300068: Rahmen_innen_2
+    4300070: Scheibe_4
+    4300072: Scheibe_1_2
+    4300074: Griff_1_3
+    4300076: Rahmen_innen_1_3
+    4300078: Rahmen_r_3
+    4300080: Mittelstrebe_2
+    4300082: Rahmen_l_3
+    4300084: Rahmen_oben_3
+    4300086: Rahmen_unten_3
+    4300088: Bad
+    4300090: Schlafzimmer
+    4300092: Flur_oben
+    4300094: Kinderzimmer
+    4300096: holz_3
+    4300098: holz_2
+    4300100: holz_1
+    4300102: holz
+    4300104: holz_quer
+    4300106: holz_quer2
+    4300108: Griff_1_4
+    4300110: Scheibe_5
+    4300112: Rahmen_innen_1_4
+    4300114: Rahmen_r_4
+    4300116: Rahmen_l_4
+    4300118: Rahmen_oben_4
+    4300120: Rahmen_unten_4
+    4300122: Griff_1_5
+    4300124: Scheibe_6
+    4300126: Lamellen_6
+    4300128: Fensterladen_Rahmen_6
+    4300130: Rahmen_innen_1_5
+    4300132: Rahmen_r_5
+    4300134: Rahmen_l_5
+    4300136: Rahmen_oben_5
+    4300138: Rahmen_unten_5
+    4300140: Griff_1_6
+    4300142: Scheibe_7
+    4300144: Lamellen_7
+    4300146: Fensterladen_Rahmen_7
+    4300148: Rahmen_innen_1_6
+    4300150: Rahmen_r_6
+    4300152: Rahmen_l_6
+    4300154: Rahmen_oben_6
+    4300156: Rahmen_unten_6
+    4300158: Griff_1_7
+    4300160: Scheibe_8
+    4300162: Lamellen_8
+    4300164: Fensterladen_Rahmen_8
+    4300166: Rahmen_innen_1_7
+    4300168: Rahmen_r_7
+    4300170: Rahmen_l_7
+    4300172: Rahmen_oben_7
+    4300174: Rahmen_unten_7
+    4300176: Treppe
+    4300178: "T\xFCrrahmen_1_5"
+    4300180: "T\xFCrrahmen"
+    4300182: Kueche
+    4300184: Wohnzimmer
+    4300186: Treppenhaus
+    4300188: TrennleisteBoden
+    4300190: Rahmen
+    4300192: Lamellen_r
+    4300194: Lamellen_l
+    4300196: Rahmen_2
+    4300198: Rahmen_innen_3
+    4300200: Rahmen_3
+    4300202: Randleiste
+    4300204: Laden
+    4300206: Rahmen_innen_4
+    4300208: Rahmen_4
+    4300210: Rahmen_innen_5
+    4300212: Rahmen_5
+    4300214: Rahmen_innen_6
+    4300216: Rahmen_6
+    4300218: Rahmen_innen_7
+    4300220: Rahmen_7
+    4300222: "T\xFCrrahmen_2"
+    4300224: Laden_quer
+    4300226: Randleiste_6
+    4300228: Randleiste_3
+    4300230: Randleiste_1
+    4300232: Randleiste_2
+    4300234: Randleiste_3_2
+    4300236: Randleiste_2_2
+    4300238: Randleiste_1_2
+    4300240: Randleiste_2_3
+    4300242: Balken_oben
+    4300244: Balken_unten
+    6400000: Bad
+    6400002: Fensterladen_Rahmen
+    6400004: Fensterladen_Rahmen_2
+    6400006: Fensterladen_Rahmen_3
+    6400008: Fensterladen_Rahmen_4
+    6400010: Fensterladen_Rahmen_5
+    6400012: Fensterladen_Rahmen_6
+    6400014: Fensterladen_Rahmen_7
+    6400016: Fensterladen_Rahmen_8
+    6400018: Flur_oben
+    6400020: Griff
+    6400022: Griff_1
+    6400024: Griff_1_2
+    6400026: Griff_1_3
+    6400028: Griff_1_4
+    6400030: Griff_1_5
+    6400032: Griff_1_6
+    6400034: Griff_1_7
+    6400036: Griff_2
+    6400038: holz
+    6400040: holz_1
+    6400042: holz_2
+    6400044: holz_3
+    6400046: holz_quer
+    6400048: holz_quer2
+    6400050: Kinderzimmer
+    6400052: Kueche
+    6400054: Lamellen
+    6400056: Lamellen_2
+    6400058: Lamellen_3
+    6400060: Lamellen_4
+    6400062: Lamellen_5
+    6400064: Lamellen_6
+    6400066: Lamellen_7
+    6400068: Lamellen_8
+    6400070: Mittelstrebe
+    6400072: Mittelstrebe_2
+    6400074: Rahmen_innen
+    6400076: Rahmen_innen_1
+    6400078: Rahmen_innen_1_2
+    6400080: Rahmen_innen_1_3
+    6400082: Rahmen_innen_1_4
+    6400084: Rahmen_innen_1_5
+    6400086: Rahmen_innen_1_6
+    6400088: Rahmen_innen_1_7
+    6400090: Rahmen_innen_2
+    6400092: Rahmen_l
+    6400094: Rahmen_l_2
+    6400096: Rahmen_l_3
+    6400098: Rahmen_l_4
+    6400100: Rahmen_l_5
+    6400102: Rahmen_l_6
+    6400104: Rahmen_l_7
+    6400106: Rahmen_oben
+    6400108: Rahmen_oben_2
+    6400110: Rahmen_oben_3
+    6400112: Rahmen_oben_4
+    6400114: Rahmen_oben_5
+    6400116: Rahmen_oben_6
+    6400118: Rahmen_oben_7
+    6400120: Rahmen_r
+    6400122: Rahmen_r_2
+    6400124: Rahmen_r_3
+    6400126: Rahmen_r_4
+    6400128: Rahmen_r_5
+    6400130: Rahmen_r_6
+    6400132: Rahmen_r_7
+    6400134: Rahmen_unten
+    6400136: Rahmen_unten_2
+    6400138: Rahmen_unten_3
+    6400140: Rahmen_unten_4
+    6400142: Rahmen_unten_5
+    6400144: Rahmen_unten_6
+    6400146: Rahmen_unten_7
+    6400148: Scheibe
+    6400150: Scheibe_1
+    6400152: Scheibe_1_2
+    6400154: Scheibe_2
+    6400156: Scheibe_3
+    6400158: Scheibe_4
+    6400160: Scheibe_5
+    6400162: Scheibe_6
+    6400164: Scheibe_7
+    6400166: Scheibe_8
+    6400168: Schlafzimmer
+    6400170: Treppe
+    6400172: Treppenhaus
+    6400174: "T\xFCrrahmen"
+    6400176: "T\xFCrrahmen_1"
+    6400178: "T\xFCrrahmen_1_2"
+    6400180: "T\xFCrrahmen_1_3"
+    6400182: "T\xFCrrahmen_1_4"
+    6400184: "T\xFCrrahmen_1_5"
+    6400186: Wohnzimmer
+    6400188: TrennleisteBoden
+    6400190: Laden
+    6400192: Lamellen_l
+    6400194: Lamellen_r
+    6400196: Rahmen
+    6400198: Rahmen_2
+    6400200: Rahmen_3
+    6400202: Rahmen_4
+    6400204: Rahmen_5
+    6400206: Rahmen_6
+    6400208: Rahmen_7
+    6400210: Rahmen_innen_3
+    6400212: Rahmen_innen_4
+    6400214: Rahmen_innen_5
+    6400216: Rahmen_innen_6
+    6400218: Rahmen_innen_7
+    6400220: Randleiste
+    6400222: "T\xFCrrahmen_2"
+    6400224: Laden_quer
+    6400226: Randleiste_1
+    6400228: Randleiste_1_2
+    6400230: Randleiste_2
+    6400232: Randleiste_2_2
+    6400234: Randleiste_2_3
+    6400236: Randleiste_3
+    6400238: Randleiste_3_2
+    6400240: Randleiste_6
+    6400242: Balken_oben
+    6400244: Balken_unten
+    7400000: C4D Animation Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 1
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: C4D Animation Take
+      takeName: C4D Animation Take
+      firstFrame: 0
+      lastFrame: 100
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Erdgeschoss
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Fenster_innen_3
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Fenster_innen_3/Rahmen_innen_1_4
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Griff_1_4
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Laden
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Laden/holz
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Laden/holz_1
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Laden/holz_2
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Laden/holz_3
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Laden/holz_quer
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Laden/holz_quer2
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Rahmen_4
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Rahmen_4/Rahmen_l_4
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Rahmen_4/Rahmen_oben_4
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Rahmen_4/Rahmen_r_4
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Rahmen_4/Rahmen_unten_4
+        weight: 1
+      - path: Erdgeschoss/Fenster_Esszimmer/Scheibe_5
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_l
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_l/Fenster_innen_5
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_l/Fenster_innen_5/Rahmen_innen_1_6
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_l/Fensterladen_5
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_l/Fensterladen_5/Fensterladen_Rahmen_7
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_l/Fensterladen_5/Lamellen_7
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_l/Griff_1_6
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_l/Rahmen_6
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_l/Rahmen_6/Rahmen_l_6
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_l/Rahmen_6/Rahmen_oben_6
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_l/Rahmen_6/Rahmen_r_6
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_l/Rahmen_6/Rahmen_unten_6
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_l/Scheibe_7
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_r
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_r/Fenster_innen_6
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_r/Fenster_innen_6/Rahmen_innen_1_7
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_r/Fensterladen_6
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_r/Fensterladen_6/Fensterladen_Rahmen_8
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_r/Fensterladen_6/Lamellen_8
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_r/Griff_1_7
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_r/Rahmen_7
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_r/Rahmen_7/Rahmen_l_7
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_r/Rahmen_7/Rahmen_oben_7
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_r/Rahmen_7/Rahmen_r_7
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_r/Rahmen_7/Rahmen_unten_7
+        weight: 1
+      - path: Erdgeschoss/Fenster_Kueche_r/Scheibe_8
+        weight: 1
+      - path: Erdgeschoss/Fenster_Wohnzimmer
+        weight: 1
+      - path: Erdgeschoss/Fenster_Wohnzimmer/Fenster_innen_4
+        weight: 1
+      - path: Erdgeschoss/Fenster_Wohnzimmer/Fenster_innen_4/Rahmen_innen_1_5
+        weight: 1
+      - path: Erdgeschoss/Fenster_Wohnzimmer/Fensterladen_4
+        weight: 1
+      - path: Erdgeschoss/Fenster_Wohnzimmer/Fensterladen_4/Fensterladen_Rahmen_6
+        weight: 1
+      - path: Erdgeschoss/Fenster_Wohnzimmer/Fensterladen_4/Lamellen_6
+        weight: 1
+      - path: Erdgeschoss/Fenster_Wohnzimmer/Griff_1_5
+        weight: 1
+      - path: Erdgeschoss/Fenster_Wohnzimmer/Rahmen_5
+        weight: 1
+      - path: Erdgeschoss/Fenster_Wohnzimmer/Rahmen_5/Rahmen_l_5
+        weight: 1
+      - path: Erdgeschoss/Fenster_Wohnzimmer/Rahmen_5/Rahmen_oben_5
+        weight: 1
+      - path: Erdgeschoss/Fenster_Wohnzimmer/Rahmen_5/Rahmen_r_5
+        weight: 1
+      - path: Erdgeschoss/Fenster_Wohnzimmer/Rahmen_5/Rahmen_unten_5
+        weight: 1
+      - path: Erdgeschoss/Fenster_Wohnzimmer/Scheibe_6
+        weight: 1
+      - path: Erdgeschoss/Treppe
+        weight: 1
+      - path: "Erdgeschoss/T\xFCrrahmen"
+        weight: 1
+      - path: "Erdgeschoss/T\xFCrrahmen_1_5"
+        weight: 1
+      - path: Erdgeschoss/Zimmer_2
+        weight: 1
+      - path: Erdgeschoss/Zimmer_2/Kueche
+        weight: 1
+      - path: Erdgeschoss/Zimmer_2/Treppenhaus
+        weight: 1
+      - path: Erdgeschoss/Zimmer_2/Wohnzimmer
+        weight: 1
+      - path: Obergeschoss
+        weight: 1
+      - path: "Obergeschoss/T\xFCrrahmen_1"
+        weight: 1
+      - path: "Obergeschoss/T\xFCrrahmen_1_2"
+        weight: 1
+      - path: "Obergeschoss/T\xFCrrahmen_1_3"
+        weight: 1
+      - path: "Obergeschoss/T\xFCrrahmen_1_4"
+        weight: 1
+      - path: Obergeschoss/Zimmer
+        weight: 1
+      - path: Obergeschoss/Zimmer/Bad
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Bad
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Bad/Fenster_innen
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Bad/Fenster_innen/Rahmen_innen_1
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Bad/Fensterladen
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Bad/Fensterladen/Fensterladen_Rahmen
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Bad/Fensterladen/Lamellen
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Bad/Griff_1
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Bad/Rahmen
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Bad/Rahmen/Rahmen_l
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Bad/Rahmen/Rahmen_oben
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Bad/Rahmen/Rahmen_r
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Bad/Rahmen/Rahmen_unten
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Bad/Scheibe
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fenster_innen_l
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fenster_innen_l/Griff_1_3
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fenster_innen_l/Rahmen_innen_1_3
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fenster_innen_l/Scheibe_1_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fenster_innen_l/Scheibe_4
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fenster_innen_r
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fenster_innen_r/Griff_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fenster_innen_r/Rahmen_innen_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fenster_innen_r/Scheibe_1
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fenster_innen_r/Scheibe_3
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fensterladen_1_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fensterladen_1_2/Fensterladen_Rahmen_4
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fensterladen_1_2/Lamellen_4
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fensterladen_3
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fensterladen_3/Fensterladen_Rahmen_5
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Fensterladen_3/Lamellen_5
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Rahmen_3
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Rahmen_3/Mittelstrebe_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Rahmen_3/Rahmen_l_3
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Rahmen_3/Rahmen_oben_3
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Rahmen_3/Rahmen_r_3
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Kinderzimmer/Rahmen_3/Rahmen_unten_3
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Fenster_innen_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Fenster_innen_2/Griff
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Fenster_innen_2/Griff_1_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Fenster_innen_2/Rahmen_innen
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Fenster_innen_2/Rahmen_innen_1_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Fensterladen_1
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Fensterladen_1/Fensterladen_Rahmen_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Fensterladen_1/Lamellen_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Fensterladen_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Fensterladen_2/Fensterladen_Rahmen_3
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Fensterladen_2/Lamellen_3
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Rahmen_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Rahmen_2/Mittelstrebe
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Rahmen_2/Rahmen_l_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Rahmen_2/Rahmen_oben_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Rahmen_2/Rahmen_r_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Rahmen_2/Rahmen_unten_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Fenster_Schlafzimmer/Scheibe_2
+        weight: 1
+      - path: Obergeschoss/Zimmer/Flur_oben
+        weight: 1
+      - path: Obergeschoss/Zimmer/Kinderzimmer
+        weight: 1
+      - path: Obergeschoss/Zimmer/Schlafzimmer
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
