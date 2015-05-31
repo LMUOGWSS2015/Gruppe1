@@ -12,11 +12,24 @@ public class InteractionScript : MonoBehaviour {
 	public bool gotKey = false;
 	public bool gotFlashlight = false;
 	private int foundHints = 0;
+	private float strengthOfFlashlight;
 
 	// Use this for initialization
 	void Start () {
-	
+		strengthOfFlashlight = flashlight.intensity;
+		Debug.Log ("Sooooooo stark wird sie! " + strengthOfFlashlight);
+
+		if (gotFlashlight == false) {
+			flashlight.intensity = 0f;
+		}
 	}
+
+	void turnOnFlashlight() {
+		gotFlashlight = true;
+		flashlight.intensity = strengthOfFlashlight;
+	}
+
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -51,9 +64,9 @@ public class InteractionScript : MonoBehaviour {
 				}
 
 				else if (hit.collider.CompareTag("Flashlight")) {
-					gotFlashlight = true;
 					Debug.Log("Taschenlampe gefunden");
-					flashlight.intensity = 3.1f;
+					Invoke("turnOnFlashlight",1.9f);
+
 				}
 
 				if (hit.collider.transform.parent.CompareTag("usable")) {
@@ -64,8 +77,6 @@ public class InteractionScript : MonoBehaviour {
 
 		}
 
-		if (gotFlashlight == false) {
-			flashlight.intensity = 0f;
-		}
+
 	}
 }
