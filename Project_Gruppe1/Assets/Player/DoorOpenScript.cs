@@ -3,7 +3,16 @@ using System.Collections;
 
 public class DoorOpenScript : MonoBehaviour {
 
+	private AudioSource doorSound;
+
+
+	public AudioClip openDoorSound;
+	public AudioClip closeDoorSound;
+	public AudioClip DoorLockedSound;
+
+
 	private bool open = false;
+
 	public bool locked;
 	public float doorOpenAngle = 90f;
 	public float doorCloseAngle = 0f;
@@ -11,15 +20,24 @@ public class DoorOpenScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		doorSound = GetComponent<AudioSource>();
 	}
 
 	public void ChangeDoorState(bool gotKey) {
 		if (locked == false || gotKey == true) {
 			open = !open;
+			if (open == true) {
+				doorSound.clip = openDoorSound;
+			} else {
+				doorSound.clip = closeDoorSound;
+			}
+
 		} else {
 			Debug.Log("Tür verschloßen!");
+			doorSound.clip = DoorLockedSound;
 		}
+
+		doorSound.Play ();
 	}
 	
 	// Update is called once per frame

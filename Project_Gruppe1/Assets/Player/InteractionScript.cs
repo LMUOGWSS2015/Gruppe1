@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class InteractionScript : MonoBehaviour {
 
 	public float interactDistance = 5f;
 	public int numberOfHints;
+	public Light flashlight;
+	public Image useIcon;
+
 	public bool gotKey = false;
+	public bool gotFlashlight = false;
 	private int foundHints = 0;
 
 	// Use this for initialization
@@ -15,11 +20,18 @@ public class InteractionScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown (KeyCode.Mouse0)) {
-			Ray ray = new Ray (transform.position, transform.forward);
-			RaycastHit hit;
+		useIcon.enabled = false;
 
-			if (Physics.Raycast (ray, out hit, interactDistance)) {
+		Ray ray = new Ray (transform.position, transform.forward);
+		RaycastHit hit;
+		
+		if (Physics.Raycast (ray, out hit, interactDistance)) {
+
+			if (hit.collider.transform.parent.CompareTag("usable") || hit.collider.CompareTag("Door")) {
+				useIcon.enabled = true;
+			} 
+
+			if (Input.GetKeyDown (KeyCode.Mouse0)) {
 
 				if (hit.collider.CompareTag("Door")){
 					Debug.Log("Tür");
@@ -27,7 +39,6 @@ public class InteractionScript : MonoBehaviour {
 				}
 				else if (hit.collider.CompareTag("Hint")) {
 					Debug.Log("Hint gefunden");
-					hit.collider.gameObject.SetActive (false);
 					foundHints++;
 					Debug.Log("Hinweise nr: " +  foundHints);
 					if (numberOfHints == foundHints) {
@@ -37,10 +48,24 @@ public class InteractionScript : MonoBehaviour {
 				else if (hit.collider.CompareTag("Key")) {
 					gotKey = true;
 					Debug.Log("Schlüßel gefunden");
+				}
+
+				else if (hit.collider.CompareTag("Flashlight")) {
+					gotFlashlight = true;
+					Debug.Log("Taschenlampe gefunden");
+					flashlight.intensity = 3.1f;
+				}
+
+				if (hit.collider.transform.parent.CompareTag("usable")) {
+					hit.collider.gameObject.GetComponentInParent<AudioSource>().Play();
 					hit.collider.gameObject.SetActive (false);
 				}
 			}
 
+		}
+
+		if (gotFlashlight == false) {
+			flashlight.intensity = 0f;
 		}
 	}
 }

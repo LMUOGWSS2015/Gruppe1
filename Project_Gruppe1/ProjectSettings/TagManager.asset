@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - EyesOverlay
+  - Hint
+  - Door
+  - GazeController
+  - Key
+  - Flashlight
+  - usable
   layers:
   - Default
   - TransparentFX
