@@ -1,0 +1,171 @@
+fileFormatVersion: 2
+guid: 2fe436f0a3ca88a43bc936b0f2f02de5
+timeCreated: 1432305119
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Obj_000001
+    100004: Obj_000002
+    100006: Obj_000004
+    100008: Obj_000005
+    100010: Obj_000018
+    100012: Obj_05
+    100014: Obj_18
+    100016: Obj_20
+    100018: Obj_21
+    100020: Obj_22
+    100022: Obj_23
+    100024: Obj_26
+    100026: Obj_27
+    100028: Obj_28
+    100030: Obj_29
+    100032: Obj_30
+    100034: Obj_31
+    100036: Obj_32
+    100038: Ormarstjenke
+    100040: Plastikav
+    100042: rucka1
+    100044: rucka2
+    100046: Spot01
+    100048: Spot01.Target
+    400000: //RootNode
+    400002: Obj_000001
+    400004: Obj_000002
+    400006: Obj_000004
+    400008: Obj_000005
+    400010: Obj_000018
+    400012: Obj_05
+    400014: Obj_18
+    400016: Obj_20
+    400018: Obj_21
+    400020: Obj_22
+    400022: Obj_23
+    400024: Obj_26
+    400026: Obj_27
+    400028: Obj_28
+    400030: Obj_29
+    400032: Obj_30
+    400034: Obj_31
+    400036: Obj_32
+    400038: Ormarstjenke
+    400040: Plastikav
+    400042: rucka1
+    400044: rucka2
+    400046: Spot01
+    400048: Spot01.Target
+    2300000: Obj_000001
+    2300002: Obj_000002
+    2300004: Obj_000004
+    2300006: Obj_000005
+    2300008: Obj_000018
+    2300010: Obj_05
+    2300012: Obj_18
+    2300014: Obj_20
+    2300016: Obj_21
+    2300018: Obj_22
+    2300020: Obj_23
+    2300022: Obj_26
+    2300024: Obj_27
+    2300026: Obj_28
+    2300028: Obj_29
+    2300030: Obj_30
+    2300032: Obj_31
+    2300034: Obj_32
+    3300000: Obj_000001
+    3300002: Obj_000002
+    3300004: Obj_000004
+    3300006: Obj_000005
+    3300008: Obj_000018
+    3300010: Obj_05
+    3300012: Obj_18
+    3300014: Obj_20
+    3300016: Obj_21
+    3300018: Obj_22
+    3300020: Obj_23
+    3300022: Obj_26
+    3300024: Obj_27
+    3300026: Obj_28
+    3300028: Obj_29
+    3300030: Obj_30
+    3300032: Obj_31
+    3300034: Obj_32
+    4300000: Obj_000018
+    4300002: Obj_22
+    4300004: Obj_23
+    4300006: Obj_32
+    4300008: Obj_20
+    4300010: Obj_21
+    4300012: Obj_05
+    4300014: Obj_26
+    4300016: Obj_27
+    4300018: Obj_18
+    4300020: Obj_31
+    4300022: Obj_30
+    4300024: Obj_29
+    4300026: Obj_28
+    4300028: Obj_000004
+    4300030: Obj_000005
+    4300032: Obj_000002
+    4300034: Obj_000001
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

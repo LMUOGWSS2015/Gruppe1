@@ -40,9 +40,11 @@ public class InteractionScript : MonoBehaviour {
 		
 		if (Physics.Raycast (ray, out hit, interactDistance)) {
 
-			if (hit.collider.transform.parent.CompareTag("usable") || hit.collider.CompareTag("Door")) {
-				useIcon.enabled = true;
-			} 
+			if (hit.collider.transform.parent != null) {
+				if (hit.collider.transform.parent.CompareTag("usable") || hit.collider.CompareTag("Door")) {
+					useIcon.enabled = true;
+				} 
+			}
 
 			if (Input.GetKeyDown (KeyCode.Mouse0)) {
 
