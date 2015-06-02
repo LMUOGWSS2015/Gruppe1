@@ -1,0 +1,99 @@
+fileFormatVersion: 2
+guid: 30ac8d62650fc454abdac41dc1b7064e
+timeCreated: 1432647895
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Foen
+    100002: //RootNode
+    100004: "F\xF6n"
+    100006: Griff
+    100008: Kabel
+    100010: Knopf
+    100012: Knopf_1
+    100014: Kopf
+    400000: Foen
+    400002: //RootNode
+    400004: "F\xF6n"
+    400006: Griff
+    400008: Kabel
+    400010: Knopf
+    400012: Knopf_1
+    400014: Kopf
+    2300000: Foen
+    2300002: Griff
+    2300004: Kabel
+    2300006: Knopf
+    2300008: Knopf_1
+    2300010: Kopf
+    3300000: Foen
+    3300002: Griff
+    3300004: Kabel
+    3300006: Knopf
+    3300008: Knopf_1
+    3300010: Kopf
+    4300000: Foen
+    4300002: Kabel
+    4300004: Knopf_1
+    4300006: Knopf
+    4300008: Kopf
+    4300010: Griff
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

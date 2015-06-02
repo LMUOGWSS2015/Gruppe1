@@ -1,0 +1,132 @@
+fileFormatVersion: 2
+guid: 233abb8293346c84d92ec539159c0a41
+timeCreated: 1431980493
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Box01
+    100002: Box08
+    100004: Box09
+    100006: Box10
+    100008: Button
+    100010: Button_1
+    100012: Circle01
+    100014: Circle03
+    100016: Cover_stoppers
+    100018: Seat
+    100020: Seat_Cover
+    100022: Seat_Stoppers
+    100024: //RootNode
+    100026: Wc_body
+    400000: Box01
+    400002: Box08
+    400004: Box09
+    400006: Box10
+    400008: Button
+    400010: Button_1
+    400012: Circle01
+    400014: Circle03
+    400016: Cover_stoppers
+    400018: Seat
+    400020: Seat_Cover
+    400022: Seat_Stoppers
+    400024: //RootNode
+    400026: Wc_body
+    2300000: Box01
+    2300002: Box08
+    2300004: Box09
+    2300006: Box10
+    2300008: Button
+    2300010: Button_1
+    2300012: Circle01
+    2300014: Circle03
+    2300016: Cover_stoppers
+    2300018: Seat
+    2300020: Seat_Cover
+    2300022: Seat_Stoppers
+    2300024: Wc_body
+    3300000: Box01
+    3300002: Box08
+    3300004: Box09
+    3300006: Box10
+    3300008: Button
+    3300010: Button_1
+    3300012: Circle01
+    3300014: Circle03
+    3300016: Cover_stoppers
+    3300018: Seat
+    3300020: Seat_Cover
+    3300022: Seat_Stoppers
+    3300024: Wc_body
+    4300000: Box01
+    4300002: Box08
+    4300004: Box09
+    4300006: Box10
+    4300008: Button
+    4300010: Button_1
+    4300012: Circle01
+    4300014: Circle03
+    4300016: Cover_stoppers
+    4300018: Seat
+    4300020: Seat_Cover
+    4300022: Seat_Stoppers
+    4300024: Wc_body
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
