@@ -29,6 +29,9 @@ public class InteractionScript : MonoBehaviour {
 		flashlight.intensity = strengthOfFlashlight;
 	}
 
+	public int GetFoundHints() {
+		return foundHints;
+	}
 
 	
 	// Update is called once per frame
