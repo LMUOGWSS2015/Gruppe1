@@ -13585,7 +13585,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 439062, guid: d14cdd65e524799408320605a7af5326, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 5.96000004
+      value: 6.25383139
       objectReference: {fileID: 0}
     - target: {fileID: 439062, guid: d14cdd65e524799408320605a7af5326, type: 2}
       propertyPath: m_LocalPosition.y
@@ -13593,7 +13593,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 439062, guid: d14cdd65e524799408320605a7af5326, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 4.61999989
+      value: 7.74434423
       objectReference: {fileID: 0}
     - target: {fileID: 439062, guid: d14cdd65e524799408320605a7af5326, type: 2}
       propertyPath: m_LocalRotation.x
@@ -13601,7 +13601,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 439062, guid: d14cdd65e524799408320605a7af5326, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 439062, guid: d14cdd65e524799408320605a7af5326, type: 2}
       propertyPath: m_LocalRotation.z
@@ -13609,15 +13609,23 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 439062, guid: d14cdd65e524799408320605a7af5326, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -4.37113883e-08
       objectReference: {fileID: 0}
     - target: {fileID: 439062, guid: d14cdd65e524799408320605a7af5326, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 11499966, guid: d14cdd65e524799408320605a7af5326, type: 2}
       propertyPath: doorOpenAngle
-      value: -160
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499966, guid: d14cdd65e524799408320605a7af5326, type: 2}
+      propertyPath: smooth
+      value: .699999988
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499966, guid: d14cdd65e524799408320605a7af5326, type: 2}
+      propertyPath: doorCloseAngle
+      value: -180
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d14cdd65e524799408320605a7af5326, type: 2}
