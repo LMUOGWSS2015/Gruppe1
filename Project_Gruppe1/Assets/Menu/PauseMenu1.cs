@@ -150,7 +150,7 @@ public class PauseMenu1 : MonoBehaviour {
 				GUIStyle itemImageStyle = new GUIStyle (GUI.skin.box);
 				itemImageStyle.margin = new RectOffset (0, 0, 0, 0);
 				itemImageStyle.padding = new RectOffset (5, 5, 5, 5);
-				itemImageStyle.alignment = TextAnchor.UpperRight;
+				itemImageStyle.alignment = TextAnchor.MiddleCenter;
 				GUILayout.BeginHorizontal ();
 				GUILayout.BeginVertical ();
 				GUILayout.Box ((foundHints >=1 ? hintImage1 : defaultHintImage), itemImageStyle, itemImageOptions);
