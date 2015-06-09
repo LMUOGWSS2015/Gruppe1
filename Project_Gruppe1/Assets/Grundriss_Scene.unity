@@ -114043,6 +114043,14 @@ Prefab:
       propertyPath: locked
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2380208, guid: ea2cd3c8046076e44b93140ef78782b8, type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf3249b82241d3c4693d3f451aa92074, type: 2}
+    - target: {fileID: 2380208, guid: ea2cd3c8046076e44b93140ef78782b8, type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: a52e8dccc6e48d14abfbda3848676336, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea2cd3c8046076e44b93140ef78782b8, type: 2}
   m_IsPrefabParent: 0
