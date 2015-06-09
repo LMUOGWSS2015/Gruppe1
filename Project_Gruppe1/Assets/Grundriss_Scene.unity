@@ -119941,7 +119941,8 @@ MonoBehaviour:
   numberOfHints: 4
   flashlight: {fileID: 729931586}
   useIcon: {fileID: 1600565054}
-  gray_overlay: {fileID: 2800000, guid: 7ae323d020ba48f47b97baaa5c662152, type: 3}
+  gray_overlay: {fileID: 2800000, guid: 79f238ace8c85c24ca4ddedf0767961e, type: 3}
+  fadeSpeed: .300000012
   hint1: {fileID: 2800000, guid: f1e9c3eb412cae14ba7188e50d3f8d3f, type: 3}
   hint2: {fileID: 2800000, guid: 57466a6b84ce15041a5e49dca86799de, type: 3}
   hint3: {fileID: 2800000, guid: ebccfe347322c5a419d0b28ebd71a84e, type: 3}
