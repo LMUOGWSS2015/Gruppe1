@@ -12,17 +12,16 @@ public class PauseMenu1 : MonoBehaviour {
 	// Bianka:
 	public Texture2D pauseMenuBackgroundImage;
 	public Texture2D mainMenuBackgroundImage;
-	public GameObject pauseMusic;
 	//public Color buttonColor;
 	public Texture hintImage1;
 	public Texture hintImage2;
 	public Texture hintImage3;
 	public Texture hintImage4;
 	public Texture defaultHintImage;
-	//public AudioClip menuSound;
+	public AudioClip menuSound;
 
 	private int foundHints = 0;
-	private AudioSource pauseAudio;
+	private AudioSource audio;
 	
 	
 	public enum Page {
@@ -32,37 +31,26 @@ public class PauseMenu1 : MonoBehaviour {
 	private Page currentPage;
 
 	void Start() {
-		
-		pauseAudio = pauseMusic.GetComponent<AudioSource>();
+
+		audio = gameObject.AddComponent<AudioSource> ();
 
 		Time.timeScale = 1;
-		foundHints = getCountHints ();
+		InteractionScript iaScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<InteractionScript> ();
+		foundHints = iaScript.GetFoundHints ();
+		Debug.Log ("Found Hints: " + foundHints);
 		if(IsBeginning())
 			PauseGame();
 	}
 
-	int getCountHints() {
-		InteractionScript iaScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<InteractionScript> ();
-		Debug.Log ("Found Hints: " + foundHints);
-		return iaScript.GetFoundHints ();
-	}
-
 	void StartMusic() {
-		AudioSource[] audios = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
-		foreach (AudioSource aud in audios) {
-			aud.Pause ();
-			Debug.Log(audios.Length, this);
-		}
-		Debug.Log(pauseAudio, this);
-		pauseAudio.Play ();
+		audio.volume = .2f;
+		audio.clip = menuSound;
+		audio.Play ();
+		audio.loop = true;
 	}
 
 	void StopMusic() {
-		AudioSource[] audios = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
-		foreach (AudioSource aud in audios) {
-			aud.Play ();
-		}
-		pauseAudio.Stop ();
+		audio.Stop ();
 	}
 
 	
@@ -150,7 +138,7 @@ public class PauseMenu1 : MonoBehaviour {
 				GUIStyle itemImageStyle = new GUIStyle (GUI.skin.box);
 				itemImageStyle.margin = new RectOffset (0, 0, 0, 0);
 				itemImageStyle.padding = new RectOffset (5, 5, 5, 5);
-				itemImageStyle.alignment = TextAnchor.MiddleCenter;
+				itemImageStyle.alignment = TextAnchor.UpperRight;
 				GUILayout.BeginHorizontal ();
 				GUILayout.BeginVertical ();
 				GUILayout.Box ((foundHints >=1 ? hintImage1 : defaultHintImage), itemImageStyle, itemImageOptions);
@@ -191,20 +179,19 @@ public class PauseMenu1 : MonoBehaviour {
 
 	
 	void PauseGame() {
-		//AudioListener.pause = true;
-		StartMusic ();
 		savedTimeScale = Time.timeScale;
 		Time.timeScale = 0;
-		foundHints = getCountHints ();
+		AudioListener.pause = true;
+		StartMusic ();
 		LockCursor (false);
 		currentPage = Page.Main;
 	}
 	
 	void UnPauseGame() {
 		Time.timeScale = savedTimeScale;
-		LockCursor (true);
+		AudioListener.pause = false;
 		StopMusic ();
-		//AudioListener.pause = false;
+		LockCursor (true);
 		currentPage = Page.None;
 	}
 	
@@ -214,7 +201,7 @@ public class PauseMenu1 : MonoBehaviour {
 	
 	void OnApplicationPause(bool pause) {
 		if (IsGamePaused()) {
-			//AudioListener.pause = true;
+			AudioListener.pause = true;
 		}
 	}
 }

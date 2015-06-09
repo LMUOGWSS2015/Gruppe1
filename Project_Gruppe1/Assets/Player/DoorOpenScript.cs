@@ -10,7 +10,8 @@ public class DoorOpenScript : MonoBehaviour {
 	public AudioClip closeDoorSound;
 	public AudioClip DoorLockedSound;
 
-	public bool open;
+
+	private bool open = false;
 
 	public bool locked;
 	public float doorOpenAngle = 90f;
