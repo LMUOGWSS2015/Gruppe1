@@ -1,69 +1,71 @@
 fileFormatVersion: 2
-guid: 58c79c1d44ce2bf469e3df9297d53c65
-timeCreated: 1432301145
+guid: 9c79e2e342c63a64b9edbe8b5db36b50
+timeCreated: 1433860037
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
-    100000: back
-    100002: //RootNode
-    100004: body
-    100006: body001
-    100008: Box020
-    100010: Box021
-    100012: Line005
-    100014: pillow-1
-    100016: pillow-2
-    100018: Plane001
-    100020: Rectangle027
-    100022: Rectangle028
-    100024: VRayPlane01
-    400000: back
-    400002: //RootNode
-    400004: body
-    400006: body001
-    400008: Box020
-    400010: Box021
-    400012: Line005
-    400014: pillow-1
-    400016: pillow-2
-    400018: Plane001
-    400020: Rectangle027
-    400022: Rectangle028
-    400024: VRayPlane01
-    2300000: back
-    2300002: body
-    2300004: body001
-    2300006: Box020
-    2300008: Box021
-    2300010: Line005
-    2300012: pillow-1
-    2300014: pillow-2
-    2300016: Plane001
-    2300018: Rectangle027
-    2300020: Rectangle028
-    3300000: back
-    3300002: body
-    3300004: body001
-    3300006: Box020
-    3300008: Box021
-    3300010: Line005
-    3300012: pillow-1
-    3300014: pillow-2
-    3300016: Plane001
-    3300018: Rectangle027
-    3300020: Rectangle028
-    4300000: Rectangle027
-    4300002: back
-    4300004: Box020
-    4300006: body
-    4300008: body001
-    4300010: Rectangle028
-    4300012: Box021
-    4300014: pillow-1
-    4300016: pillow-2
-    4300018: Line005
-    4300020: Plane001
+    100000: //RootNode
+    100002: blanket2
+    100004: Camera01.Target
+    100006: Footboard
+    100008: group
+    100010: Headboard
+    100012: L back pillow
+    100014: L back pillowcase
+    100016: L sleeping pillow
+    100018: M throw pillow
+    100020: Mattress/Bedspread
+    100022: R back pillowcase
+    100024: R sleeping pillow
+    100026: Side Rails
+    400000: //RootNode
+    400002: blanket2
+    400004: Camera01.Target
+    400006: Footboard
+    400008: group
+    400010: Headboard
+    400012: L back pillow
+    400014: L back pillowcase
+    400016: L sleeping pillow
+    400018: M throw pillow
+    400020: Mattress/Bedspread
+    400022: R back pillowcase
+    400024: R sleeping pillow
+    400026: Side Rails
+    2300000: blanket2
+    2300002: Footboard
+    2300004: Headboard
+    2300006: L back pillow
+    2300008: L back pillowcase
+    2300010: L sleeping pillow
+    2300012: M throw pillow
+    2300014: Mattress/Bedspread
+    2300016: R back pillowcase
+    2300018: R sleeping pillow
+    2300020: Side Rails
+    3300000: blanket2
+    3300002: Footboard
+    3300004: Headboard
+    3300006: L back pillow
+    3300008: L back pillowcase
+    3300010: L sleeping pillow
+    3300012: M throw pillow
+    3300014: Mattress/Bedspread
+    3300016: R back pillowcase
+    3300018: R sleeping pillow
+    3300020: Side Rails
+    4300000: Footboard
+    4300002: Headboard
+    4300004: Mattress/Bedspread
+    4300006: Side Rails
+    4300008: L back pillow
+    4300010: R back pillowcase
+    4300012: L back pillowcase
+    4300014: R sleeping pillow
+    4300016: L sleeping pillow
+    4300018: M throw pillow
+    4300020: blanket2
     9500000: //RootNode
   materials:
     importMaterials: 1

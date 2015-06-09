@@ -1,24 +1,19 @@
 fileFormatVersion: 2
-guid: 1d3a9b05adaeba74eab160d6891559a2
-timeCreated: 1432485258
+guid: 90ec98c832a340a46a9dcc626c61c6a5
+timeCreated: 1433859475
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
   fileIDToRecycleName:
     100000: curt6_default:Mesh
-    100002: curt6_default:Mesh_MeshPart0
-    100004: curt6_default:Mesh_MeshPart1
-    100006: //RootNode
+    100002: //RootNode
+    100004: group
     400000: curt6_default:Mesh
-    400002: curt6_default:Mesh_MeshPart0
-    400004: curt6_default:Mesh_MeshPart1
-    400006: //RootNode
-    2300000: curt6_default:Mesh_MeshPart0
-    2300002: curt6_default:Mesh_MeshPart1
-    3300000: curt6_default:Mesh_MeshPart0
-    3300002: curt6_default:Mesh_MeshPart1
-    4300000: curt6_default:Mesh_MeshPart0
-    4300002: curt6_default:Mesh_MeshPart1
+    400002: //RootNode
+    400004: group
+    2300000: curt6_default:Mesh
+    3300000: curt6_default:Mesh
+    4300000: curt6_default:Mesh
     9500000: //RootNode
   materials:
     importMaterials: 1
