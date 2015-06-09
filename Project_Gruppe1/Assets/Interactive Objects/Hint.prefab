@@ -11,6 +11,7 @@ GameObject:
   - 33: {fileID: 3310212}
   - 65: {fileID: 6517300}
   - 23: {fileID: 2342206}
+  - 114: {fileID: 11458832}
   m_Layer: 0
   m_Name: Hintbox
   m_TagString: Hint
@@ -59,7 +60,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 107482}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.2417068, y: 12.214076, z: 12.1331263}
+  m_LocalPosition: {x: 8.43999958, y: 12.21, z: -.0399999991}
   m_LocalScale: {x: 1.48883986, y: 1.4888382, z: 1.4888382}
   m_Children:
   - {fileID: 421938}
@@ -72,7 +73,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 147328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.78170776, y: -6.66407585, z: -4.26312637}
+  m_LocalPosition: {x: 4.21999979, y: -6.65999985, z: -6.11000013}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 406056}
@@ -245,6 +246,18 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+--- !u!114 &11458832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5aa687e498af754f99d727e905bb12b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pickUpObject: 1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

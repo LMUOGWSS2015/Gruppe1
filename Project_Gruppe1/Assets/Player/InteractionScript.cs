@@ -131,9 +131,21 @@ public class InteractionScript : MonoBehaviour {
 
 				}
 
+				else if (hit.collider.CompareTag("smartphone")) {
+					Debug.Log("Message Smartphone");
+				}
+
 				if (hit.collider.transform.parent.CompareTag("usable")) {
 					hit.collider.gameObject.GetComponentInParent<AudioSource>().Play();
-					hit.collider.gameObject.SetActive (false);
+
+					var script = hit.collider.gameObject.GetComponent<UseObject>();
+
+					if (script != null)
+					{
+						script.useObject();
+					}
+
+
 				}
 			}
 
