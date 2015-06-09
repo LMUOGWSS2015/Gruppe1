@@ -12,16 +12,17 @@ public class PauseMenu1 : MonoBehaviour {
 	// Bianka:
 	public Texture2D pauseMenuBackgroundImage;
 	public Texture2D mainMenuBackgroundImage;
+	public GameObject pauseMusic;
 	//public Color buttonColor;
 	public Texture hintImage1;
 	public Texture hintImage2;
 	public Texture hintImage3;
 	public Texture hintImage4;
 	public Texture defaultHintImage;
-	public AudioClip menuSound;
+	//public AudioClip menuSound;
 
 	private int foundHints = 0;
-	private AudioSource audio;
+	private AudioSource pauseAudio;
 	
 	
 	public enum Page {
@@ -31,26 +32,37 @@ public class PauseMenu1 : MonoBehaviour {
 	private Page currentPage;
 
 	void Start() {
-
-		audio = gameObject.AddComponent<AudioSource> ();
+		
+		pauseAudio = pauseMusic.GetComponent<AudioSource>();
 
 		Time.timeScale = 1;
-		InteractionScript iaScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<InteractionScript> ();
-		foundHints = iaScript.GetFoundHints ();
-		Debug.Log ("Found Hints: " + foundHints);
+		foundHints = getCountHints ();
 		if(IsBeginning())
 			PauseGame();
 	}
 
+	int getCountHints() {
+		InteractionScript iaScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<InteractionScript> ();
+		Debug.Log ("Found Hints: " + foundHints);
+		return iaScript.GetFoundHints ();
+	}
+
 	void StartMusic() {
-		audio.volume = .2f;
-		audio.clip = menuSound;
-		audio.Play ();
-		audio.loop = true;
+		AudioSource[] audios = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+		foreach (AudioSource aud in audios) {
+			aud.Pause ();
+			Debug.Log(audios.Length, this);
+		}
+		Debug.Log(pauseAudio, this);
+		pauseAudio.Play ();
 	}
 
 	void StopMusic() {
-		audio.Stop ();
+		AudioSource[] audios = FindObjectsOfType(typeof(AudioSource)) as AudioSource[];
+		foreach (AudioSource aud in audios) {
+			aud.Play ();
+		}
+		pauseAudio.Stop ();
 	}
 
 	
@@ -179,19 +191,20 @@ public class PauseMenu1 : MonoBehaviour {
 
 	
 	void PauseGame() {
+		//AudioListener.pause = true;
+		StartMusic ();
 		savedTimeScale = Time.timeScale;
 		Time.timeScale = 0;
-		AudioListener.pause = true;
-		StartMusic ();
+		foundHints = getCountHints ();
 		LockCursor (false);
 		currentPage = Page.Main;
 	}
 	
 	void UnPauseGame() {
 		Time.timeScale = savedTimeScale;
-		AudioListener.pause = false;
-		StopMusic ();
 		LockCursor (true);
+		StopMusic ();
+		//AudioListener.pause = false;
 		currentPage = Page.None;
 	}
 	
@@ -201,7 +214,7 @@ public class PauseMenu1 : MonoBehaviour {
 	
 	void OnApplicationPause(bool pause) {
 		if (IsGamePaused()) {
-			AudioListener.pause = true;
+			//AudioListener.pause = true;
 		}
 	}
 }

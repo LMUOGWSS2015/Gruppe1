@@ -9,6 +9,13 @@ public class InteractionScript : MonoBehaviour {
 	public Light flashlight;
 	public Image useIcon;
 
+	public Texture gray_overlay;
+	public Texture hint1;
+	public Texture hint2;
+	public Texture hint3;
+	public Texture hint4;
+	private bool showGUIOverlay = false;
+
 	public bool gotKey = false;
 	public bool gotFlashlight = false;
 	private int foundHints = 0;
@@ -33,10 +40,39 @@ public class InteractionScript : MonoBehaviour {
 		return foundHints;
 	}
 
+	void OnGUI() {     
+		if (showGUIOverlay) {
+			Texture hint = gray_overlay;
+			switch(foundHints) {
+			case 1: 
+				hint = hint1;
+				break;
+			case 2: 
+				hint = hint2;
+				break;
+			case 3: 
+				hint = hint3;
+				break;
+			case 4: 
+				hint = hint4;
+				break;
+			}
+			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), gray_overlay);
+			GUI.DrawTexture (new Rect (Screen.width / 2 - 50, Screen.width / 2 - 50, 100, 100), hint);
+			//yield WaitForSeconds (2.0);
+		}
+	}
+
 	
 	// Update is called once per frame
 	void Update () {
 		useIcon.enabled = false;
+
+		
+		
+		if (Input.GetKeyDown (KeyCode.Mouse0) && showGUIOverlay) {
+			showGUIOverlay = false;
+		}
 
 		Ray ray = new Ray (transform.position, transform.forward);
 		RaycastHit hit;
@@ -61,7 +97,9 @@ public class InteractionScript : MonoBehaviour {
 					Debug.Log("Hinweise nr: " +  foundHints);
 					if (numberOfHints == foundHints) {
 						Debug.Log("Alle Hinweise da");
-					}			
+					}		
+					showGUIOverlay = true;
+					//showNewHint();
 				}
 				else if (hit.collider.CompareTag("Key")) {
 					gotKey = true;
