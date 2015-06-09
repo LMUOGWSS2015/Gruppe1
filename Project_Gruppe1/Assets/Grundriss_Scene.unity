@@ -1726,8 +1726,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 14927219}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.10000002, y: -3.58999991, z: -.379999995}
+  m_LocalRotation: {x: 0, y: -.420932829, z: 0, w: .907091856}
+  m_LocalPosition: {x: -5.94000006, y: 5.67999983, z: -11.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1087991194}
@@ -15508,7 +15508,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 364363621}
   m_LocalRotation: {x: .00223561306, y: .00923722144, z: .00582637545, w: .999937892}
-  m_LocalPosition: {x: -.107000001, y: -.25999999, z: .368000001}
+  m_LocalPosition: {x: -.101000004, y: -.261999995, z: .619000018}
   m_LocalScale: {x: .675650299, y: .819646835, z: .543528736}
   m_Children: []
   m_Father: {fileID: 1087991194}
@@ -15533,7 +15533,7 @@ Light:
     m_Strength: 1
     m_Bias: .0500000007
     m_NormalBias: .400000006
-  m_Cookie: {fileID: 0}
+  m_Cookie: {fileID: 2800000, guid: 2c29c08dd1c0b6749b7cd0fcff7a29fd, type: 3}
   m_DrawHalo: 0
   m_Flare: {fileID: 12100000, guid: 9bdb18c49d114cb4300035184241aa39, type: 2}
   m_RenderMode: 0
@@ -72796,7 +72796,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1087991193}
   m_LocalRotation: {x: 0, y: .27471447, z: 0, w: .961525857}
-  m_LocalPosition: {x: 5.71299982, y: 5.98999977, z: -.432000011}
+  m_LocalPosition: {x: -.589999974, y: -.430000007, z: .289999992}
   m_LocalScale: {x: 1.48000002, y: 1.22000003, z: 1.84000003}
   m_Children:
   - {fileID: 685259316}
@@ -109028,15 +109028,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 419330, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.78170776
+      value: 4.21999979
       objectReference: {fileID: 0}
     - target: {fileID: 419330, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -6.66407585
+      value: -6.65999985
       objectReference: {fileID: 0}
     - target: {fileID: 419330, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -4.26312637
+      value: -6.11000013
       objectReference: {fileID: 0}
     - target: {fileID: 419330, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
       propertyPath: m_LocalRotation.x
@@ -109056,7 +109056,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 419330, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 406056, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 8.43999958
+      objectReference: {fileID: 0}
+    - target: {fileID: 406056, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 12.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 406056, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -.0399999991
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
@@ -114022,6 +114034,14 @@ Prefab:
     - target: {fileID: 428808, guid: ea2cd3c8046076e44b93140ef78782b8, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427718, guid: ea2cd3c8046076e44b93140ef78782b8, type: 2}
+      propertyPath: open
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482054, guid: ea2cd3c8046076e44b93140ef78782b8, type: 2}
+      propertyPath: locked
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ea2cd3c8046076e44b93140ef78782b8, type: 2}
@@ -121199,7 +121219,7 @@ MonoBehaviour:
   hint2: {fileID: 2800000, guid: 57466a6b84ce15041a5e49dca86799de, type: 3}
   hint3: {fileID: 2800000, guid: ebccfe347322c5a419d0b28ebd71a84e, type: 3}
   hint4: {fileID: 2800000, guid: fd012c96f907f1d4bbc279ff3e00ebd5, type: 3}
-  gotKey: 1
+  gotKey: 0
   gotFlashlight: 0
 --- !u!1 &2138937854
 GameObject:
