@@ -10,11 +10,15 @@ public class InteractionScript : MonoBehaviour {
 	public Image useIcon;
 
 	public Texture gray_overlay;
+	public float fadeSpeed = 0.2f;
+	private float alpha = 0f;
+	private int fadeDir = 1;
 	public Texture hint1;
 	public Texture hint2;
 	public Texture hint3;
 	public Texture hint4;
 	private bool showGUIOverlay = false;
+
 
 	public bool gotKey = false;
 	public bool gotFlashlight = false;
@@ -23,6 +27,7 @@ public class InteractionScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
 		strengthOfFlashlight = flashlight.intensity;
 		Debug.Log ("Sooooooo stark wird sie! " + strengthOfFlashlight);
 
@@ -40,6 +45,7 @@ public class InteractionScript : MonoBehaviour {
 		return foundHints;
 	}
 
+	
 	void OnGUI() {     
 		if (showGUIOverlay) {
 			Texture hint = gray_overlay;
@@ -57,18 +63,31 @@ public class InteractionScript : MonoBehaviour {
 				hint = hint4;
 				break;
 			}
-			GUI.DrawTexture (new Rect (0, 0, Screen.width, Screen.height), gray_overlay);
-			GUI.DrawTexture (new Rect (Screen.width / 2 - 50, Screen.width / 2 - 50, 100, 100), hint);
-			//yield WaitForSeconds (2.0);
+			
+			alpha += fadeDir * fadeSpeed * Time.deltaTime;	
+			alpha = Mathf.Clamp01(alpha);	
+
+			Color thisColor = GUI.color;
+			thisColor.a = alpha;
+			GUI.color = thisColor;
+
+			GUI.DrawTexture(new Rect(0f, 0f, Screen.width, Screen.height), gray_overlay);
+			GUI.DrawTexture (new Rect (Screen.width / 2 - 50, Screen.height / 2 - 50, 100, 100), hint); 
+
+			Invoke("hideGUI", 3.0f);
 		}
 	}
+
+	void hideGUI() {
+		showGUIOverlay = false;		
+	}
+
 
 	
 	// Update is called once per frame
 	void Update () {
 		useIcon.enabled = false;
 
-		
 		
 		if (Input.GetKeyDown (KeyCode.Mouse0) && showGUIOverlay) {
 			showGUIOverlay = false;
