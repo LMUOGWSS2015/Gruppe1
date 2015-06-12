@@ -194,7 +194,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 434166}
   m_Layer: 0
-  m_Name: Flur_oben
+  m_Name: flur_oben
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
