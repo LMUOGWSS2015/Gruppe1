@@ -10,25 +10,20 @@ AnimationClip:
   m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
-  m_RotationCurves: []
-  m_CompressedRotationCurves: []
-  m_PositionCurves:
+  m_RotationCurves:
   - curve:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: {x: -2.66000009, y: 1.65699995, z: 1.79999995}
-        inSlope: {x: 0, y: -.340893835, z: 0}
-        outSlope: {x: 0, y: -.340893835, z: 0}
-        tangentMode: 0
-      - time: 2.98333335
-        value: {x: -2.66000009, y: .639999986, z: 1.79999995}
-        inSlope: {x: 0, y: -.340893835, z: 0}
-        outSlope: {x: 0, y: -.340893835, z: 0}
+        value: {x: 0, y: 0, z: -.00320213079, w: .999994874}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-    path: Obergeschoss/Zimmer/Schlafzimmer/Spiders
+    path: spider_position_2
+  m_CompressedRotationCurves: []
+  m_PositionCurves:
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -66,12 +61,6 @@ AnimationClip:
     m_Extent: {x: 0, y: 0, z: 0}
   m_ClipBindingConstant:
     genericBindings:
-    - path: 3674447245
-      attribute: 1
-      script: {fileID: 0}
-      classID: 4
-      customType: 0
-      isPPtrCurve: 0
     - path: 0
       attribute: 1
       script: {fileID: 0}
@@ -80,6 +69,12 @@ AnimationClip:
       isPPtrCurve: 0
     - path: 695911694
       attribute: 1
+      script: {fileID: 0}
+      classID: 4
+      customType: 0
+      isPPtrCurve: 0
+    - path: 695911694
+      attribute: 2
       script: {fileID: 0}
       classID: 4
       customType: 0
@@ -103,63 +98,6 @@ AnimationClip:
     m_HeightFromFeet: 0
     m_Mirror: 0
   m_EditorCurves:
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: -2.66000009
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 2.98333335
-        value: -2.66000009
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_LocalPosition.x
-    path: Obergeschoss/Zimmer/Schlafzimmer/Spiders
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1.65699995
-        inSlope: -.340893835
-        outSlope: -.340893835
-        tangentMode: 10
-      - time: 2.98333335
-        value: .639999986
-        inSlope: -.340893835
-        outSlope: -.340893835
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_LocalPosition.y
-    path: Obergeschoss/Zimmer/Schlafzimmer/Spiders
-    classID: 4
-    script: {fileID: 0}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 1.79999995
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      - time: 2.98333335
-        value: 1.79999995
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 10
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-    attribute: m_LocalPosition.z
-    path: Obergeschoss/Zimmer/Schlafzimmer/Spiders
-    classID: 4
-    script: {fileID: 0}
   - curve:
       serializedVersion: 2
       m_Curve:
@@ -250,8 +188,8 @@ AnimationClip:
       m_Curve:
       - time: 0
         value: 1.04200006
-        inSlope: 0
-        outSlope: 0
+        inSlope: 4.76837165e-08
+        outSlope: 4.76837165e-08
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -259,7 +197,105 @@ AnimationClip:
     path: spider_position_2
     classID: 4
     script: {fileID: 0}
-  m_EulerEditorCurves: []
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalRotation.x
+    path: spider_position_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalRotation.y
+    path: spider_position_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -.00320213079
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalRotation.z
+    path: spider_position_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: .999994874
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_LocalRotation.w
+    path: spider_position_2
+    classID: 4
+    script: {fileID: 0}
+  m_EulerEditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: localEulerAnglesBaked.x
+    path: spider_position_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: localEulerAnglesBaked.y
+    path: spider_position_2
+    classID: 4
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: -720.366943
+        inSlope: -71.8752441
+        outSlope: -71.8752441
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: localEulerAnglesBaked.z
+    path: spider_position_2
+    classID: 4
+    script: {fileID: 0}
   m_HasGenericRootTransform: 1
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
