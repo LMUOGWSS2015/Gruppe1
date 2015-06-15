@@ -18,10 +18,11 @@ public class PauseMenu1 : MonoBehaviour {
 	public Texture hintImage3;
 	public Texture hintImage4;
 	public Texture defaultHintImage;
-	public AudioClip menuSound;
+	public GameObject pauseMusic;
+	//public AudioClip menuSound;
 
 	private int foundHints = 0;
-	private AudioSource audio;
+	private AudioSource pauseAudio;
 	
 	
 	public enum Page {
@@ -32,25 +33,34 @@ public class PauseMenu1 : MonoBehaviour {
 
 	void Start() {
 
-		audio = gameObject.AddComponent<AudioSource> ();
+		pauseAudio = pauseMusic.GetComponent<AudioSource> ();
 
 		Time.timeScale = 1;
-		InteractionScript iaScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<InteractionScript> ();
-		foundHints = iaScript.GetFoundHints ();
+		foundHints = getCountHints ();
 		Debug.Log ("Found Hints: " + foundHints);
 		if(IsBeginning())
 			PauseGame();
 	}
 
+	int getCountHints() {
+		InteractionScript iaScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<InteractionScript> ();
+		return iaScript.GetFoundHints ();
+	}
+
 	void StartMusic() {
-		audio.volume = .2f;
-		audio.clip = menuSound;
-		audio.Play ();
-		audio.loop = true;
+		AudioSource[] audios = FindObjectsOfType (typeof(AudioSource)) as AudioSource[];
+		foreach (AudioSource aud in audios) {
+			aud.Pause(); 
+		}
+		pauseAudio.Play ();
 	}
 
 	void StopMusic() {
-		audio.Stop ();
+		AudioSource[] audios = FindObjectsOfType (typeof(AudioSource)) as AudioSource[];
+		foreach (AudioSource aud in audios) {
+			aud.Play(); 
+		}
+		pauseAudio.Stop ();
 	}
 
 	
@@ -138,7 +148,7 @@ public class PauseMenu1 : MonoBehaviour {
 				GUIStyle itemImageStyle = new GUIStyle (GUI.skin.box);
 				itemImageStyle.margin = new RectOffset (0, 0, 0, 0);
 				itemImageStyle.padding = new RectOffset (5, 5, 5, 5);
-				itemImageStyle.alignment = TextAnchor.UpperRight;
+				itemImageStyle.alignment = TextAnchor.MiddleCenter;
 				GUILayout.BeginHorizontal ();
 				GUILayout.BeginVertical ();
 				GUILayout.Box ((foundHints >=1 ? hintImage1 : defaultHintImage), itemImageStyle, itemImageOptions);
@@ -181,7 +191,8 @@ public class PauseMenu1 : MonoBehaviour {
 	void PauseGame() {
 		savedTimeScale = Time.timeScale;
 		Time.timeScale = 0;
-		AudioListener.pause = true;
+		foundHints = getCountHints ();
+		//AudioListener.pause = true;
 		StartMusic ();
 		LockCursor (false);
 		currentPage = Page.Main;
@@ -189,9 +200,9 @@ public class PauseMenu1 : MonoBehaviour {
 	
 	void UnPauseGame() {
 		Time.timeScale = savedTimeScale;
-		AudioListener.pause = false;
-		StopMusic ();
+		//AudioListener.pause = false;
 		LockCursor (true);
+		StopMusic ();
 		currentPage = Page.None;
 	}
 	
@@ -201,7 +212,7 @@ public class PauseMenu1 : MonoBehaviour {
 	
 	void OnApplicationPause(bool pause) {
 		if (IsGamePaused()) {
-			AudioListener.pause = true;
+			//AudioListener.pause = true;
 		}
 	}
 }
