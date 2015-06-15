@@ -23684,7 +23684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skin: {fileID: 11400000, guid: eafc30d13534e7e49be096f6ceea7436, type: 2}
-  pauseMenuBackgroundImage: {fileID: 2800000, guid: 13118c643b911c241aa1acb747fab1dc,
+  exitMenuOverlayImage: {fileID: 2800000, guid: 79f238ace8c85c24ca4ddedf0767961e,
     type: 3}
   mainMenuBackgroundImage: {fileID: 2800000, guid: 1c41c76a682007e4cabe3716a6b3448c,
     type: 3}
