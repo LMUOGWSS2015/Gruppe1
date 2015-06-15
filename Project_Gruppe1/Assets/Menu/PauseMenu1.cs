@@ -10,7 +10,7 @@ public class PauseMenu1 : MonoBehaviour {
 	private float savedTimeScale;
 
 	// Bianka:
-	public Texture2D pauseMenuBackgroundImage;
+	public Texture2D exitMenuOverlayImage;
 	public Texture2D mainMenuBackgroundImage;
 	//public Color buttonColor;
 	public Texture hintImage1;
@@ -21,6 +21,9 @@ public class PauseMenu1 : MonoBehaviour {
 	public GameObject pauseMusic;
 	//public AudioClip menuSound;
 
+	// For different resolutions
+	private int guiFactor;
+	
 	private int foundHints = 0;
 	private AudioSource pauseAudio;
 	
@@ -32,6 +35,10 @@ public class PauseMenu1 : MonoBehaviour {
 	private Page currentPage;
 
 	void Start() {
+
+		guiFactor = (int) Mathf.Floor (Screen.width/1024);
+		guiFactor = (guiFactor == 0) ? 1 : guiFactor;
+		Debug.Log (Screen.width + "; " + Screen.height + "; " + guiFactor);
 
 		pauseAudio = pauseMusic.GetComponent<AudioSource> ();
 
@@ -103,8 +110,8 @@ public class PauseMenu1 : MonoBehaviour {
 		}
 
 		if (IsGamePaused ()) {
-			GUIStyle backgroundImageStyle = new GUIStyle (GUI.skin.box);
-			GUILayout.Box (IsBeginning () ? mainMenuBackgroundImage : pauseMenuBackgroundImage, backgroundImageStyle);
+			GUI.DrawTexture (new Rect(0,0,Screen.width , Screen.height),mainMenuBackgroundImage);
+
 			switch (currentPage) {
 			case Page.Main:
 				MainPauseMenu ();
@@ -130,24 +137,35 @@ public class PauseMenu1 : MonoBehaviour {
 	
 	
 	void MainPauseMenu() {
-		BeginPage(800,600);
-		GUILayout.Label (IsBeginning() ? "DON'T LOOK AT ME!" : "MENU");
-		if (GUILayout.Button (IsBeginning() ? "Play" : "Continue")) {
+		BeginPage(800*guiFactor,600*guiFactor);
+		GUIStyle guiStyle = new GUIStyle (GUI.skin.label);
+		guiStyle.fontSize  *= guiFactor;
+		
+		GUIStyle buttonStyle = new GUIStyle (GUI.skin.button);
+		buttonStyle.alignment = TextAnchor.MiddleLeft;
+		buttonStyle.fontSize *= guiFactor;
+
+
+		//GUILayout.Label (IsBeginning() ? ("DON'T LOOK AT ME!" + Screen.width + "; " + Screen.height + "; " + guiFactor) : "MENU");
+		GUI.Label (new Rect (0, 0, 800 * guiFactor, 600 * guiFactor), (IsBeginning () ? "DON'T LOOK AT ME!" : "MENU"), guiStyle);
+		
+		if (GUI.Button (new Rect(0, 180*guiFactor, 200*guiFactor, 60*guiFactor), IsBeginning() ? "Play" : "Continue", buttonStyle)) { 
 			UnPauseGame();
 		}
-		if (!IsBeginning() && GUILayout.Button ("Restart")) { 
+		if (!IsBeginning() && GUI.Button (new Rect(0, 280*guiFactor, 200*guiFactor, 60*guiFactor), "Restart", buttonStyle)) { 
 			UnPauseGame();
 			Application.LoadLevel(0);
 		}
-		if (GUILayout.Button ("Exit")) {
+		if (GUI.Button (new Rect(0, IsBeginning() ? 280*guiFactor : 380*guiFactor, 200*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
 			currentPage = Page.Exit;
 		}
+
 		if (!IsBeginning ()) {
-			GUILayout.BeginArea (new Rect (350, 100, 400, 400));
-				GUILayoutOption[] itemImageOptions = new GUILayoutOption[] {GUILayout.Width (200f), GUILayout.Height (200f)};
+			GUILayout.BeginArea (new Rect (350*guiFactor, 150*guiFactor, 400*guiFactor, 400*guiFactor));
+				GUILayoutOption[] itemImageOptions = new GUILayoutOption[] {GUILayout.Width (200f*guiFactor*guiFactor), GUILayout.Height (200f*guiFactor)};
 				GUIStyle itemImageStyle = new GUIStyle (GUI.skin.box);
 				itemImageStyle.margin = new RectOffset (0, 0, 0, 0);
-				itemImageStyle.padding = new RectOffset (5, 5, 5, 5);
+				itemImageStyle.padding = new RectOffset (5*guiFactor, 5*guiFactor, 5*guiFactor, 5*guiFactor);
 				itemImageStyle.alignment = TextAnchor.MiddleCenter;
 				GUILayout.BeginHorizontal ();
 				GUILayout.BeginVertical ();
@@ -165,23 +183,25 @@ public class PauseMenu1 : MonoBehaviour {
 	}
 
 	void ExitMenu() {
-		BeginPage(500,250);
-		GUILayout.Box (pauseMenuBackgroundImage);
+		BeginPage(500*guiFactor,250*guiFactor);
+		GUILayout.Box (exitMenuOverlayImage);
 		GUIStyle exitLabelStyle = new GUIStyle (GUI.skin.label);
-		exitLabelStyle.fontSize = 50;
+		exitLabelStyle.fontSize = 50*guiFactor;
 		exitLabelStyle.alignment = TextAnchor.UpperCenter;
 
 		GUIStyle buttonStyleLeft = new GUIStyle (GUI.skin.button);
 		buttonStyleLeft.alignment = TextAnchor.MiddleLeft;
+		buttonStyleLeft.fontSize *= guiFactor;
 
 		GUIStyle buttonStyleRight = new GUIStyle (GUI.skin.button);
 		buttonStyleRight.alignment = TextAnchor.MiddleRight;
+		buttonStyleRight.fontSize *= guiFactor;
 
-		GUI.Label(new Rect(20, 20, 460, 150), "Do you really want to quit?", exitLabelStyle);
-		if (GUI.Button (new Rect(20, 170, 150, 80), "yes", buttonStyleLeft)) {
+		GUI.Label(new Rect(20*guiFactor, 20*guiFactor, 460*guiFactor, 150*guiFactor), "Do you really want to quit?", exitLabelStyle);
+		if (GUI.Button (new Rect(20*guiFactor, 170*guiFactor, 150*guiFactor, 80*guiFactor), "yes", buttonStyleLeft)) {
 			Application.Quit ();
 		}
-		if (GUI.Button (new Rect(330, 170, 150, 80), "no", buttonStyleRight)) { 
+		if (GUI.Button (new Rect(330*guiFactor, 170*guiFactor, 150*guiFactor, 80*guiFactor), "no", buttonStyleRight)) { 
 			currentPage = Page.Main;
 		}
 		EndPage();
