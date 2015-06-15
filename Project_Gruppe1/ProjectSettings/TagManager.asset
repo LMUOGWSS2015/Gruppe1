@@ -12,6 +12,9 @@ TagManager:
   - Flashlight
   - usable
   - Monster
+  - smartphone
+  - Goal
+  - lightsUpstairs
   layers:
   - Default
   - TransparentFX
@@ -22,10 +25,10 @@ TagManager:
   - 
   - 
   - Kinderzimmer_Group
-  - 
-  - 
-  - 
-  - 
+  - Schlafzimmr
+  - Gang Oben
+  - Badezimmer
+  - Puppe
   - 
   - 
   - 
