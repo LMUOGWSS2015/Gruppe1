@@ -146,7 +146,6 @@ public class PauseMenu1 : MonoBehaviour {
 		buttonStyle.fontSize *= guiFactor;
 
 
-		//GUILayout.Label (IsBeginning() ? ("DON'T LOOK AT ME!" + Screen.width + "; " + Screen.height + "; " + guiFactor) : "MENU");
 		GUI.Label (new Rect (0, 0, 800 * guiFactor, 600 * guiFactor), (IsBeginning () ? "DON'T LOOK AT ME!" : "MENU"), guiStyle);
 		
 		if (GUI.Button (new Rect(0, 180*guiFactor, 200*guiFactor, 60*guiFactor), IsBeginning() ? "Play" : "Continue", buttonStyle)) { 
@@ -212,7 +211,6 @@ public class PauseMenu1 : MonoBehaviour {
 		savedTimeScale = Time.timeScale;
 		Time.timeScale = 0;
 		foundHints = getCountHints ();
-		//AudioListener.pause = true;
 		StartMusic ();
 		LockCursor (false);
 		currentPage = Page.Main;
@@ -220,7 +218,6 @@ public class PauseMenu1 : MonoBehaviour {
 	
 	void UnPauseGame() {
 		Time.timeScale = savedTimeScale;
-		//AudioListener.pause = false;
 		LockCursor (true);
 		StopMusic ();
 		currentPage = Page.None;
@@ -228,11 +225,5 @@ public class PauseMenu1 : MonoBehaviour {
 	
 	bool IsGamePaused() {
 		return (Time.timeScale == 0);
-	}
-	
-	void OnApplicationPause(bool pause) {
-		if (IsGamePaused()) {
-			//AudioListener.pause = true;
-		}
 	}
 }
