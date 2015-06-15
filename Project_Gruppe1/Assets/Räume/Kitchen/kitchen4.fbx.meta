@@ -1,0 +1,194 @@
+fileFormatVersion: 2
+guid: f19a00f6029b56540aed0052e68329bd
+timeCreated: 1434396430
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Abzugshaube
+    100002: Base cabi1
+    100004: Base cabi1.001
+    100006: Base cabi1.002
+    100008: Base cabi3
+    100010: ChefSeries
+    100012: Deckenlichter
+    100014: Faucet (go
+    100016: Framed (GL
+    100018: Herd
+    100020: //RootNode
+    100022: Korb
+    100024: Kuehlschrank
+    100026: Kuehlschrank Tuer
+    100028: Schublade
+    100030: Spuelbecken
+    100032: Text
+    100034: Wall cabin
+    100036: wecker
+    400000: Abzugshaube
+    400002: Base cabi1
+    400004: Base cabi1.001
+    400006: Base cabi1.002
+    400008: Base cabi3
+    400010: ChefSeries
+    400012: Deckenlichter
+    400014: Faucet (go
+    400016: Framed (GL
+    400018: Herd
+    400020: //RootNode
+    400022: Korb
+    400024: Kuehlschrank
+    400026: Kuehlschrank Tuer
+    400028: Schublade
+    400030: Spuelbecken
+    400032: Text
+    400034: Wall cabin
+    400036: wecker
+    2300000: Abzugshaube
+    2300002: Base cabi1
+    2300004: Base cabi1.001
+    2300006: Base cabi1.002
+    2300008: Base cabi3
+    2300010: ChefSeries
+    2300012: Deckenlichter
+    2300014: Faucet (go
+    2300016: Framed (GL
+    2300018: Herd
+    2300020: Korb
+    2300022: Kuehlschrank
+    2300024: Kuehlschrank Tuer
+    2300026: Schublade
+    2300028: Spuelbecken
+    2300030: Text
+    2300032: Wall cabin
+    2300034: wecker
+    3300000: Abzugshaube
+    3300002: Base cabi1
+    3300004: Base cabi1.001
+    3300006: Base cabi1.002
+    3300008: Base cabi3
+    3300010: ChefSeries
+    3300012: Deckenlichter
+    3300014: Faucet (go
+    3300016: Framed (GL
+    3300018: Herd
+    3300020: Korb
+    3300022: Kuehlschrank
+    3300024: Kuehlschrank Tuer
+    3300026: Schublade
+    3300028: Spuelbecken
+    3300030: Text
+    3300032: Wall cabin
+    3300034: wecker
+    4300000: Text
+    4300002: Kuehlschrank Tuer
+    4300004: Schublade
+    4300006: Base cabi1.002
+    4300008: Base cabi1.001
+    4300010: wecker
+    4300012: Base cabi1
+    4300014: Base cabi3
+    4300016: ChefSeries
+    4300018: Spuelbecken
+    4300020: Herd
+    4300022: Faucet (go
+    4300024: Framed (GL
+    4300026: Kuehlschrank
+    4300028: Abzugshaube
+    4300030: Korb
+    4300032: Deckenlichter
+    4300034: Wall cabin
+    7400000: Text|VRayCam001|Take 001|BaseLayer
+    7400002: Text|VRaySun001|Take 001|BaseLayer
+    7400004: Kuehlschrank Tuer|VRayCam001|Take 001|BaseLayer
+    7400006: Kuehlschrank Tuer|VRaySun001|Take 001|BaseLayer
+    7400008: Schublade|VRayCam001|Take 001|BaseLayer
+    7400010: Schublade|VRaySun001|Take 001|BaseLayer
+    7400012: Base cabi1.002|VRayCam001|Take 001|BaseLayer
+    7400014: Base cabi1.002|VRaySun001|Take 001|BaseLayer
+    7400016: Base cabi1.001|VRayCam001|Take 001|BaseLayer
+    7400018: Base cabi1.001|VRaySun001|Take 001|BaseLayer
+    7400020: wecker|VRayCam001|Take 001|BaseLayer
+    7400022: wecker|VRaySun001|Take 001|BaseLayer
+    7400024: Base cabi1|VRayCam001|Take 001|BaseLayer
+    7400026: Base cabi1|VRaySun001|Take 001|BaseLayer
+    7400028: Base cabi3|VRayCam001|Take 001|BaseLayer
+    7400030: Base cabi3|VRaySun001|Take 001|BaseLayer
+    7400032: ChefSeries|VRayCam001|Take 001|BaseLayer
+    7400034: ChefSeries|VRaySun001|Take 001|BaseLayer
+    7400036: Spuelbecken|VRayCam001|Take 001|BaseLayer
+    7400038: Spuelbecken|VRaySun001|Take 001|BaseLayer
+    7400040: Herd|VRayCam001|Take 001|BaseLayer
+    7400042: Herd|VRaySun001|Take 001|BaseLayer
+    7400044: Faucet (go|VRayCam001|Take 001|BaseLayer
+    7400046: Faucet (go|VRaySun001|Take 001|BaseLayer
+    7400048: Framed (GL|VRayCam001|Take 001|BaseLayer
+    7400050: Framed (GL|VRaySun001|Take 001|BaseLayer
+    7400052: Kuehlschrank|VRayCam001|Take 001|BaseLayer
+    7400054: Kuehlschrank|VRaySun001|Take 001|BaseLayer
+    7400056: Abzugshaube|VRayCam001|Take 001|BaseLayer
+    7400058: Abzugshaube|VRaySun001|Take 001|BaseLayer
+    7400060: Korb|VRayCam001|Take 001|BaseLayer
+    7400062: Korb|VRaySun001|Take 001|BaseLayer
+    7400064: Deckenlichter|VRayCam001|Take 001|BaseLayer
+    7400066: Deckenlichter|VRaySun001|Take 001|BaseLayer
+    7400068: Wall cabin|VRayCam001|Take 001|BaseLayer
+    7400070: Wall cabin|VRaySun001|Take 001|BaseLayer
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
