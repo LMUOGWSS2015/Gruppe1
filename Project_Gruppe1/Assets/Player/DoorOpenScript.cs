@@ -11,7 +11,7 @@ public class DoorOpenScript : MonoBehaviour {
 	public AudioClip DoorLockedSound;
 
 
-	private bool open = false;
+	public bool open;
 
 	public bool locked;
 	public float doorOpenAngle = 90f;
@@ -21,6 +21,10 @@ public class DoorOpenScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		doorSound = GetComponent<AudioSource>();
+
+		if (open == true) {
+			transform.Rotate(0, doorOpenAngle, 0);
+		}
 	}
 
 	public void ChangeDoorState(bool gotKey) {
