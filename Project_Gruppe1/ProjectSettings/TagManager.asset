@@ -15,6 +15,7 @@ TagManager:
   - smartphone
   - Goal
   - lightsUpstairs
+  - Spiders
   layers:
   - Default
   - TransparentFX
