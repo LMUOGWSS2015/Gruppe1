@@ -12,6 +12,8 @@ TagManager:
   - Flashlight
   - usable
   - Monster
+  - smartphone
+  - Goal
   layers:
   - Default
   - TransparentFX
