@@ -16,6 +16,7 @@ TagManager:
   - Goal
   - lightsUpstairs
   - Spiders
+  - Schublade
   layers:
   - Default
   - TransparentFX
@@ -26,9 +27,9 @@ TagManager:
   - 
   - 
   - Kinderzimmer_Group
-  - Schlafzimmr
+  - 
   - Gang Oben
-  - Badezimmer
+  - 
   - Puppe
   - 
   - 
