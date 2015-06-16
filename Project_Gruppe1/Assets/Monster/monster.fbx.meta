@@ -231,6 +231,7 @@ ModelImporter:
     4300002: cloth
     7400000: Walk
     7400002: Attack
+    7400004: Closeup
     9500000: //RootNode
     13700000: cloth
     13700002: monster
@@ -272,21 +273,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: .251821101
-        functionName: Slower
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: 0
-        functionName: Faster
-        data: 
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask:
       - path: 
         weight: 1
@@ -523,6 +510,254 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 1
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Charakter
+        weight: 1
+      - path: Charakter/Biped_rig
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Head_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/L_Leg_Foot_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/L_Leg_Foot_con_/L_Heel_Rot
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/L_Leg_Foot_con_/L_Heel_Rot/L_Toe_Rot
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/L_Leg_Foot_con_/L_Heel_Rot/L_Toe_Rot/L_Toe_jnt_Goal
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/L_Leg_Foot_con_/L_Heel_Rot/L_Toe_Rot/L_Toe_jnt_Goal/L_Foot_jnt_Goal
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/L_Leg_Foot_con_/L_Heel_Rot/L_Toe_Rot/L_Toe_jnt_Goal/L_Foot_UpV
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/L_Leg_Foot_con_/L_Heel_Rot/L_Toe_wiggle
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/L_Leg_Foot_con_/L_Heel_Rot/L_Toe_wiggle/L_Toe_End_jnt_Goal
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/L_Leg_Foot_con_/L_Heel_Rot/L_Toe_wiggle/L_Toe_UpV
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/R_Leg_Foot_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/R_Leg_Foot_con_/R_Heel_Rot
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/R_Leg_Foot_con_/R_Heel_Rot/R_Toe_Rot
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/R_Leg_Foot_con_/R_Heel_Rot/R_Toe_Rot/R_Toe_jnt_Goal
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/R_Leg_Foot_con_/R_Heel_Rot/R_Toe_Rot/R_Toe_jnt_Goal/R_Foot_jnt_Goal
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/R_Leg_Foot_con_/R_Heel_Rot/R_Toe_Rot/R_Toe_jnt_Goal/R_Foot_UpV
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/R_Leg_Foot_con_/R_Heel_Rot/R_Toe_wiggle
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/R_Leg_Foot_con_/R_Heel_Rot/R_Toe_wiggle/R_Toe_End_jnt_Goal
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/R_Leg_Foot_con_/R_Heel_Rot/R_Toe_wiggle/R_Toe_UpV
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Torso_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Torso_con_/Hip_FK_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Torso_con_/Hip_FK_con_/Midd_FK_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Torso_con_/Hip_FK_con_/Midd_FK_con_/Chest_FK_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Torso_con_/Hip_FK_con_/Midd_FK_con_/Chest_FK_con_/L_Collar_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Torso_con_/Hip_FK_con_/Midd_FK_con_/Chest_FK_con_/L_Collar_con_/L_Shoulder_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Torso_con_/Hip_FK_con_/Midd_FK_con_/Chest_FK_con_/L_Collar_con_/L_Shoulder_con_/L_Elbow_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Torso_con_/Hip_FK_con_/Midd_FK_con_/Chest_FK_con_/L_Collar_con_/L_Shoulder_con_/L_Elbow_con_/L_Hand_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Torso_con_/Hip_FK_con_/Midd_FK_con_/Chest_FK_con_/Neck_FK_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Torso_con_/Hip_FK_con_/Midd_FK_con_/Chest_FK_con_/R_Collar_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Torso_con_/Hip_FK_con_/Midd_FK_con_/Chest_FK_con_/R_Collar_con_/R_Shoulder_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Torso_con_/Hip_FK_con_/Midd_FK_con_/Chest_FK_con_/R_Collar_con_/R_Shoulder_con_/R_Elbow_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Master_con_/Torso_con_/Hip_FK_con_/Midd_FK_con_/Chest_FK_con_/R_Collar_con_/R_Shoulder_con_/R_Elbow_con_/R_Hand_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Head_null
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Head_null/Head_00_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Head_null/Head_00_jnt/Head_01_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt/L_FK_Hand_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt/L_FK_Hand_jnt/L_FK_Hand_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt/L_FK_Hand_jnt/L_FK_Hand_con_/L_Finger_null
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt/L_FK_Hand_jnt/L_FK_Hand_con_/L_Finger_null/L_Finger_Base_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt/L_FK_Hand_jnt/L_FK_Hand_con_/L_Finger_null/L_Finger_Base_jnt/L_Finger_Middle_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt/L_FK_Hand_jnt/L_FK_Hand_con_/L_Finger_null/L_Finger_Base_jnt/L_Finger_Middle_jnt/L_Finger_Top_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt/L_FK_Hand_jnt/L_FK_Hand_con_/L_Finger_null/L_Finger_Base_jnt/L_Finger_Middle_jnt/L_Finger_Top_jnt/L_Finger_End_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt/L_FK_Hand_jnt/L_FK_Hand_con_/L_Finger_null/L_Finger_Base_jnt/L_Finger_Middle_jnt/L_Finger_Top_jnt/L_Finger_End_jnt/L_Finger_Tip_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt/L_FK_Hand_jnt/L_FK_Hand_con_/L_Thumb_null
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt/L_FK_Hand_jnt/L_FK_Hand_con_/L_Thumb_null/L_Thumb_Base_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt/L_FK_Hand_jnt/L_FK_Hand_con_/L_Thumb_null/L_Thumb_Base_jnt/L_Thumb_Middle_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt/L_FK_Hand_jnt/L_FK_Hand_con_/L_Thumb_null/L_Thumb_Base_jnt/L_Thumb_Middle_jnt/L_Thumb_Top_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/L_FK_Arm_null/L_FK_Collar_jnt/L_FK_Shoulder_jnt/L_FK_Elbow_jnt/L_FK_Hand_jnt/L_FK_Hand_con_/L_Thumb_null/L_Thumb_Base_jnt/L_Thumb_Middle_jnt/L_Thumb_Top_jnt/L_Thumb_End_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/Neck_FK_02_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/Neck_FK_02_jnt/Spinetip_FK_03_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt/R_FK_Hand_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt/R_FK_Hand_jnt/R_FK_Hand_con_
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt/R_FK_Hand_jnt/R_FK_Hand_con_/R_Finger_null
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt/R_FK_Hand_jnt/R_FK_Hand_con_/R_Finger_null/R_Finger_Base_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt/R_FK_Hand_jnt/R_FK_Hand_con_/R_Finger_null/R_Finger_Base_jnt/R_Finger_Middle_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt/R_FK_Hand_jnt/R_FK_Hand_con_/R_Finger_null/R_Finger_Base_jnt/R_Finger_Middle_jnt/R_Finger_Top_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt/R_FK_Hand_jnt/R_FK_Hand_con_/R_Finger_null/R_Finger_Base_jnt/R_Finger_Middle_jnt/R_Finger_Top_jnt/R_Finger_End_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt/R_FK_Hand_jnt/R_FK_Hand_con_/R_Finger_null/R_Finger_Base_jnt/R_Finger_Middle_jnt/R_Finger_Top_jnt/R_Finger_End_jnt/R_Finger_Tip_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt/R_FK_Hand_jnt/R_FK_Hand_con_/R_Thumb_null
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt/R_FK_Hand_jnt/R_FK_Hand_con_/R_Thumb_null/R_Thumb_Base_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt/R_FK_Hand_jnt/R_FK_Hand_con_/R_Thumb_null/R_Thumb_Base_jnt/R_Thumb_Middle_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt/R_FK_Hand_jnt/R_FK_Hand_con_/R_Thumb_null/R_Thumb_Base_jnt/R_Thumb_Middle_jnt/R_Thumb_Top_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/Hip_FK_00_jnt/Midd_FK_01_jnt/Chest_FK_01_jnt/R_FK_Arm_null/R_FK_Collar_jnt/R_FK_Shoulder_jnt/R_FK_Elbow_jnt/R_FK_Hand_jnt/R_FK_Hand_con_/R_Thumb_null/R_Thumb_Base_jnt/R_Thumb_Middle_jnt/R_Thumb_Top_jnt/R_Thumb_End_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/L_Leg_null
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/L_Leg_null/L_Hip_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/L_Leg_null/L_Hip_jnt/L_Knee_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/L_Leg_null/L_Hip_jnt/L_Knee_jnt/L_Foot_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/L_Leg_null/L_Hip_jnt/L_Knee_jnt/L_Foot_jnt/L_Toe_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/L_Leg_null/L_Hip_jnt/L_Knee_jnt/L_Foot_jnt/L_Toe_jnt/L_Toe_End_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/L_Leg_null/L_Leg_pole
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/L_Leg_null/L_Leg_pole/L_Hip_jnt_Pole
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/R_Leg_null
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/R_Leg_null/R_Hip_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/R_Leg_null/R_Hip_jnt/R_Knee_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/R_Leg_null/R_Hip_jnt/R_Knee_jnt/R_Foot_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/R_Leg_null/R_Hip_jnt/R_Knee_jnt/R_Foot_jnt/R_Toe_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/R_Leg_null/R_Hip_jnt/R_Knee_jnt/R_Foot_jnt/R_Toe_jnt/R_Toe_End_jnt
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/R_Leg_null/R_Leg_pole
+        weight: 1
+      - path: Charakter/Biped_rig/Root_null_jnt/Spine_FK_null/R_Leg_null/R_Leg_pole/R_Hip_jnt_Pole
+        weight: 1
+      - path: Charakter/Root
+        weight: 1
+      - path: Charakter/Root/Spine
+        weight: 1
+      - path: Charakter/Root/Spine/Head
+        weight: 1
+      - path: Charakter/Root/Spine/L_Arm
+        weight: 1
+      - path: Charakter/Root/Spine/L_Arm/Finger
+        weight: 1
+      - path: Charakter/Root/Spine/L_Arm/Thumb
+        weight: 1
+      - path: Charakter/Root/Spine/L_Leg
+        weight: 1
+      - path: Charakter/Root/Spine/R_Arm
+        weight: 1
+      - path: Charakter/Root/Spine/R_Arm/Finger_2
+        weight: 1
+      - path: Charakter/Root/Spine/R_Arm/Thumb_2
+        weight: 1
+      - path: Charakter/Root/Spine/R_Leg
+        weight: 1
+      - path: cloth
+        weight: 1
+      - path: cloth/Skin_2
+        weight: 1
+      - path: monster
+        weight: 1
+      - path: monster/Skin
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: Closeup
+      takeName: C4D Animation Take
+      firstFrame: 201
+      lastFrame: 300
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

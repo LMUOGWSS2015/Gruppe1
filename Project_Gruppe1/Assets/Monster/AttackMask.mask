@@ -205,21 +205,21 @@ AvatarMask:
   - m_Path: Charakter/Root/Spine
     m_Weight: 0
   - m_Path: Charakter/Root/Spine/Head
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Charakter/Root/Spine/L_Arm
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Charakter/Root/Spine/L_Arm/Finger
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Charakter/Root/Spine/L_Arm/Thumb
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Charakter/Root/Spine/L_Leg
     m_Weight: 0
   - m_Path: Charakter/Root/Spine/R_Arm
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Charakter/Root/Spine/R_Arm/Finger_2
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Charakter/Root/Spine/R_Arm/Thumb_2
-    m_Weight: 0
+    m_Weight: 1
   - m_Path: Charakter/Root/Spine/R_Leg
     m_Weight: 0
   - m_Path: cloth
