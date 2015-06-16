@@ -25,8 +25,6 @@ public class openKitchenDrawer : MonoBehaviour {
 		
 		closePosition = transform.localPosition;
 		openPosition = new Vector3 (closePosition.x, closePosition.y, closePosition.z + 0.5f);
-		Debug.Log ("closePosition: " + closePosition.ToString());
-		Debug.Log ("openPosition: " + openPosition.ToString ());
 		
 		closePosition = transform.localPosition;
 		openPosition = new Vector3 (closePosition.x, closePosition.y, closePosition.z + 0.5f);
