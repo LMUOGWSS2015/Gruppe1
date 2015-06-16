@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿
+
+using UnityEngine;
 using System.Collections;
 
 public class openKitchenDrawer : MonoBehaviour {
@@ -11,38 +13,42 @@ public class openKitchenDrawer : MonoBehaviour {
 	
 	
 	public bool open;
-
+	
 	public float smooth = 2f;
+	
+	private Vector3 closePosition;
+	private Vector3 openPosition;
+	
+	private Vector3 openPosition;
+	private Vector3 closePosition;
 	
 	// Use this for initialization
 	void Start () {
 		doorSound = GetComponent<AudioSource>();
 		
+		closePosition = transform.localPosition;
+		openPosition = new Vector3 (closePosition.x, closePosition.y, closePosition.z + 0.5f);
+		Debug.Log ("closePosition: " + closePosition.ToString());
+		Debug.Log ("openPosition: " + openPosition.ToString ());
+		
+		closePosition = transform.localPosition;
+		openPosition = new Vector3 (closePosition.x, closePosition.y, closePosition.z + 0.5f);
 		if (open == true) {
-			transform.Translate(0,0,1);
+			transform.localPosition = Vector3.Lerp(closePosition, openPosition, Time.deltaTime * smooth);
 		}
 	}
 	
-	public void ChangeDoorState() {
+	public void ChangeDrawerState() {
 		open = !open;
 		if (open == true) {
 			doorSound.clip = openDrawerSound;
+			transform.localPosition = Vector3.Lerp(closePosition, openPosition, Time.deltaTime * smooth);
 		} else {
 			doorSound.clip = closeDrawerSound;
+			transform.localPosition = Vector3.Lerp(openPosition, closePosition, Time.deltaTime * smooth);
+			
 		}
 		doorSound.Play ();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		if (open) {
-			//Quaternion targetPosition = Quaternion.Euler (0, 0, 1f);  
-			Vector3 targetPosition = new Vector3(0,0,1f);
-			transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * smooth);
-		} else {
-			//Quaternion targetPosition2 = Quaternion.Euler (0, 0, -1f);
-			Vector3 targetPosition2 = new Vector3(0,0,-1f);
-			transform.position = Vector3.Lerp(transform.position, targetPosition2, Time.deltaTime * smooth);
-		}
-	}
 }
