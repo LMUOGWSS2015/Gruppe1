@@ -4,7 +4,7 @@ using System.Collections;
 /*
  * Script for FPSController
  */
-public class SpiderInteraction : MonoBehaviour {
+public class Spiderinteraction : MonoBehaviour {
 
 	private EyesScript es;
 
@@ -22,23 +22,25 @@ public class SpiderInteraction : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) 
 	{
-		// Game object need tag "Monster"
-		if (other.gameObject.CompareTag ("Spiders")) 
+		// Game object need tag "Spiders"
+		if (other.gameObject.CompareTag ("SpiderCollider")) 
 		{
 			Debug.Log ("Ahhhh Spider!");
-			StartCoroutine(SpiderDie(3));
+			StartCoroutine(Spiderattack(3));
+			Debug.Log ("Die Spinne existiert nur in meiner Fantasie. Ich schließe lieber 3 sec meine Augen");
 		}
 	}
 
-	IEnumerator SpiderDie(int x) {
-		Debug.Log ("Oh nein, ich sterbe... In " + x + " Sekunden bin ich tot, wenn ich nicht die Augen schliesse.");
-		yield return new WaitForSeconds(x);
+	IEnumerator Spiderattack(int x) {
+			yield return new WaitForSeconds(x);
 		if (!es.getEyesClosed ()) {
-			GameObject.FindGameObjectWithTag ("Spiders").GetComponent<Animator> ().SetTrigger ("SpiderMove");
+			Debug.Log ("Zu spät!");			
 			//TODO SpiderMove Animation
-		} else {
-			GameObject.FindGameObjectWithTag("Spiders").SetActive(false);
-			Debug.Log ("============================== Gefahr vorüber! Augen können geöffnet werden.");
+			//GameObject.FindGameObjectWithTag ("Spiders").GetComponent<Animator> ().SetTrigger ("SpiderMove");			
+			} else {
+				GameObject.FindGameObjectWithTag("Spiders").SetActive(false);
+				Debug.Log (" Gefahr vorüber! Augen können geöffnet werden.");
+			}
 		}
-	}
 }
+

@@ -17,6 +17,7 @@ TagManager:
   - lightsUpstairs
   - Spiders
   - Schublade
+  - SpiderCollider
   layers:
   - Default
   - TransparentFX

@@ -23125,7 +23125,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 487008, guid: 044b165670554634d84ef84a5bdb279f, type: 2}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 044b165670554634d84ef84a5bdb279f, type: 2}
@@ -65408,7 +65408,7 @@ GameObject:
   - 114: {fileID: 978285051}
   m_Layer: 0
   m_Name: SpiderTrigger
-  m_TagString: Untagged
+  m_TagString: SpiderCollider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
