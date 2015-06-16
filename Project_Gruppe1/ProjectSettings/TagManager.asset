@@ -16,6 +16,7 @@ TagManager:
   - Goal
   - lightsUpstairs
   - Spiders
+  - Schublade
   layers:
   - Default
   - TransparentFX

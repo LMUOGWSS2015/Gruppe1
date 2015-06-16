@@ -16,9 +16,6 @@ public class openKitchenDrawer : MonoBehaviour {
 	
 	public float smooth = 2f;
 	
-	private Vector3 closePosition;
-	private Vector3 openPosition;
-	
 	private Vector3 openPosition;
 	private Vector3 closePosition;
 	
