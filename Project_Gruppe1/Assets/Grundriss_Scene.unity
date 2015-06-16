@@ -22979,6 +22979,7 @@ Transform:
   - {fileID: 2057851743}
   - {fileID: 1205443541}
   - {fileID: 1403587587}
+  - {fileID: 1836146884}
   m_Father: {fileID: 447333404}
   m_RootOrder: 10
 --- !u!65 &561220950
@@ -64345,7 +64346,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: d9326564b3cebcc4b87417fe02e3b64b, type: 2}
+  - {fileID: 2100000, guid: 8e01bf8cce5e6d34b861ed1bf6a0c2df, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -83483,6 +83484,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2359282, guid: 0296af3be7a2cca45a7db4d791496c86, type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 8e01bf8cce5e6d34b861ed1bf6a0c2df, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0296af3be7a2cca45a7db4d791496c86, type: 2}
   m_IsPrefabParent: 0
@@ -106142,6 +106147,97 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.28999996, y: 6.48999977, z: 3.76999998}
   m_Center: {x: -5, y: -.170000002, z: -4.44000006}
+--- !u!1 &1836146883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1836146884}
+  - 33: {fileID: 1836146888}
+  - 64: {fileID: 1836146887}
+  - 23: {fileID: 1836146886}
+  - 95: {fileID: 1836146885}
+  m_Layer: 11
+  m_Name: Quad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1836146884
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1836146883}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
+  m_LocalPosition: {x: -25, y: 4.1500001, z: -3.1099999}
+  m_LocalScale: {x: 7.4184947, y: 7.41850138, z: 7.41850138}
+  m_Children: []
+  m_Father: {fileID: 561220949}
+  m_RootOrder: 8
+--- !u!95 &1836146885
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1836146883}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b53090ddd2cfa324c9b32bef1406d12a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!23 &1836146886
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1836146883}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_Materials:
+  - {fileID: 2100000, guid: 2c2f11a9124d3444a872452702b18d68, type: 2}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 1
+  m_ReflectionProbeUsage: 1
+  m_ProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 1
+  m_ImportantGI: 0
+  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+--- !u!64 &1836146887
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1836146883}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &1836146888
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1836146883}
+  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1839779539
 GameObject:
   m_ObjectHideFlags: 0
@@ -115928,7 +116024,7 @@ MeshRenderer:
   m_ReceiveShadows: 1
   m_Materials:
   - {fileID: 2100000, guid: d11e4ed789d881448a7520152683f09f, type: 2}
-  - {fileID: 2100000, guid: 75b88b09d6a6e354db8478298370a1e5, type: 2}
+  - {fileID: 2100000, guid: 8e01bf8cce5e6d34b861ed1bf6a0c2df, type: 2}
   - {fileID: 2100000, guid: 4f7538efe1c751341b1a3405752aa75d, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
