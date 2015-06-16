@@ -20,11 +20,15 @@ public class UseObject : MonoBehaviour {
 	
 	
 	public void useObject() {
-		if(transform.parent.GetComponent<AudioSource>()) {
+		if(transform.parent.GetComponent<AudioSource>() && transform.parent.GetComponent<AudioSource>().isPlaying == false) {
 			transform.parent.GetComponent<AudioSource>().Play();
 		}
 		if (pickUpObject == true) {
 			gameObject.SetActive (false);
+		}
+
+		if(this.CompareTag("smartphone")) {
+			this.GetComponent<smartphone>().displayMessage();
 		}
 	}
 }
