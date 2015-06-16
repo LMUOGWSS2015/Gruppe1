@@ -95,6 +95,7 @@ public class InteractionScript : MonoBehaviour {
 				}
 
 				if (hit.collider.transform.parent.CompareTag("usable")) {
+					Debug.Log ("usable");
 					hit.collider.gameObject.GetComponentInParent<AudioSource>().Play();
 					hit.collider.gameObject.SetActive (false);
 				}
@@ -133,7 +134,7 @@ public class InteractionScript : MonoBehaviour {
 			GUI.color = thisColor;
 
 			GUI.DrawTexture(new Rect(0f, 0f, Screen.width, Screen.height), gray_overlay);
-			GUI.DrawTexture (new Rect (Screen.width / 2 - 50, Screen.height / 2 - 50, 100, 100), hint); 
+			GUI.DrawTexture (new Rect (Screen.width / 2 - 200, Screen.height / 2 - 200, 400, 400), hint); 
 	
 			Invoke("hideGUI", 3.0f);
 		}
