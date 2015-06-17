@@ -24,6 +24,7 @@ public class smartphone : MonoBehaviour {
 		}
 
 		if (alpha == 1.0f && fadeDirection > 0 && animationstate== 0) {
+			GameObject.Find ("SmartphoneLight").SetActive (false);
 			animationstate = 1;
 			fade = false;
 			Invoke("displayMessage", 2);
@@ -39,6 +40,7 @@ public class smartphone : MonoBehaviour {
 	}
 
 	public void displayMessage() {
+
 		fade = !fade;
 		fadeDirection = fadeDirection * (-1);
 	}
