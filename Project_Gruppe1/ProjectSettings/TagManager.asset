@@ -5,6 +5,27 @@ TagManager:
   serializedVersion: 2
   tags:
   - Monster
+  - MonsterAuftritt
+  - usable
+  - DollPiano
+  - lightsUpstairs
+  - DollBath
+  - Subtitles
+  - TutorialCollider
+  - DollStep
+  - Flashlight
+  - DollWindow
+  - Tutorial
+  - Schublade
+  - HideSpot
+  - EyesOverlay
+  - Hint
+  - Doll
+  - SmartphoneMessage
+  - smartphone
+  - Key
+  - Door
+  - Spider
   layers:
   - Default
   - TransparentFX
