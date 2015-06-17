@@ -3,47 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - EyesOverlay
-  - Hint
-  - Door
-  - GazeController
-  - Key
-  - Flashlight
-  - usable
-  - Monster
-  - smartphone
-  - Goal
-  - lightsUpstairs
-  - Spiders
-  - Schublade
-  - SpiderCollider
-  - SmartphoneMessage
-  - HideSpot
-  - Subtitles
-<<<<<<< HEAD
-  - MonsterAuftritt
-=======
-  - DollBath
-  - Doll
-  - DollStep
-  - DollPiano
-  - DollWindow
->>>>>>> origin/master
+  tags: []
   layers:
-  - Default
-  - TransparentFX
-  - Ignore Raycast
-  - 
-  - Water
-  - UI
-  - 
-  - 
-  - Kinderzimmer_Group
-  - 
-  - Gang Oben
-  - 
-  - Puppe
   - 
   - 
   - 
@@ -63,7 +24,17 @@ TagManager:
   - 
   - 
   - 
-  m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers: []

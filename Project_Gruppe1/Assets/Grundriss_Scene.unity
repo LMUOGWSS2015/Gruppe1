@@ -16139,6 +16139,10 @@ Prefab:
       propertyPath: m_LocalPosition.x
       value: .100000001
       objectReference: {fileID: 0}
+    - target: {fileID: 8227632, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
   m_IsPrefabParent: 0
@@ -25143,6 +25147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0161164c9e0f3214ea1660813c34f3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
 --- !u!1 &617829455
 GameObject:
   m_ObjectHideFlags: 0
@@ -65607,6 +65612,10 @@ Prefab:
       propertyPath: m_LocalScale.y
       value: 1.69000006
       objectReference: {fileID: 0}
+    - target: {fileID: 8244200, guid: df7aff92981f67d46b980cd96ea20a56, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: df7aff92981f67d46b980cd96ea20a56, type: 2}
   m_IsPrefabParent: 0
@@ -88839,6 +88848,10 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: .641364872
       objectReference: {fileID: 0}
+    - target: {fileID: 8227632, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
   m_IsPrefabParent: 0
@@ -100516,6 +100529,10 @@ Prefab:
       propertyPath: m_Pitch
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8211764, guid: fa46faaec81880c4fb22da8dab5e5f60, type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fa46faaec81880c4fb22da8dab5e5f60, type: 2}
   m_IsPrefabParent: 0
@@ -106820,6 +106837,10 @@ Prefab:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8227632, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
   m_IsPrefabParent: 0
@@ -107269,6 +107290,10 @@ Prefab:
     - target: {fileID: 406056, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
       propertyPath: m_LocalPosition.x
       value: .0799999982
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227632, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23879eccc4df37242a4edfdccf754516, type: 2}
