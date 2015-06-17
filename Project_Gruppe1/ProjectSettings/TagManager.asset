@@ -20,6 +20,7 @@ TagManager:
   - SpiderCollider
   - SmartphoneMessage
   - HideSpot
+  - Subtitles
   layers:
   - Default
   - TransparentFX
