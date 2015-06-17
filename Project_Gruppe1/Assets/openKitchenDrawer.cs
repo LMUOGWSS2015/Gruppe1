@@ -29,7 +29,7 @@ public class openKitchenDrawer : MonoBehaviour {
 		closePosition = transform.localPosition;
 		openPosition = new Vector3 (closePosition.x, closePosition.y, closePosition.z + 0.5f);
 		if (open == true) {
-			transform.localPosition = Vector3.Lerp(closePosition, openPosition, Time.deltaTime * smooth);
+			transform.localPosition = Vector3.Slerp(closePosition, openPosition, Time.deltaTime * smooth);
 		}
 	}
 	
@@ -37,10 +37,10 @@ public class openKitchenDrawer : MonoBehaviour {
 		open = !open;
 		if (open == true) {
 			doorSound.clip = openDrawerSound;
-			transform.localPosition = Vector3.Lerp(closePosition, openPosition, Time.deltaTime * smooth);
+			transform.localPosition = Vector3.Slerp(closePosition, openPosition, Time.deltaTime * smooth);
 		} else {
 			doorSound.clip = closeDrawerSound;
-			transform.localPosition = Vector3.Lerp(openPosition, closePosition, Time.deltaTime * smooth);
+			transform.localPosition = Vector3.Slerp(openPosition, closePosition, Time.deltaTime * smooth);
 			
 		}
 		doorSound.Play ();
