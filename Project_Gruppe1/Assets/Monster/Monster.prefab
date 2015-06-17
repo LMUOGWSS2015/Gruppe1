@@ -1500,7 +1500,7 @@ GameObject:
   - 114: {fileID: 11441528}
   - 114: {fileID: 11448798}
   m_Layer: 0
-  m_Name: monster
+  m_Name: Monster
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
