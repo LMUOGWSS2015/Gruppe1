@@ -21,7 +21,7 @@ public class Step : StateMachineBehaviour {
 		var dollCol = GameObject.Find ("DollStepCol");
 		
 		//set new position of doll for next animation location
-		doll.transform.position = new Vector3 (6.64f, -10.2f, 3.5f);
+		doll.transform.position = new Vector3 (0.32f, -7.3f, 0.28f);
 
 		Debug.Log ("zweite AnimationCollider wird gelöscht");
 		Destroy (dollCol);

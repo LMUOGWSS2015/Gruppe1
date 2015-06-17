@@ -20,6 +20,7 @@ public class Bath : StateMachineBehaviour {
 		var doll = GameObject.Find ("DollAnim");
 		var dollCol = GameObject.Find ("DollBathCol");
 
+
 		//set new position of doll for next animation location
 		doll.transform.position = new Vector3 (-2.43f, -6.92f, 0.5f);
 

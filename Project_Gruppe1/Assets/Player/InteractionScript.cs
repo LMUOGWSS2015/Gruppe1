@@ -23,6 +23,7 @@ public class InteractionScript : MonoBehaviour {
 	public bool gotFlashlight = false;
 	private int foundHints = 0;
 	private float strengthOfFlashlight;
+
 	
 	// Use this for initialization
 	void Start () {
@@ -58,15 +59,17 @@ public class InteractionScript : MonoBehaviour {
 
 		// Player is looking at the doll and activate doll-animations
 		var doll = GameObject.Find ("DollAnim");
-		
+
 		if (Physics.Raycast (ray, out hit, 20f)) {
 			
 			if (hit.collider.CompareTag("DollBath")) {
 				Debug.Log ("Spieler schaut Puppe an");
 				doll.GetComponent<Animator>().Play("BathWalk");
+
 			}
 			else if (hit.collider.CompareTag ("DollStep")){
 				Debug.Log ("Spieler schaut Puppe an der Treppe an");
+
 				doll.GetComponent<Animator>().Play("Step");
 			}
 			else if (hit.collider.CompareTag ("DollPiano")){
