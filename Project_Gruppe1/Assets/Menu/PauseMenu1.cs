@@ -34,19 +34,19 @@ public class PauseMenu1 : MonoBehaviour {
 	
 	private Page currentPage;
 
-	void Start() {
-
+	void Awake() {
 		guiFactor = (int) Mathf.Floor (Screen.width/1024);
 		guiFactor = (guiFactor == 0) ? 1 : guiFactor;
-		Debug.Log (Screen.width + "; " + Screen.height + "; " + guiFactor);
-
+		
 		pauseAudio = pauseMusic.GetComponent<AudioSource> ();
-
+		
 		Time.timeScale = 1;
-		foundHints = getCountHints ();
-		Debug.Log ("Found Hints: " + foundHints);
 		if(IsBeginning())
 			PauseGame();
+	}
+
+	void Start() {
+
 	}
 
 	int getCountHints() {

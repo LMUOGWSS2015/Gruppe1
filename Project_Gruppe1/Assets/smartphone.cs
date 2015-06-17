@@ -8,6 +8,8 @@ public class smartphone : MonoBehaviour {
 	private float fadeSpeed = 0.8f;
 	private float fadeDirection = -1f;
 	private bool fade = false;
+	private int animationstate = 0;
+
 
 	void Start () {
 		GameObject.FindGameObjectWithTag ("SmartphoneMessage").GetComponent<CanvasGroup> ().alpha = 0.0f;		
@@ -21,12 +23,14 @@ public class smartphone : MonoBehaviour {
 			GameObject.FindGameObjectWithTag ("SmartphoneMessage").GetComponent<CanvasGroup> ().alpha = alpha;
 		}
 
-		if (alpha == 1.0f && fadeDirection > 0) {
+		if (alpha == 1.0f && fadeDirection > 0 && animationstate== 0) {
+			animationstate = 1;
 			fade = false;
 			Invoke("displayMessage", 2);
 		}
 
 		if (alpha == 0.0f && fadeDirection < 0) {
+			//GameObject.FindGameObjectWithTag ("SmartphoneMessage").GetComponent<CanvasGroup> ().alpha = 0.0f;
 			fade = false;
 		}
 

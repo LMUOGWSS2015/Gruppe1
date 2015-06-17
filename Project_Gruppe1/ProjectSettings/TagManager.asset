@@ -21,7 +21,15 @@ TagManager:
   - SmartphoneMessage
   - HideSpot
   - Subtitles
+<<<<<<< HEAD
   - MonsterAuftritt
+=======
+  - DollBath
+  - Doll
+  - DollStep
+  - DollPiano
+  - DollWindow
+>>>>>>> origin/master
   layers:
   - Default
   - TransparentFX
