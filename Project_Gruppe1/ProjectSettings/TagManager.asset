@@ -21,6 +21,7 @@ TagManager:
   - SmartphoneMessage
   - HideSpot
   - Subtitles
+  - MonsterAuftritt
   layers:
   - Default
   - TransparentFX

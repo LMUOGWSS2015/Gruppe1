@@ -3,7 +3,7 @@ using System.Collections;
 
 public class MonsterScript : MonoBehaviour {
 
-	public bool monsterPresent = false, monsterFightStarted = false, eyesClosedForFight = false;
+	public bool monsterFightStarted = false, setCloseup = false, playEndAnimation = true;
 	public float distanceToPlayer = 0;
 
 	// Use this for initialization
@@ -23,5 +23,8 @@ public class MonsterScript : MonoBehaviour {
 
 	public void MonsterDefeated(){
 		Debug.Log("Monster besiegt...");
+		GameObject.FindGameObjectWithTag ("MonsterAuftritt").GetComponent<MonsterAuftritt> ().ResetFPSController ();
+		GetComponentsInChildren<SkinnedMeshRenderer> () [0].enabled = false;
+		GetComponentsInChildren<SkinnedMeshRenderer> () [1].enabled = false;
 	}
 }

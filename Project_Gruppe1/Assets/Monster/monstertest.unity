@@ -170,8 +170,8 @@ GameObject:
   - 4: {fileID: 161128915}
   - 114: {fileID: 161128916}
   m_Layer: 0
-  m_Name: MonsterAuftritt1
-  m_TagString: Untagged
+  m_Name: MonsterAuftritt
+  m_TagString: MonsterAuftritt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -199,7 +199,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 161128914}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 706161d9f96dfac4eb758f3a5d9b18d8, type: 3}
+  m_Script: {fileID: 11500000, guid: 458d359b4f630a440a6a2cebbe712daf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &338093656
@@ -428,9 +428,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5760332a298dddd469785818a0623500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterPresent: 0
   monsterFightStarted: 0
-  eyesClosedForFight: 0
+  setCloseup: 0
+  playEndAnimation: 1
   distanceToPlayer: 0
 --- !u!65 &1205763626
 BoxCollider:
