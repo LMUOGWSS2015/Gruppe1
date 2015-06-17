@@ -8,14 +8,14 @@ public class EyesScript : MonoBehaviour {
 	float eyesClosedDuration = 0;
 	float eyesClosedDurationNeeded = 0;
 
-	GameObject monster;
-	MonsterScript monsterscript;
+	public GameObject monster;
+	public MonsterScript monsterscript;
 	bool monsterFightStarted = false;
 
 	// Use this for initialization
 	void Start () {
 		eyesAnimator = GameObject.FindGameObjectWithTag("EyesOverlay").GetComponent<Animator>();
-		monster = GameObject.FindGameObjectWithTag ("Monster");
+
 		monsterscript = monster.GetComponent<MonsterScript> ();
 	}
 	
@@ -26,11 +26,11 @@ public class EyesScript : MonoBehaviour {
 			eyesAnimator.SetBool("EyesClosed", true);
 			eyesClosedTimepoint = Time.time;
 
-			if (monsterscript.monsterFightStarted){
+			if (monster && monsterscript.monsterFightStarted){
 				float distance = monsterscript.distanceToPlayer;
 				float timefactor = 0.6f;
 				//berechne, wie lange augen geschlossen bleiben muessen
-				eyesClosedDurationNeeded = (20f - distance)*timefactor + 3f;
+				eyesClosedDurationNeeded = (20f - distance)*timefactor + 2f;
 				Debug.Log("Augen sollten " + eyesClosedDurationNeeded + " secs zu sein.");
 
 				//deaktiviere endanimation damit man nicht stirbt, waehrend augen zu sind
@@ -52,7 +52,7 @@ public class EyesScript : MonoBehaviour {
 	//damit erst alles ausgeloest wird, wenn animation startet
 	public void EyesStartToOpen(){
 		//wenn in monsterfight
-		if (monsterscript.monsterFightStarted){
+		if (monster && monsterscript.monsterFightStarted){
 			//augen zu kurz geschlossen
 			if (eyesClosedDuration < eyesClosedDurationNeeded){
 				Debug.Log("closed: "+eyesClosedDuration + " needed: "+eyesClosedDurationNeeded);

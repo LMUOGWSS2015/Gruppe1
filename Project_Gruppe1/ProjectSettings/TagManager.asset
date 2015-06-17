@@ -4,32 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - EyesOverlay
-  - Hint
-  - Door
-  - GazeController
-  - Key
-  - Flashlight
-  - usable
   - Monster
-  - smartphone
-  - Goal
-  - lightsUpstairs
-  - Spiders
-  - Schublade
-  - SpiderCollider
-  - SmartphoneMessage
-  - HideSpot
-  - Subtitles
-<<<<<<< HEAD
-  - MonsterAuftritt
-=======
-  - DollBath
-  - Doll
-  - DollStep
-  - DollPiano
-  - DollWindow
->>>>>>> origin/master
   layers:
   - Default
   - TransparentFX
@@ -39,11 +14,11 @@ TagManager:
   - UI
   - 
   - 
-  - Kinderzimmer_Group
   - 
-  - Gang Oben
   - 
-  - Puppe
+  - 
+  - 
+  - 
   - 
   - 
   - 

@@ -175,5 +175,9 @@ public class InteractionScript : MonoBehaviour {
 	void hideGUI() {
 		showGUIOverlay = false;		
 	}
+
+	public void PlayerDies(){
+		Debug.Log("Dead...");
+	}
 	
 }

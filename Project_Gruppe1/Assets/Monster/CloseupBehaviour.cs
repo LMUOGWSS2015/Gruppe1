@@ -15,7 +15,7 @@ public class CloseupBehaviour : StateMachineBehaviour {
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		GameObject.FindGameObjectWithTag ("Monster").GetComponent<MonsterScript> ().PlayerDies ();
+		GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<InteractionScript> ().PlayerDies ();
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
