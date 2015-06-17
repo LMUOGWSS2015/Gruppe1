@@ -17727,7 +17727,7 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -3.81469727e-06, y: 0, z: -9.53674316e-07}
+    m_Center: {x: -2.78287371e-06, y: -3.55381843e-07, z: -1.15757257e-06}
     m_Extent: {x: 5.00000048, y: .0130517799, z: 5.00000238}
   m_DirtyAABB: 0
 --- !u!1 &436391642
@@ -25307,6 +25307,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+--- !u!114 &617083329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 617083319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2bae950d9d9c0846882caa0688615ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skin: {fileID: 11400000, guid: eafc30d13534e7e49be096f6ceea7436, type: 2}
+  creditsBackgroundImage: {fileID: 2800000, guid: 13118c643b911c241aa1acb747fab1dc,
+    type: 3}
+  creditsMusic: {fileID: 923633324}
 --- !u!1 &617829455
 GameObject:
   m_ObjectHideFlags: 0
@@ -102689,7 +102704,7 @@ Transform:
   m_PrefabParentObject: {fileID: 429468, guid: 7a49ab1490fa3334daee70a1bccbf866, type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1719956499}
-  m_LocalRotation: {x: .660977125, y: -.251215518, z: -.251215458, w: .660977125}
+  m_LocalRotation: {x: .660977185, y: -.251215547, z: -.251215488, w: .660977185}
   m_LocalPosition: {x: .0140000004, y: -.43599999, z: .169}
   m_LocalScale: {x: .0920989886, y: .223507717, z: .0749249384}
   m_Children: []
@@ -104409,8 +104424,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 3.81469727e-06, y: -9.53674316e-07, z: -9.53674316e-07}
-    m_Extent: {x: 5.00000048, y: .0120218545, z: 5.00000191}
+    m_Center: {x: 2.72922944e-06, y: -1.07683559e-06, z: -4.8785563e-07}
+    m_Extent: {x: 5.00000048, y: .0120218555, z: 5.00000191}
   m_DirtyAABB: 0
 --- !u!1 &1760659606
 GameObject:
