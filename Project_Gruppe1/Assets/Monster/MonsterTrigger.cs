@@ -21,7 +21,7 @@ public class MonsterTrigger : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 
 		if (other.gameObject.CompareTag ("Player")) {
-			if (name.Equals ("TriggerRaum")) {
+			if (name.Equals ("TriggerRaum") && !wasInRoom) {
 				wasInRoom = true;
 				Debug.Log ("was in room");
 				monsterspawn = gameObject.transform.GetChild(0);
