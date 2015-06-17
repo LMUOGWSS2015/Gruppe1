@@ -21,6 +21,11 @@ TagManager:
   - SmartphoneMessage
   - HideSpot
   - Subtitles
+  - DollBath
+  - Doll
+  - DollStep
+  - DollPiano
+  - DollWindow
   layers:
   - Default
   - TransparentFX
