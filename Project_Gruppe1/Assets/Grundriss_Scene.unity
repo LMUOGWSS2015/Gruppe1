@@ -25039,7 +25039,7 @@ MonoBehaviour:
   hintImage2: {fileID: 2800000, guid: b925ff48080041b44a758f286709966b, type: 3}
   hintImage3: {fileID: 2800000, guid: 7031156487fe0894e92b30ed3c70ba90, type: 3}
   hintImage4: {fileID: 2800000, guid: 5b1a37e8c866a964084987457dfcd93e, type: 3}
-  defaultHintImage: {fileID: 2800000, guid: 1f32cfce1b599c3418398bc6c4ecc8f9, type: 3}
+  defaultHintImage: {fileID: 2800000, guid: 79f238ace8c85c24ca4ddedf0767961e, type: 3}
   pauseMusic: {fileID: 923633324}
 --- !u!114 &617083323
 MonoBehaviour:
