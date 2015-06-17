@@ -71215,7 +71215,7 @@ MonoBehaviour:
   openDrawerSound: {fileID: 0}
   closeDrawerSound: {fileID: 0}
   open: 0
-  smooth: 2
+  smooth: 5
 --- !u!82 &1089260935
 AudioSource:
   m_ObjectHideFlags: 0

@@ -12,38 +12,41 @@ public class openKitchenDrawer : MonoBehaviour {
 	public AudioClip closeDrawerSound;
 	
 	
-	public bool open;
+	public bool open = false;
 	
-	public float smooth = 2f;
-	
+	public float smooth = 5f;
+
 	private Vector3 openPosition;
 	private Vector3 closePosition;
 	
 	// Use this for initialization
 	void Start () {
 		doorSound = GetComponent<AudioSource>();
-		
-		closePosition = transform.localPosition;
-		openPosition = new Vector3 (closePosition.x, closePosition.y, closePosition.z + 0.5f);
-		
-		closePosition = transform.localPosition;
-		openPosition = new Vector3 (closePosition.x, closePosition.y, closePosition.z + 0.5f);
-		if (open == true) {
-			transform.localPosition = Vector3.Slerp(closePosition, openPosition, Time.deltaTime * smooth);
+
+		openPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, transform.localPosition.z + 0.5f);
+		closePosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, transform.localPosition.z);
+
+		if (open) {
+			transform.localPosition = Vector3.Lerp(closePosition, openPosition, Time.deltaTime  * smooth);
 		}
 	}
 	
 	public void ChangeDrawerState() {
 		open = !open;
-		if (open == true) {
+		if (open) {
 			doorSound.clip = openDrawerSound;
-			transform.localPosition = Vector3.Slerp(closePosition, openPosition, Time.deltaTime * smooth);
 		} else {
 			doorSound.clip = closeDrawerSound;
-			transform.localPosition = Vector3.Slerp(openPosition, closePosition, Time.deltaTime * smooth);
-			
 		}
 		doorSound.Play ();
+	}
+	// Update is called once per frame
+	void Update () {
+		if (open) {
+			transform.localPosition = Vector3.Lerp(transform.localPosition, openPosition, Time.deltaTime  * smooth);
+		} else {
+			transform.localPosition = Vector3.Lerp(transform.localPosition, closePosition, Time.deltaTime  * smooth);
+		}
 	}
 	
 }
