@@ -7,29 +7,31 @@ public class Collisions : MonoBehaviour {
 	private EyesScript es;
 
 	// Hide spot
-	private bool hideSpotOpen;
+	private bool openHideSpot;
 	private GameObject go;
 	private Rigidbody rb;
 
 	// Use this for initialization
 	void Start () {
-		Debug.Log ("#################Start Collisions Script");
 		
 		// Monster: Get eye script
 		es  = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<EyesScript>();
 
 		// Hide spot
-		hideSpotOpen = false;
-		go = GameObject.Find("/Grundriss/Erdgeschoss/Versteck/hide_spot_2/door");
-		rb = go.GetComponent<Rigidbody>();
-		rb.isKinematic = true;
-		rb.useGravity = false;
+		openHideSpot = false;
+		go = GameObject.Find("/Grundriss/Erdgeschoss/Versteck/hide_spot_2/Tuer/door");
+//		rb = go.GetComponent<Rigidbody>();
+//		rb.isKinematic = true;
+//		rb.useGravity = false;
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (openHideSpot) {
+			Quaternion targetRotation = Quaternion.Euler (0, 91, 0);
+			go.transform.localRotation = Quaternion.Lerp (go.transform.localRotation, targetRotation, 2.0f * Time.deltaTime);
+		}
 	}
 
 	// Trigger enter: check tag of entered (collided) game object
@@ -43,8 +45,8 @@ public class Collisions : MonoBehaviour {
 
 		// Open hide spot
 		if (other.gameObject.CompareTag ("HideSpot")) {
-			if (!hideSpotOpen) {
-				OpenHideSpot();
+			if (!openHideSpot) {
+				openHideSpot = true;
 			}
 		}
 	}
@@ -65,9 +67,9 @@ public class Collisions : MonoBehaviour {
 	 * Open hide spot
 	 */
 	void OpenHideSpot() {
-		hideSpotOpen = true;
-		go.transform.rotation = Quaternion.Euler(0, 0, -0.5f);
-		rb.isKinematic = false;
-		rb.useGravity = true;
+		openHideSpot = true;
+//		go.transform.rotation = Quaternion.Euler(0, 0, -0.5f);
+//		rb.isKinematic = false;
+//		rb.useGravity = true;
 	}
 }

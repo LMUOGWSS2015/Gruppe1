@@ -161,19 +161,29 @@ public class PauseMenu1 : MonoBehaviour {
 
 		if (!IsBeginning ()) {
 			GUILayout.BeginArea (new Rect (350*guiFactor, 150*guiFactor, 400*guiFactor, 400*guiFactor));
-				GUILayoutOption[] itemImageOptions = new GUILayoutOption[] {GUILayout.Width (200f*guiFactor*guiFactor), GUILayout.Height (200f*guiFactor)};
+				GUILayoutOption[] itemImageOptions = new GUILayoutOption[] {GUILayout.Width (200f*guiFactor), GUILayout.Height (200f*guiFactor)};
 				GUIStyle itemImageStyle = new GUIStyle (GUI.skin.box);
 				itemImageStyle.margin = new RectOffset (0, 0, 0, 0);
 				itemImageStyle.padding = new RectOffset (5*guiFactor, 5*guiFactor, 5*guiFactor, 5*guiFactor);
-				itemImageStyle.alignment = TextAnchor.MiddleCenter;
+				//itemImageStyle.alignment = TextAnchor.MiddleCenter;
+
+				GUIStyle imageLOStyle = new GUIStyle(itemImageStyle);
+				imageLOStyle.alignment = TextAnchor.LowerRight;
+				GUIStyle imageLUStyle = new GUIStyle(itemImageStyle);
+				imageLUStyle.alignment = TextAnchor.UpperRight;
+				GUIStyle imageROStyle = new GUIStyle(itemImageStyle);
+				imageROStyle.alignment = TextAnchor.LowerLeft;
+				GUIStyle imageRUStyle = new GUIStyle(itemImageStyle);
+				imageRUStyle.alignment = TextAnchor.UpperLeft;
+				
 				GUILayout.BeginHorizontal ();
 				GUILayout.BeginVertical ();
-				GUILayout.Box ((foundHints >=1 ? hintImage1 : defaultHintImage), itemImageStyle, itemImageOptions);
-				GUILayout.Box ((foundHints >=2 ? hintImage2 : defaultHintImage), itemImageStyle, itemImageOptions);
+				GUILayout.Box ((foundHints >=1 ? hintImage1 : defaultHintImage), imageLOStyle, itemImageOptions);
+				GUILayout.Box ((foundHints >=2 ? hintImage2 : defaultHintImage), imageLUStyle, itemImageOptions);
 				GUILayout.EndVertical ();
 				GUILayout.BeginVertical ();
-				GUILayout.Box ((foundHints >=3 ? hintImage3 : defaultHintImage), itemImageStyle, itemImageOptions);
-				GUILayout.Box ((foundHints >=4 ? hintImage4 : defaultHintImage), itemImageStyle, itemImageOptions);
+				GUILayout.Box ((foundHints >=3 ? hintImage3 : defaultHintImage), imageROStyle, itemImageOptions);
+				GUILayout.Box ((foundHints >=4 ? hintImage4 : defaultHintImage), imageRUStyle, itemImageOptions);
 				GUILayout.EndVertical ();
 				GUILayout.EndHorizontal (); 
 			GUILayout.EndArea ();
