@@ -81,61 +81,66 @@ public class InteractionScript : MonoBehaviour {
 				doll.GetComponent<Animator>().Play("Window");
 			}
 			Debug.Log ("Spieler schaut nicht auf Puppe");
+
 			
+			if (hit.collider.CompareTag ("Kakerlaken")) {
+				Debug.Log ("Kakerlaken");
+				hit.collider.transform.parent.GetComponent<AudioSource> ().Play ();   
+				hit.collider.transform.FindChild ("Kakerlake").gameObject.SetActive (true);
+			}
+
 		}
 		
 		if (Physics.Raycast (ray, out hit, interactDistance)) {
 			
 			if (hit.collider.transform.parent != null) {
-				if (hit.collider.transform.parent.CompareTag("usable") || hit.collider.CompareTag("Door")) {
+				if (hit.collider.transform.parent.CompareTag ("usable") || hit.collider.CompareTag ("Door")) {
 					useIcon.enabled = true;
 				} 
 			}
-			
 			if (Input.GetKeyDown (KeyCode.Mouse0)) {
 				
-				if (hit.collider.CompareTag("Door")){
-					Debug.Log("Tür");
+				if (hit.collider.CompareTag ("Door")) {
+					Debug.Log ("Tür");
 					hit.collider.transform.parent.GetComponent<DoorOpenScript> ().ChangeDoorState (gotKey);
 				}
-				if (hit.collider.CompareTag("Schublade")){
-					Debug.Log("Schublade");
+				if (hit.collider.CompareTag ("Schublade")) {
+					Debug.Log ("Schublade");
 					hit.collider.transform.parent.GetComponent<openKitchenDrawer> ().ChangeDrawerState ();
-				}
-				else if (hit.collider.CompareTag("Hint")) {
-					Debug.Log("Hint gefunden");
+				} else if (hit.collider.CompareTag ("Hint")) {
+					Debug.Log ("Hint gefunden");
 					foundHints++;
-					Debug.Log("Hinweise nr: " +  foundHints);
+					Debug.Log ("Hinweise nr: " + foundHints);
 					if (numberOfHints == foundHints) {
-						Debug.Log("Alle Hinweise da");	
+						Debug.Log ("Alle Hinweise da");	
 					}	
 					showGUIOverlay = true;		
-				}
-				else if (hit.collider.CompareTag("Key")) {
+				} else if (hit.collider.CompareTag ("Key")) {
 					gotKey = true;
-					Debug.Log("Schlüßel gefunden");
-				}
-				
-				else if (hit.collider.CompareTag("Flashlight")) {
-					Debug.Log("Taschenlampe gefunden");
-					Invoke("turnOnFlashlight",1.9f);
+					Debug.Log ("Schlüßel gefunden");
+				} else if (hit.collider.CompareTag ("Flashlight")) {
+					Debug.Log ("Taschenlampe gefunden");
+					Invoke ("turnOnFlashlight", 1.9f);
 					
+				} else if (hit.collider.CompareTag ("smartphone")) {
+					Debug.Log ("Message Smartphone");
 				}
 				
-				else if (hit.collider.CompareTag("smartphone")) {
-					Debug.Log("Message Smartphone");
-				}
-				
-				if (hit.collider.transform.parent.CompareTag("usable")) {
+				if (hit.collider.transform.parent.CompareTag ("usable")) {
 					Debug.Log ("usable");
-					var script = hit.collider.gameObject.GetComponent<UseObject>();
+					var script = hit.collider.gameObject.GetComponent<UseObject> ();
 					
 					if (script != null) {
-						script.useObject();
+						script.useObject ();
 					}
 				}
 			}
 			
+		} else {
+			Debug.Log("Kakerlaken weg");
+			GameObject kakerlaken = GameObject.FindGameObjectWithTag("Kakerlaken");
+			kakerlaken.transform.parent.GetComponent<AudioSource>().Stop();   
+			kakerlaken.transform.FindChild("Kakerlake").gameObject.SetActive(false);
 		}
 		
 		

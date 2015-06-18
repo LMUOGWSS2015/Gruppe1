@@ -26,6 +26,8 @@ TagManager:
   - Key
   - Door
   - Spider
+  - Kakerlaken
+  - Kakerlake
   layers:
   - Default
   - TransparentFX
