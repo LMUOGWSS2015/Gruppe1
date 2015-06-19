@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class EyesScript : MonoBehaviour {
 
@@ -7,6 +8,7 @@ public class EyesScript : MonoBehaviour {
 	float eyesClosedTimepoint = 0;
 	float eyesClosedDuration = 0;
 	float eyesClosedDurationNeeded = 0;
+	private bool introFinished = false;
 
 	public GameObject monster;
 	public MonsterScript monsterscript;
@@ -14,7 +16,7 @@ public class EyesScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		eyesAnimator = GameObject.FindGameObjectWithTag("EyesOverlay").GetComponent<Animator>();
-
+		eyesAnimator.SetBool("EyesClosed", true);
 		monsterscript = monster.GetComponent<MonsterScript> ();
 	}
 	
@@ -37,7 +39,7 @@ public class EyesScript : MonoBehaviour {
 			}
 		}
 		//rechtsklick up
-		if (Input.GetKeyUp (KeyCode.Mouse1 )&& getEyesClosed()) {
+		if (Input.GetKeyUp (KeyCode.Mouse1 ) && getEyesClosed()) {
 			eyesAnimator.SetBool("EyesClosed", false);
 		}
 
@@ -70,5 +72,10 @@ public class EyesScript : MonoBehaviour {
 	public bool getEyesClosed ()
 	{
 		return eyesAnimator.GetBool("EyesClosed");
+	}
+
+	public void setIntroFinished() {
+		eyesAnimator.SetBool("EyesClosed", false);
+		GameObject.Find ("black").GetComponent<Image> ().color = new Color (255, 255, 255, 0);
 	}
 }

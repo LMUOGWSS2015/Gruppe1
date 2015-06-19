@@ -154,7 +154,7 @@ public class PauseMenu1 : MonoBehaviour {
 			UnPauseGame();
 		}
 		if (!IsBeginning() && GUI.Button (new Rect(0, 280*guiFactor, 200*guiFactor, 60*guiFactor), "Restart", buttonStyle)) { 
-			UnPauseGame();
+			//UnPauseGame();
 			Application.LoadLevel(0);
 		}
 		if (GUI.Button (new Rect(0, IsBeginning() ? 280*guiFactor : 380*guiFactor, 200*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
