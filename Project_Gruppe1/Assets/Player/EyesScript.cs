@@ -10,7 +10,6 @@ public class EyesScript : MonoBehaviour {
 
 	public GameObject monster;
 	public MonsterScript monsterscript;
-	bool monsterFightStarted = false;
 
 	// Use this for initialization
 	void Start () {

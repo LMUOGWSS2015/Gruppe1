@@ -49,6 +49,7 @@ public class MonsterAuftritt : MonoBehaviour {
 				monster.transform.position = new Vector3 (monster.transform.position.x, startY, monster.transform.position.z);
 
 				float distance = Vector3.Distance (monster.transform.position, playerpos);
+
 				monster.GetComponent<MonsterScript> ().distanceToPlayer = distance;
 				//damit ende kurz vor dem player kommt
 				distance -= 5f;
@@ -59,7 +60,8 @@ public class MonsterAuftritt : MonoBehaviour {
 				}
 
 				//ende ausloesen
-				if (distance < - 1.3) {
+				Debug.Log(distance);
+				if (distance < - 1.2) {
 					if (monster.GetComponent<MonsterScript> ().playEndAnimation) {
 						//endanimation auslösen
 						StartEndAnimation ();
@@ -83,9 +85,9 @@ public class MonsterAuftritt : MonoBehaviour {
 				player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController> ().enabled = false;
 			
 				//drehe spielerkamera zu monster
-				player.transform.rotation = Quaternion.Slerp (player.transform.rotation, Quaternion.LookRotation ((monster.transform.position + new Vector3 (0, 2.6f, 0)) - player.transform.position), 4f * Time.deltaTime);
+				player.transform.rotation = Quaternion.Slerp (player.transform.rotation, Quaternion.LookRotation ((monster.transform.position + new Vector3 (0, 2.75f, 0)) - player.transform.position), 4f * Time.deltaTime);
 				//if (animator.GetLayerWeight(1) > 0){animator.SetLayerWeight(1, animator.GetLayerWeight(1)-0.2f);}
-				player.transform.position = Vector3.Lerp (player.transform.position, monster.transform.position + monster.transform.forward * 2.2f + monster.transform.up * 2.5f, 1.5f * Time.deltaTime);
+				player.transform.position = Vector3.Lerp (player.transform.position, monster.transform.position + monster.transform.forward * 2.6f + monster.transform.up * 2.5f, 1.5f * Time.deltaTime);
 			}
 
 			//falls fight noch nicht laueft, starte ihn wenn monster nah genug oder gesehen
