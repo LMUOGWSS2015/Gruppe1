@@ -65,7 +65,9 @@ public class PauseMenu1 : MonoBehaviour {
 	void StopMusic() {
 		AudioSource[] audios = FindObjectsOfType (typeof(AudioSource)) as AudioSource[];
 		foreach (AudioSource aud in audios) {
-			aud.Play(); 
+			if (aud.playOnAwake) {
+				aud.Play(); 
+			}
 		}
 		pauseAudio.Stop ();
 	}
