@@ -107565,7 +107565,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498422, guid: fe54c6d93571c7e4780f1e22ec16a567, type: 2}
       propertyPath: m_LocalPosition.x
-      value: .479999989
+      value: .50999999
       objectReference: {fileID: 0}
     - target: {fileID: 498422, guid: fe54c6d93571c7e4780f1e22ec16a567, type: 2}
       propertyPath: m_LocalPosition.y
@@ -107573,7 +107573,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498422, guid: fe54c6d93571c7e4780f1e22ec16a567, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 3.00999999
+      value: 3.1500001
       objectReference: {fileID: 0}
     - target: {fileID: 498422, guid: fe54c6d93571c7e4780f1e22ec16a567, type: 2}
       propertyPath: m_LocalRotation.x
@@ -124998,6 +124998,29 @@ MonoBehaviour:
   hint4: {fileID: 2800000, guid: 5b1a37e8c866a964084987457dfcd93e, type: 3}
   gotKey: 0
   gotFlashlight: 0
+--- !u!114 &2138786640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2138786632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e318a6043c1cb4a8ce1c8805bab930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resolution: 1
+  screenBlendMode: 0
+  sunTransform: {fileID: 0}
+  radialBlurIterations: 2
+  sunColor: {r: 1, g: 1, b: 1, a: 1}
+  sunThreshold: {r: .870000005, g: .74000001, b: .649999976, a: 1}
+  sunShaftBlurRadius: 2.5
+  sunShaftIntensity: 1.14999998
+  maxRadius: .75
+  useDepthTexture: 1
+  sunShaftsShader: {fileID: 4800000, guid: d3b1c8c1036784176946f5cfbfb7fe4c, type: 3}
+  simpleClearShader: {fileID: 4800000, guid: f688f89ed5eb847c5b19c934a0f1e772, type: 3}
 --- !u!1 &2138937854
 GameObject:
   m_ObjectHideFlags: 0

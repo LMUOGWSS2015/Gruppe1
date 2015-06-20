@@ -37,9 +37,11 @@ public class MonsterDecke : MonoBehaviour {
 
 	IEnumerator Fade() {
 		Destroy(this.gameObject, 5f);
-		yield return new WaitForSeconds(0.5f);
-		fade = true;
+		yield return new WaitForSeconds(0.25f);
 		gameObject.GetComponentInChildren<ParticleSystem> ().Play ();
+		yield return new WaitForSeconds(0.25f);
+		fade = true;
+
 	}
 
 }
