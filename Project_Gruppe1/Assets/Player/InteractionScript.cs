@@ -186,6 +186,7 @@ public class InteractionScript : MonoBehaviour {
 
 	public void PlayerDies(){
 		Debug.Log("Dead...");
+		Application.LoadLevel(Application.loadedLevel);
 	}
 	
 }

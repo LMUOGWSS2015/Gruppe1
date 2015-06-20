@@ -27,8 +27,8 @@ public class MonsterDecke : MonoBehaviour {
 			color = new Color(color.r,color.g,color.b,alpha);
 			GameObject.Find ("cloth").GetComponent<Renderer> ().material.color = color;
 			GameObject.Find ("monster").GetComponent<Renderer> ().material.color = color;
-			if (alpha - 0.1f >0) {
-				alpha -= 0.1f;
+			if (alpha - 0.2f >0) {
+				alpha -= 0.2f;
 			} else {
 				alpha = 0;
 			}
@@ -39,6 +39,7 @@ public class MonsterDecke : MonoBehaviour {
 		Destroy(this.gameObject, 5f);
 		yield return new WaitForSeconds(0.5f);
 		fade = true;
+		gameObject.GetComponentInChildren<ParticleSystem> ().Play ();
 	}
 
 }
