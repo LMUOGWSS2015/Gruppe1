@@ -35,7 +35,6 @@ public class smartphone : MonoBehaviour {
 			fade = false;
 		}
 
-		Debug.Log("Sichbarkeit: " + alpha);
 
 	}
 

@@ -28,8 +28,7 @@ public class InteractionScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		strengthOfFlashlight = flashlight.intensity;
-		Debug.Log ("Sooooooo stark wird sie! " + strengthOfFlashlight);
-		
+
 		if (gotFlashlight == false) {
 			flashlight.intensity = 0f;
 		}
@@ -80,7 +79,7 @@ public class InteractionScript : MonoBehaviour {
 				Debug.Log ("Spieler sieht wie Puppe stirbt!");
 				doll.GetComponent<Animator>().Play("Window");
 			}
-			Debug.Log ("Spieler schaut nicht auf Puppe");
+			//Debug.Log ("Spieler schaut nicht auf Puppe");
 
 			
 			if (hit.collider.CompareTag ("Kakerlaken")) {
@@ -137,7 +136,7 @@ public class InteractionScript : MonoBehaviour {
 			}
 			
 		} else {
-			Debug.Log("Kakerlaken weg");
+		//	Debug.Log("Kakerlaken weg");
 			GameObject kakerlaken = GameObject.FindGameObjectWithTag("Kakerlaken");
 			kakerlaken.transform.parent.GetComponent<AudioSource>().Stop();   
 			kakerlaken.transform.FindChild("Kakerlake").gameObject.SetActive(false);

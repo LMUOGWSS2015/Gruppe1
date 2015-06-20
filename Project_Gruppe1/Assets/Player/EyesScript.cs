@@ -75,7 +75,8 @@ public class EyesScript : MonoBehaviour {
 	}
 
 	public void setIntroFinished() {
+		Debug.Log ("Geht er hier rein");
 		eyesAnimator.SetBool("EyesClosed", false);
-		GameObject.Find ("black").GetComponent<Image> ().color = new Color (255, 255, 255, 0);
+		GameObject.Find ("black").GetComponent<Image>().color = new Color (255, 255, 255, 0);
 	}
 }

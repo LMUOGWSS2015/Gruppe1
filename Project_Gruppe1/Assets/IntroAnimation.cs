@@ -24,7 +24,12 @@ public class IntroAnimation : MonoBehaviour {
 
 		GameObject.Find ("TextIntroPart1").GetComponent<Text>().color = new Color (255, 255, 255, alpha);
 		GameObject.Find ("TextIntroPart2").GetComponent<Text>().color = new Color (255, 255, 255, alpha);
+
+
 		if (showIntro == true) {
+			if (this.gameObject.GetComponent<AudioSource>().isPlaying == false) {
+				this.gameObject.GetComponent<AudioSource>().Play ();
+			}
 			Invoke ("displayPart1", 2);
 			Invoke ("displayPart2", 8);
 			Invoke ("fadeOutNow", 10);
@@ -78,7 +83,11 @@ public class IntroAnimation : MonoBehaviour {
 	}
 
 	private void afterIntro() {
-		GameObject.Find ("FirstPersonCharacter").GetComponent<EyesScript> ().setIntroFinished ();
+		//GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<EyesScript> ().setIntroFinished ();
+
+		GameObject.FindGameObjectWithTag("EyesOverlay").GetComponent<Animator>().SetBool("EyesClosed", false);
+		GameObject.Find ("black").GetComponent<Image>().color = new Color (255, 255, 255, 0);
+
 		GameObject.Find ("Player").GetComponent<AudioSource> ().Play ();
 		introFinished = true;
 		GameObject.FindGameObjectWithTag("Player").GetComponentInParent<Animator>().SetTrigger("start");
