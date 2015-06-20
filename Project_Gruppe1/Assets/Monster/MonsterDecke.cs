@@ -37,9 +37,10 @@ public class MonsterDecke : MonoBehaviour {
 
 	IEnumerator Fade() {
 		Destroy(this.gameObject, 5f);
+		gameObject.GetComponent<AudioSource> ().Play ();
 		yield return new WaitForSeconds(0.25f);
 		gameObject.GetComponentInChildren<ParticleSystem> ().Play ();
-		yield return new WaitForSeconds(0.25f);
+		yield return new WaitForSeconds(0.5f);
 		fade = true;
 
 	}
