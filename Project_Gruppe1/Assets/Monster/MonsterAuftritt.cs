@@ -8,7 +8,7 @@ public class MonsterAuftritt : MonoBehaviour {
 	GameObject monster, player;
 	Animator animator;
 	float startY;
-	bool stehen = false;
+	bool closeForAttack = false;
 
 	MonsterScript monsterscript;
 
@@ -38,29 +38,38 @@ public class MonsterAuftritt : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (monsterscript.walkingStarted) {
+		float distance = Vector3.Distance (monster.transform.position, playerpos);
+		monster.GetComponent<MonsterScript> ().distanceToPlayer = distance;
+		//damit ende kurz vor dem player kommt
+		distance -= 5f;
+
+		//arme heben
+		if (distance < 8 && distance >= 0) {
+			animator.SetLayerWeight (1, 1 - distance / 8);
+		}
+
+		Ray ray = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
+		RaycastHit hit;
+
+		if (!monsterscript.walkingStarted) {
+			if (Physics.Raycast (ray, out hit)) {
+				if (hit.collider.CompareTag ("Monster")) {
+					Debug.Log ("Monster seen, start walking");
+					StartWalking ();
+				}
+			}
+		} else {
 			playerpos = player.transform.position;
 
 			//wenn monster sich noch bewegt
-			if (!stehen) {
+			if (!closeForAttack) {
 				//auf Spieler ausrichten
 				monster.transform.LookAt (playerpos + new Vector3 (0, -2.1f, 0));
 				//auf Boden setzen
 				monster.transform.position = new Vector3 (monster.transform.position.x, startY, monster.transform.position.z);
 
-				float distance = Vector3.Distance (monster.transform.position, playerpos);
 
-				monster.GetComponent<MonsterScript> ().distanceToPlayer = distance;
-				//damit ende kurz vor dem player kommt
-				distance -= 5f;
-				//Debug.Log(distance);
-
-				//arme heben
-				if (distance < 8 && distance >= 0) {
-					animator.SetLayerWeight (1, 1 - distance / 8);
-				}
-
-				//ende ausloesen
+				//ende ausloesen wenn monster sehr nah
 				if (distance < - 1.2) {
 					if (monster.GetComponent<MonsterScript> ().playEndAnimation) {
 						//endanimation auslösen
@@ -79,32 +88,30 @@ public class MonsterAuftritt : MonoBehaviour {
 					StartEndAnimation ();
 				}
 
-			} else {
+			} else { //monster nah genug für endangriff
 				//endanimation
 				player.GetComponent<CharacterController> ().enabled = false;
 				player.GetComponent<UnityStandardAssets.Characters.FirstPerson.FirstPersonController> ().enabled = false;
 			
 				//drehe spielerkamera zu monster
 				player.transform.rotation = Quaternion.Slerp (player.transform.rotation, Quaternion.LookRotation ((monster.transform.position + new Vector3 (0, 2.75f, 0)) - player.transform.position), 4f * Time.deltaTime);
-				//if (animator.GetLayerWeight(1) > 0){animator.SetLayerWeight(1, animator.GetLayerWeight(1)-0.2f);}
+				//bewege spieler zu monster
 				player.transform.position = Vector3.Lerp (player.transform.position, monster.transform.position + monster.transform.forward * 2.6f + monster.transform.up * 2.6f, 1.5f * Time.deltaTime);
 			}
 
 			//falls fight noch nicht laueft, starte ihn wenn monster nah genug oder gesehen
 			if (!monster.GetComponent<MonsterScript> ().monsterFightStarted) {
 
-				Ray ray = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
-				RaycastHit hit;
 				//Start wenn Monster gesehen
 				if (Physics.Raycast (ray, out hit) && monster.GetComponent<MonsterScript> ().distanceToPlayer < 20f) {
 					if (hit.collider.CompareTag ("Monster")) {
-						Debug.Log ("Monster gesehen");
+						Debug.Log ("Monster seen");
 						StartFight ();
 					}
 				}
 				//Start wenn Monster nah
 				if (monster.GetComponent<MonsterScript> ().distanceToPlayer < 8f) {
-					Debug.Log ("Monster nah");
+					Debug.Log ("Monster close");
 					StartFight ();
 				}
 			}
@@ -116,13 +123,13 @@ public class MonsterAuftritt : MonoBehaviour {
 		Debug.Log("Endanimation started");
 		animator.SetBool("stehen", true);
 		animator.applyRootMotion = false;
-		stehen = true;
+		closeForAttack = true;
 	}
 
 	//startet den fight
 	public void StartFight(){
 		monster.GetComponent<MonsterScript>().monsterFightStarted = true;
-		Debug.Log("Fight started.");
+		Debug.Log("Fight started");
 
 		//Bewegung einschraenken
 		FirstPersonController fpsc = player.GetComponent<FirstPersonController> ();

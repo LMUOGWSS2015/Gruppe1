@@ -21,13 +21,13 @@ public class MonsterTrigger : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 
 		if (other.gameObject.CompareTag ("Player")) {
-			if (name.Equals ("TriggerRaum") && !wasInRoom) {
+			if (name.Equals ("TriggerRaum") && !wasInRoom && !monster) {
 				wasInRoom = true;
-				Debug.Log ("was in room");
+				Debug.Log ("was in trigger box");
 				monsterspawn = gameObject.transform.GetChild(0);
 				monster = (GameObject) Instantiate(monsterprefab, monsterspawn.position, monsterspawn.rotation);
 			} else if (wasInRoom){
-				Debug.Log ("start monster");
+				Debug.Log ("start monster by trigger");
 				monster.GetComponent<MonsterAuftritt>().StartWalking();
 			}
 		}
