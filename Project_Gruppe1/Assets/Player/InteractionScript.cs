@@ -88,6 +88,14 @@ public class InteractionScript : MonoBehaviour {
 				hit.collider.transform.FindChild ("Kakerlake").gameObject.SetActive (true);
 			}
 
+			if (hit.collider.CompareTag("Picture")) {
+				//Debug.Log("Picture");
+				var script = hit.collider.GetComponent<BlendObjectsScript>();
+				if (script != null) {
+					script.showObject2();
+				}
+			}
+
 		}
 		
 		if (Physics.Raycast (ray, out hit, interactDistance)) {
