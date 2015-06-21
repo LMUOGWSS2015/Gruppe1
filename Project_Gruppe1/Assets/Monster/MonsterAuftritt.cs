@@ -48,12 +48,21 @@ public class MonsterAuftritt : MonoBehaviour {
 			animator.SetLayerWeight (1, 1 - distance / 8);
 		}
 
-		Ray ray = new Ray (Camera.main.transform.position, Camera.main.transform.forward);
-		RaycastHit hit;
+		Ray ray = new Ray ();
+		RaycastHit[] hits = Physics.RaycastAll (Camera.main.transform.position, Camera.main.transform.forward);
+		Collider hit = null;
+		//trigger herausfiltern
+		for (int i = 0; i < hits.Length; i++) {
+			if (!hits[i].collider.isTrigger) {
+				hit = hits[i].collider;
+				break;
+			}
+		}
+
 
 		if (!monsterscript.walkingStarted) {
-			if (Physics.Raycast (ray, out hit)) {
-				if (hit.collider.CompareTag ("Monster")) {
+			if (hit) {
+				if (hit.CompareTag ("Monster")) {
 					Debug.Log ("Monster seen, start walking");
 					StartWalking ();
 				}
@@ -103,8 +112,8 @@ public class MonsterAuftritt : MonoBehaviour {
 			if (!monster.GetComponent<MonsterScript> ().monsterFightStarted) {
 
 				//Start wenn Monster gesehen
-				if (Physics.Raycast (ray, out hit) && monster.GetComponent<MonsterScript> ().distanceToPlayer < 20f) {
-					if (hit.collider.CompareTag ("Monster")) {
+				if (hit && monster.GetComponent<MonsterScript> ().distanceToPlayer < 20f) {
+					if (hit.CompareTag ("Monster")) {
 						Debug.Log ("Monster seen");
 						StartFight ();
 					}

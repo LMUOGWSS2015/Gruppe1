@@ -29,6 +29,7 @@ public class MonsterTrigger : MonoBehaviour {
 			} else if (wasInRoom){
 				Debug.Log ("start monster by trigger");
 				monster.GetComponent<MonsterAuftritt>().StartWalking();
+				wasInRoom = false;
 			}
 		}
 
