@@ -57,7 +57,7 @@ public class InteractionScript : MonoBehaviour {
 		RaycastHit hit;
 
 		// Player is looking at the doll and activate doll-animations
-		var doll = GameObject.Find ("DollAnim");
+		var doll = GameObject.FindGameObjectWithTag ("Doll");
 
 		if (Physics.Raycast (ray, out hit, 20f)) {
 			

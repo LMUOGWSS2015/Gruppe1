@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 0f51601178eb3cd42bf049d051ec49cf
-timeCreated: 1434358253
+guid: b2a5f0b5dfa7b7245afdde7b0d4440dc
+timeCreated: 1434929827
 licenseType: Free
 ModelImporter:
   serializedVersion: 18
@@ -63,17 +63,6 @@ ModelImporter:
     400054: UpLegR
     4300000: Doll
     7400000: Armature|BathWalk
-    7400002: Armature|Fenster_innen_l|C4D Animation Take|Layer0
-    7400004: Armature|Fenster_innen_l|C4D Animation Take|Layer0.001
-    7400006: Armature|Fenster_innen_r|C4D Animation Take|Layer0
-    7400008: Armature|Fenster_innen_r|C4D Animation Take|Layer0.001
-    7400010: Armature|Kinderzimmer
-    7400012: Armature|Klavier
-    7400014: Armature|Treppe
-    7400016: Doll|Fenster_innen_l|C4D Animation Take|Layer0
-    7400018: Doll|Fenster_innen_l|C4D Animation Take|Layer0.001
-    7400020: Doll|Fenster_innen_r|C4D Animation Take|Layer0
-    7400022: Doll|Fenster_innen_r|C4D Animation Take|Layer0.001
     9500000: //RootNode
     13700000: Doll
   materials:
@@ -97,7 +86,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
