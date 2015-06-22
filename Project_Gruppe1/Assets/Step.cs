@@ -17,14 +17,9 @@ public class Step : StateMachineBehaviour {
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	
-		var doll = GameObject.Find ("DollAnim");
-		var dollCol = GameObject.Find ("DollStepCol");
-		
-		//set new position of doll for next animation location
-		doll.transform.position = new Vector3 (0.32f, -7.3f, 0.28f);
-
+		var doll = GameObject.Find ("DollStep");
 		Debug.Log ("zweite AnimationCollider wird gelöscht");
-		Destroy (dollCol);
+		Destroy (doll);
 
 	}
 

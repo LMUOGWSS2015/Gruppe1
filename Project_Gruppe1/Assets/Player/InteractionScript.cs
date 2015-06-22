@@ -57,27 +57,30 @@ public class InteractionScript : MonoBehaviour {
 		RaycastHit hit;
 
 		// Player is looking at the doll and activate doll-animations
-		var doll = GameObject.FindGameObjectWithTag ("Doll");
+		var dollB = GameObject.Find ("DollBath");
+		var dollS = GameObject.Find ("DollStep");
+		var dollP = GameObject.Find ("DollPiano");
+		var dollW = GameObject.Find ("DollRoom");
 
 		if (Physics.Raycast (ray, out hit, 20f)) {
 			
 			if (hit.collider.CompareTag("DollBath")) {
 				Debug.Log ("Spieler schaut Puppe an");
-				doll.GetComponent<Animator>().Play("BathWalk");
+				dollB.GetComponent<Animator>().Play("BathWalk");
 
 			}
 			else if (hit.collider.CompareTag ("DollStep")){
 				Debug.Log ("Spieler schaut Puppe an der Treppe an");
 
-				doll.GetComponent<Animator>().Play("Step");
+				dollS.GetComponent<Animator>().Play("Step");
 			}
 			else if (hit.collider.CompareTag ("DollPiano")){
 				Debug.Log ("Spieler schaut Puppe im Wohnzimmer an");
-				doll.GetComponent<Animator>().Play("Piano");
+				dollP.GetComponent<Animator>().Play("Piano");
 			}
 			else if (hit.collider.CompareTag ("DollWindow")){
 				Debug.Log ("Spieler sieht wie Puppe stirbt!");
-				doll.GetComponent<Animator>().Play("Window");
+				dollW.GetComponent<Animator>().Play("Window");
 			}
 			//Debug.Log ("Spieler schaut nicht auf Puppe");
 

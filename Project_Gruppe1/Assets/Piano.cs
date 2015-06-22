@@ -16,14 +16,9 @@ public class Piano : StateMachineBehaviour {
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	
-		var doll = GameObject.Find ("DollAnim");
-		var dollCol = GameObject.Find ("DollPianoCol");
-		
-		//set new position of doll for next animation location
-		doll.transform.position = new Vector3 (-1.05f, -7.3f, -0.11f);
-
+		var doll = GameObject.Find ("DollPiano");
 		Debug.Log ("dritter AnimationCollider wird gelöscht");
-		Destroy (dollCol);
+		Destroy (doll);
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
