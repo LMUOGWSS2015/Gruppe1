@@ -86,9 +86,9 @@ public class InteractionScript : MonoBehaviour {
 
 			
 			if (hit.collider.CompareTag ("Kakerlaken")) {
-				Debug.Log ("Kakerlaken");
-				hit.collider.transform.parent.GetComponent<AudioSource> ().Play ();   
-				hit.collider.transform.FindChild ("Kakerlake").gameObject.SetActive (true);
+				hit.collider.transform.parent.GetComponent<Kakerlakenanimation> ().AnimateKakerlake();
+//				hit.collider.transform.parent.GetComponent<AudioSource> ().Play ();   
+//				hit.collider.transform.FindChild ("Kakerlake").gameObject.SetActive (true);
 			}
 
 			if (hit.collider.CompareTag("Picture")) {
@@ -148,9 +148,9 @@ public class InteractionScript : MonoBehaviour {
 			
 		} else {
 		//	Debug.Log("Kakerlaken weg");
-			GameObject kakerlaken = GameObject.FindGameObjectWithTag("Kakerlaken");
-			kakerlaken.transform.parent.GetComponent<AudioSource>().Stop();   
-			kakerlaken.transform.FindChild("Kakerlake").gameObject.SetActive(false);
+//			GameObject kakerlaken = GameObject.FindGameObjectWithTag("Kakerlaken");
+//			kakerlaken.transform.parent.GetComponent<AudioSource>().Stop();   
+//			kakerlaken.transform.FindChild("Kakerlake").gameObject.SetActive(false);
 		}
 		
 		
