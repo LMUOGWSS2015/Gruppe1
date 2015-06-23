@@ -39,6 +39,11 @@ public class MonsterDecke : MonoBehaviour {
 		Destroy(this.gameObject, 5f);
 		gameObject.GetComponent<AudioSource> ().Play ();
 		yield return new WaitForSeconds(0.25f);
+		//reposition particles + start
+		Vector3 monsterposition = GameObject.Find("Monster an Decke").transform.position + new Vector3(0,4.5f,0);
+		Vector3 vec = Camera.main.transform.position - monsterposition;
+		Vector3 pointbetween = monsterposition + (vec.normalized * 6f);
+		gameObject.GetComponentInChildren<ParticleSystem> ().transform.position = pointbetween;
 		gameObject.GetComponentInChildren<ParticleSystem> ().Play ();
 		yield return new WaitForSeconds(0.5f);
 		fade = true;
