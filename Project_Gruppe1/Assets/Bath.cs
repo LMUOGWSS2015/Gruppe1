@@ -4,12 +4,8 @@ using System.Collections;
 public class Bath : StateMachineBehaviour {
 
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-	//
-	//GameObject.FindGameObjectWithTag ("Doll").SetActive (true);
-		var doll = GameObject.Find ("DollBath");
-//	doll.transform.position = new Vector3 (1.3018f, 3.295621f, -2.404818f);
-	}
+	//override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {	
+	//}
 
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	//override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -20,17 +16,8 @@ public class Bath : StateMachineBehaviour {
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 
 		var doll = GameObject.Find ("DollBath");
-//		var dollCol = GameObject.Find ("DollBathCol");
-
-
-		//set new position of doll for next animation location
-//		doll.transform.position = new Vector3 (-2.43f, -6.92f, 0.5f);
-
 		Debug.Log ("erster AnimationCollider wird gelöscht");
 		Destroy (doll);
-
-
-
 	}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove(). Code that processes and affects root motion should be implemented here
