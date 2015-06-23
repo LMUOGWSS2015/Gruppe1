@@ -26,10 +26,19 @@ public class MonsterTrigger : MonoBehaviour {
 				Debug.Log ("was in trigger box");
 				monsterspawn = gameObject.transform.GetChild(0);
 				monster = (GameObject) Instantiate(monsterprefab, monsterspawn.position, monsterspawn.rotation);
+				Destroy(gameObject);
+				Destroy(this);
 			} else if (wasInRoom){
-				Debug.Log ("start monster by trigger");
-				monster.GetComponent<MonsterAuftritt>().StartWalking();
-				wasInRoom = false;
+				if (monster && !monster.GetComponent<MonsterScript>().walkingStarted){
+					Debug.Log ("start monster by trigger");
+					monster.GetComponent<MonsterAuftritt>().StartWalking();
+					wasInRoom = false;
+					Destroy(gameObject);
+					Destroy(this);
+				} else {
+					Destroy(gameObject);
+					Destroy(this);
+				}
 			}
 		}
 
