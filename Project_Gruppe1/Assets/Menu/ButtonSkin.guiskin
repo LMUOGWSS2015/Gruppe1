@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 12001, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: ButtonSkin
   m_EditorClassIdentifier: 
-  m_Font: {fileID: 12800000, guid: d8e4580fd7b8f204aa70b45c1219949e, type: 3}
+  m_Font: {fileID: 12800000, guid: cc816585ad1c9764baca5277b2e45d74, type: 3}
   m_box:
     m_Name: box
     m_Normal:
@@ -117,7 +117,7 @@ MonoBehaviour:
       m_Right: 0
       m_Top: 0
       m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: d8e4580fd7b8f204aa70b45c1219949e, type: 3}
+    m_Font: {fileID: 12800000, guid: cc816585ad1c9764baca5277b2e45d74, type: 3}
     m_FontSize: 45
     m_FontStyle: 0
     m_Alignment: 0
@@ -235,7 +235,7 @@ MonoBehaviour:
       m_Right: 0
       m_Top: 0
       m_Bottom: 0
-    m_Font: {fileID: 12800000, guid: d8e4580fd7b8f204aa70b45c1219949e, type: 3}
+    m_Font: {fileID: 12800000, guid: cc816585ad1c9764baca5277b2e45d74, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_Alignment: 0
