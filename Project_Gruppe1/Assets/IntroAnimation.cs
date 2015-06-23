@@ -20,7 +20,7 @@ public class IntroAnimation : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		Debug.Log ("SHow Intro ist auf" + showIntro);
+		Debug.Log ("Show Intro ist auf" + showIntro);
 
 		GameObject.Find ("TextIntroPart1").GetComponent<Text>().color = new Color (255, 255, 255, alpha);
 		GameObject.Find ("TextIntroPart2").GetComponent<Text>().color = new Color (255, 255, 255, alpha);
@@ -85,7 +85,7 @@ public class IntroAnimation : MonoBehaviour {
 	private void afterIntro() {
 		//GameObject.FindGameObjectWithTag ("MainCamera").GetComponent<EyesScript> ().setIntroFinished ();
 
-		GameObject.FindGameObjectWithTag("EyesOverlay").GetComponent<Animator>().SetBool("EyesClosed", false);
+		//GameObject.FindGameObjectWithTag("EyesOverlay").GetComponent<Animator>().SetBool("EyesClosed", false);
 		GameObject.Find ("black").GetComponent<Image>().color = new Color (255, 255, 255, 0);
 
 		GameObject.Find ("Player").GetComponent<AudioSource> ().Play ();

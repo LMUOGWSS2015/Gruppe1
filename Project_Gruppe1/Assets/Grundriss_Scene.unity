@@ -10437,7 +10437,16 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 196818, guid: e841b69e13455854c892674bb9329fdd, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9594352, guid: e841b69e13455854c892674bb9329fdd, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9594352, guid: e841b69e13455854c892674bb9329fdd, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: e841b69e13455854c892674bb9329fdd, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &222520270
@@ -45188,6 +45197,22 @@ Light:
   m_PrefabParentObject: {fileID: 10864184, guid: fa46faaec81880c4fb22da8dab5e5f60,
     type: 2}
   m_PrefabInternal: {fileID: 1678314707}
+--- !u!1 &730098588 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 192216, guid: e841b69e13455854c892674bb9329fdd, type: 2}
+  m_PrefabInternal: {fileID: 222448110}
+--- !u!114 &730098593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 730098588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b926f516b6365c64ca3841ead87babbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  eyesClosed: 0
 --- !u!1 &730513907
 GameObject:
   m_ObjectHideFlags: 0
@@ -76612,7 +76637,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 482970, guid: 23ea6477244500047bbc92ef8e8509a0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -.155000001
+      value: -.0289999992
       objectReference: {fileID: 0}
     - target: {fileID: 482970, guid: 23ea6477244500047bbc92ef8e8509a0, type: 2}
       propertyPath: m_LocalPosition.y
@@ -76620,11 +76645,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 482970, guid: 23ea6477244500047bbc92ef8e8509a0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.83099997
+      value: -1.99600005
       objectReference: {fileID: 0}
     - target: {fileID: 113162, guid: 23ea6477244500047bbc92ef8e8509a0, type: 2}
       propertyPath: m_Name
       value: MonsterTriggerKueche
+      objectReference: {fileID: 0}
+    - target: {fileID: 482970, guid: 23ea6477244500047bbc92ef8e8509a0, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: .0706244856
+      objectReference: {fileID: 0}
+    - target: {fileID: 482970, guid: 23ea6477244500047bbc92ef8e8509a0, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: .997502983
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 23ea6477244500047bbc92ef8e8509a0, type: 2}

@@ -3,8 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class EyesScript : MonoBehaviour {
-
-	Animator eyesAnimator;
+	
 	float eyesClosedTimepoint = 0;
 	float eyesClosedDuration = 0;
 	float eyesClosedDurationNeeded;
@@ -12,19 +11,19 @@ public class EyesScript : MonoBehaviour {
 
 	public GameObject monster;
 	public MonsterScript monsterscript;
+	EyesAnimation eyesAniScript;
 
 	// Use this for initialization
 	void Start () {
-		eyesAnimator = GameObject.FindGameObjectWithTag("EyesOverlay").GetComponent<Animator>();
-		//eyesAnimator.SetBool("EyesClosed", true);
 		monsterscript = monster.GetComponent<MonsterScript> ();
+		eyesAniScript = GameObject.FindGameObjectWithTag("EyesOverlay").GetComponent<EyesAnimation>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		//rechtsklick down
 		if (Input.GetKeyDown (KeyCode.Mouse1) && !getEyesClosed()) {
-			eyesAnimator.SetBool("EyesClosed", true);
+			eyesAniScript.CloseEyes();
 			eyesClosedTimepoint = Time.time;
 
 			if (monster && monsterscript.monsterFightStarted){
@@ -40,7 +39,8 @@ public class EyesScript : MonoBehaviour {
 		}
 		//rechtsklick up
 		if (Input.GetKeyUp (KeyCode.Mouse1 ) && getEyesClosed()) {
-			eyesAnimator.SetBool("EyesClosed", false);
+			//eyesAnimator.SetBool("EyesClosed", false);
+			eyesAniScript.OpenEyes();
 		}
 
 	}
@@ -70,12 +70,12 @@ public class EyesScript : MonoBehaviour {
 	// return eyesClosed
 	public bool getEyesClosed ()
 	{
-		return eyesAnimator.GetBool("EyesClosed");
+		return eyesAniScript.eyesClosed;
 	}
 
 	public void setIntroFinished() {
 		Debug.Log ("Geht er hier rein");
-		eyesAnimator.SetBool("EyesClosed", false);
+		//eyesAnimator.SetBool("EyesClosed", false);
 		GameObject.Find ("black").GetComponent<Image>().color = new Color (255, 255, 255, 0);
 	}
 }
