@@ -26043,22 +26043,6 @@ MonoBehaviour:
   hintImage4: {fileID: 2800000, guid: 5b1a37e8c866a964084987457dfcd93e, type: 3}
   defaultHintImage: {fileID: 2800000, guid: 79f238ace8c85c24ca4ddedf0767961e, type: 3}
   pauseMusic: {fileID: 923633324}
---- !u!114 &617083322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 617083319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79a86a7e34e787842a7311124a2f38bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  damping: 1.5
-  smooth: 1
-  minDistance: 10
-  property: 
 --- !u!114 &617083323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122489,6 +122473,22 @@ Camera:
   m_PrefabParentObject: {fileID: 2081334, guid: fa46faaec81880c4fb22da8dab5e5f60,
     type: 2}
   m_PrefabInternal: {fileID: 1678314707}
+--- !u!114 &2138786635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2138786632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79a86a7e34e787842a7311124a2f38bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  damping: 2
+  smooth: 1
+  minDistance: 0
+  property: 
 --- !u!114 &2138786636
 MonoBehaviour:
   m_ObjectHideFlags: 0

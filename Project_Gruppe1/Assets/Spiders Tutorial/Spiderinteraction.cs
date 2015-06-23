@@ -28,8 +28,8 @@ public class Spiderinteraction : MonoBehaviour {
 			player.GetComponent<FirstPersonController>().enabled = false;
 			player.GetComponent<CharacterController>().enabled = false;
 
-			player.GetComponent<SmoothLookAt>().target = GameObject.FindGameObjectWithTag("Spider").GetComponent<Transform>();
-			player.GetComponent<SmoothLookAt>().enabled = true;
+			es.GetComponent<SmoothLookAt>().target = GameObject.FindGameObjectWithTag("Spider").GetComponent<Transform>();
+			es.GetComponent<SmoothLookAt> ().enabled = true;
 
 			subtitles.text = "See the giant spider? Close your Eyes!";
 			GameObject.FindGameObjectWithTag("Tutorial").GetComponent<Animator>().SetTrigger("TutorialTrigger");
@@ -46,8 +46,12 @@ public class Spiderinteraction : MonoBehaviour {
 			GameObject.FindGameObjectWithTag("Tutorial").SetActive(false);
 			subtitles.text = "Open your Eyes again. See? It was only your imagination.";	
 		}
-
-		player.GetComponent<SmoothLookAt>().enabled = false;
+		yield return new WaitForSeconds(2);
+		player.GetComponent<FirstPersonController> ().m_MouseLook.ResetRotation (
+			player.GetComponentInChildren<FirstPersonController>().transform,
+			player.GetComponentInChildren<FirstPersonController>().m_Camera.transform
+		);
+		es.GetComponent<SmoothLookAt>().enabled = false;
 		player.GetComponent<FirstPersonController>().enabled = true;
 		player.GetComponent<CharacterController>().enabled = true;
 		yield return new WaitForSeconds(5);

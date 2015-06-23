@@ -12,9 +12,9 @@ using System.Collections;
 [AddComponentMenu("Camera-Control/Smooth Look At CS")]
 public class SmoothLookAt : MonoBehaviour {
 	public Transform target;		//an Object to lock on to
-	public float damping = 6.0f;	//to control the rotation 
+	public float damping = 2.0f;	//to control the rotation 
 	public bool smooth = true;
-	public float minDistance = 10.0f;	//How far the target is from the camera
+	public float minDistance = 0;	//How far the target is from the camera
 	public string property = "";
 
 	private Color color;
