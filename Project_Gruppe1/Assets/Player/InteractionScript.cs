@@ -65,8 +65,12 @@ public class InteractionScript : MonoBehaviour {
 		if (Physics.Raycast (ray, out hit, 20f)) {
 			
 			if (hit.collider.CompareTag("DollBath")) {
+				if (dollB.GetComponent<AudioSource>().isPlaying == false) {
+					dollB.GetComponent<AudioSource>().Play ();
+				}
 				Debug.Log ("Spieler schaut Puppe an");
 				dollB.GetComponent<Animator>().Play("BathWalk");
+
 
 			}
 			else if (hit.collider.CompareTag ("DollStep")){
