@@ -51,17 +51,21 @@ public class MonsterAuftritt : MonoBehaviour {
 		Ray ray = new Ray ();
 		RaycastHit[] hits = Physics.RaycastAll (Camera.main.transform.position, Camera.main.transform.forward);
 		Collider hit = null;
-		//trigger herausfiltern
+		//trigger herausfiltern und nähstes objekt auswählen
+		float smallestDistance = 0;
 		for (int i = 0; i < hits.Length; i++) {
 			if (!hits[i].collider.isTrigger) {
-				hit = hits[i].collider;
-				break;
+				if (smallestDistance == 0 || hits[i].distance<smallestDistance){
+					smallestDistance = hits[i].distance;
+					hit = hits[i].collider;
+				}
 			}
 		}
 
 
 		if (!monsterscript.walkingStarted) {
 			if (hit) {
+				Debug.Log(hit.gameObject.name);
 				if (hit.CompareTag ("Monster")) {
 					Debug.Log ("Monster seen, start walking");
 					StartWalking ();

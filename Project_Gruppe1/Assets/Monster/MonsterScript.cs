@@ -23,5 +23,6 @@ public class MonsterScript : MonoBehaviour {
 		GetComponentsInChildren<SkinnedMeshRenderer> () [0].enabled = false;
 		GetComponentsInChildren<SkinnedMeshRenderer> () [1].enabled = false;
 		Destroy (this.gameObject);
+		Destroy (this);
 	}
 }
