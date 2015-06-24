@@ -12,12 +12,24 @@ public class GazeInteractions : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		// Track gaze if eye tracking is on
+		if (useEyeTracking) {
+			eyeTracking ();
+		}
 		
+	}
+
+	/*
+	 * Track eyes and start interactions
+	 */
+	void eyeTracking() {
+
 		//get the Sample from the Server
 		SampleData sample = SMIGazeController.Instance.GetSample();
 		
@@ -30,10 +42,10 @@ public class GazeInteractions : MonoBehaviour {
 		if (averageGazePosition.x == 0) {
 			
 			// Eyes are closed or out of tracker sight
-			Debug.Log ("Eyes are closed.");
+			//			Debug.Log ("Eyes are closed.");
 			
 		} else {
-			Debug.Log ("Eyes are open.");
+			//			Debug.Log ("Eyes are open.");
 		}
 		
 		Ray rayGaze = Camera.main.ScreenPointToRay(SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords());
@@ -91,6 +103,6 @@ public class GazeInteractions : MonoBehaviour {
 			}
 			
 		}
-		
+
 	}
 }
