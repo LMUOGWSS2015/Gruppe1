@@ -3,7 +3,10 @@ using System.Collections;
 using iView;
 
 public class GazeInteractions : MonoBehaviour {
-	
+
+	// Turneye tracking on
+	public bool useEyeTracking = false;
+
 	//Safe last selection of a gazed object
 	private GameObject oldSelection;
 	
@@ -19,8 +22,19 @@ public class GazeInteractions : MonoBehaviour {
 		SampleData sample = SMIGazeController.Instance.GetSample();
 		
 		//get the averaged GazePosition
-		Vector3 averageGazePosition = sample.averagedEye.gazePosInUnityScreenCoords (); 
-		Debug.Log (averageGazePosition);
+		Vector3 averageGazePosition = sample.averagedEye.gazePosInUnityScreenCoords ();
+		
+		//		Debug.Log ("AveragePos (Unity): " + averageGazePosition.x);
+		
+		// Check if eyes are closed
+		if (averageGazePosition.x == 0) {
+			
+			// Eyes are closed or out of tracker sight
+			Debug.Log ("Eyes are closed.");
+			
+		} else {
+			Debug.Log ("Eyes are open.");
+		}
 		
 		Ray rayGaze = Camera.main.ScreenPointToRay(SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords());
 		RaycastHit hit; 
