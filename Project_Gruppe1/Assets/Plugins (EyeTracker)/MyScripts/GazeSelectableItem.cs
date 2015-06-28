@@ -15,7 +15,6 @@ public class GazeSelectableItem : MonoBehaviour {
 	
 	public void OnGazeEnter() {
 		Debug.Log ("++++++++++++++++++++++++++++++++ OnGazeEnter()");
-		GetComponent<Renderer>().enabled = true; // only for testing important
 		GetComponent<Renderer>().material.color = Color.blue;
 	}
 	
