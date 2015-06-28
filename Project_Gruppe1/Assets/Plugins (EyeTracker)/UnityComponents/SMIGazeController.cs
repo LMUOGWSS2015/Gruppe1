@@ -201,7 +201,7 @@ namespace iView
         /// </summary>
         /// <param name="calibrationPoints"> Select the Calibration Method (e.g. 5 = Fivepoint Calibration)</param>
         public void StartCalibration(int calibrationPoints)
-		{Debug.Log ("dddddd");
+        {
             if (!instance.enabled)
                 instance.enabled = true;
 

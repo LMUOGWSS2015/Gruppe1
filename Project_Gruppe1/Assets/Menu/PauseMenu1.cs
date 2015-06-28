@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
-using iView;
 
 public class PauseMenu1 : MonoBehaviour {
 	public GUISkin skin;
@@ -158,10 +157,7 @@ public class PauseMenu1 : MonoBehaviour {
 			//UnPauseGame();
 			Application.LoadLevel(0);
 		}
-		if (GUI.Button (new Rect(0, IsBeginning() ? 280*guiFactor : 380*guiFactor, 200*guiFactor, 60*guiFactor), "Calibrate", buttonStyle)) { 
-			calibrateEyeTracker();
-		}
-		if (GUI.Button (new Rect(0, IsBeginning() ? 380*guiFactor : 480*guiFactor, 200*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
+		if (GUI.Button (new Rect(0, IsBeginning() ? 280*guiFactor : 380*guiFactor, 200*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
 			currentPage = Page.Exit;
 		}
 
@@ -241,27 +237,5 @@ public class PauseMenu1 : MonoBehaviour {
 	
 	bool IsGamePaused() {
 		return (Time.timeScale == 0);
-	}
-
-	/* 
-	 * Eye tracker calibration
-	 * "using iView" is needed
-	 */
-	void calibrateEyeTracker() {
-
-		// Get GazeInteraction to check if eye tracking is enabled
-		GazeInteractions gi = GameObject.Find("/EyeTrackingController").GetComponent<GazeInteractions>();
-
-		if (gi.useEyeTracking) {
-			int calibrationType = 5;
-			// Start a calibration
-			SMIGazeController.Instance.StartCalibration (calibrationType);
-			// Start a validation
-			SMIGazeController.Instance.StartValidation ();
-		} else {
-			Debug.Log ("Eye tracking disabled.");
-		}
-
-
 	}
 }
