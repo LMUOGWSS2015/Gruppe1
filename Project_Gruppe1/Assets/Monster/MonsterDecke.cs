@@ -3,12 +3,18 @@ using System.Collections;
 
 public class MonsterDecke : MonoBehaviour {
 
+	static bool seenfirsttime = false;
+
 	bool seen = false, fade = false;
 	float alpha = 1f;
 	Color color;
 
 	// Use this for initialization
 	void Start () {
+		if (seenfirsttime) {
+			Destroy (this.gameObject);
+			Destroy (this);
+		}
 		color = GameObject.Find ("cloth").GetComponent<Renderer> ().material.color;
 	}
 	
@@ -47,7 +53,7 @@ public class MonsterDecke : MonoBehaviour {
 		gameObject.GetComponentInChildren<ParticleSystem> ().Play ();
 		yield return new WaitForSeconds(0.5f);
 		fade = true;
-
+		seenfirsttime = true;
 	}
 
 }
