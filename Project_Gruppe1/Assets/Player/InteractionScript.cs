@@ -24,6 +24,8 @@ public class InteractionScript : MonoBehaviour {
 	private int foundHints = 0;
 	private float strengthOfFlashlight;
 
+	private int screenshotCount = 0;
+
 	
 	// Use this for initialization
 	void Start () {
@@ -42,10 +44,19 @@ public class InteractionScript : MonoBehaviour {
 	public int GetFoundHints() {
 		return foundHints;
 	}
-	
+
+
+
 	
 	// Update is called once per frame
 	void Update () {
+		// Screenshop by pressing p
+		if(Input.GetKeyDown("p")){
+			Debug.Log("Screenshot" + screenshotCount + ".png saved");
+			Application.CaptureScreenshot("Screenshot" + screenshotCount + ".png", 5);
+			screenshotCount++;
+		}
+
 		useIcon.enabled = false;
 		
 		
