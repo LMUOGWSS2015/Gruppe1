@@ -9,9 +9,11 @@ using UnityStandardAssets.Characters.FirstPerson;
 public class Spiderinteraction : MonoBehaviour {
 
 	private EyesScript es;
-	private string subtitle;
 	private GameObject player;
 	private Text subtitles;
+	private float EyesClosedMinDuration = 3f;
+	private bool tutorialStarted = false;
+	private bool tutorialFinished = false;
 
 	// Use this for initialization
 	void Start () 
@@ -22,40 +24,53 @@ public class Spiderinteraction : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (other.gameObject.CompareTag ("TutorialCollider")) 
-		{
-			GameObject.FindGameObjectWithTag ("TutorialCollider").SetActive(false);
-			player.GetComponent<FirstPersonController>().enabled = false;
-			player.GetComponent<CharacterController>().enabled = false;
+		if (other.gameObject.CompareTag ("TutorialCollider") && !tutorialFinished) {
+			GameObject.FindGameObjectWithTag ("TutorialCollider").SetActive (false);
+			player.GetComponent<FirstPersonController> ().enabled = false;
+			player.GetComponent<CharacterController> ().enabled = false;
 
-			es.GetComponent<SmoothLookAt>().target = GameObject.FindGameObjectWithTag("Spider").GetComponent<Transform>();
+			es.GetComponent<SmoothLookAt> ().target = GameObject.FindGameObjectWithTag ("Spider").GetComponent<Transform> ();
 			es.GetComponent<SmoothLookAt> ().enabled = true;
 
+			tutorialStarted = true;
 			subtitles.text = "See the giant spider? Close your Eyes!";
-			GameObject.FindGameObjectWithTag("Tutorial").GetComponent<Animator>().SetTrigger("TutorialTrigger");
-			StartCoroutine(Spiderattack(10));
+			GameObject.FindGameObjectWithTag ("Tutorial").GetComponent<Animator> ().SetTrigger ("TutorialTrigger");
 		}
 	}
 
-	IEnumerator Spiderattack(int x) {
-		yield return new WaitForSeconds(x);
-		if (!es.getEyesClosed ()) {
-			subtitles.text = "You took too long.";	
-			//TODO what else happens here?
-		} else {
-			GameObject.FindGameObjectWithTag("Tutorial").SetActive(false);
-			subtitles.text = "Open your Eyes again. See? It was only your imagination.";	
+	void Update(){
+		if (tutorialStarted && tutorialFinished) {
+			player.GetComponent<FirstPersonController> ().m_MouseLook.ResetRotation (
+				player.GetComponentInChildren<FirstPersonController>().transform,
+				player.GetComponentInChildren<FirstPersonController>().m_Camera.transform
+			);
+			es.GetComponent<SmoothLookAt>().enabled = false;
+			player.GetComponent<FirstPersonController>().enabled = true;
+			player.GetComponent<CharacterController>().enabled = true;
+			StartCoroutine(eraseSubtitlesAfterSecs(5));
+			tutorialStarted = false;
 		}
-		yield return new WaitForSeconds(2);
-		player.GetComponent<FirstPersonController> ().m_MouseLook.ResetRotation (
-			player.GetComponentInChildren<FirstPersonController>().transform,
-			player.GetComponentInChildren<FirstPersonController>().m_Camera.transform
-		);
-		es.GetComponent<SmoothLookAt>().enabled = false;
-		player.GetComponent<FirstPersonController>().enabled = true;
-		player.GetComponent<CharacterController>().enabled = true;
-		yield return new WaitForSeconds(5);
-		subtitles.text = "";	
+	}
+
+	IEnumerator eraseSubtitlesAfterSecs(int x) {
+		yield return new WaitForSeconds (x);
+		subtitles.text = "";
+	}
+
+	public float getEyesClosedMinDuration(){
+			return EyesClosedMinDuration;
+	}
+
+	public bool getTutorialStarted(){
+		return tutorialStarted;
+	}
+
+	public void setSubtitles(string t){
+		subtitles.text = t;
+	}
+
+	public void setTutorialFinished(bool b){
+		tutorialFinished = b;
 	}
 }
 

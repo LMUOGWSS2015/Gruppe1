@@ -63,6 +63,20 @@ public class EyesScript : MonoBehaviour {
 				monsterscript.MonsterDefeated();
 			}
 		}
+		else if (GameObject.FindGameObjectWithTag ("Player").GetComponent<Spiderinteraction>().getTutorialStarted()) {
+			Spiderinteraction spiderinteraction = GameObject.FindGameObjectWithTag ("Player").GetComponent<Spiderinteraction> ();
+			float EyesClosedMinDuration = spiderinteraction.getEyesClosedMinDuration();
+			Debug.Log("closed: "+eyesClosedDuration + " needed: "+EyesClosedMinDuration);
+			if (eyesClosedDuration < EyesClosedMinDuration){
+				//augen zu kurz geschlossen
+				spiderinteraction.setSubtitles("Close your eyes longer and you will calm down.");	
+			} else { 
+				//augen lange genug geschlossen
+				GameObject.FindGameObjectWithTag("Tutorial").SetActive(false);
+				spiderinteraction.setSubtitles("Open your Eyes again. See? She's gone! It was only your imagination.");
+				spiderinteraction.setTutorialFinished(true);
+			}
+		}
 		
 		eyesClosedDuration = 0;
 	}
