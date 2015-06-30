@@ -15,7 +15,7 @@ public class UseObject : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 	
 	
@@ -30,5 +30,11 @@ public class UseObject : MonoBehaviour {
 		if(this.CompareTag("smartphone")) {
 			this.GetComponent<smartphone>().displayMessage();
 		}
+
+		if(this.CompareTag("HideSpot")) {
+			this.GetComponent<HideOutScript>().OpenHideSpot();
+		}
+
+
 	}
 }
