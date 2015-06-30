@@ -28,6 +28,10 @@ public class MonsterAuftritt : MonoBehaviour {
 
 		monsterscript = this.gameObject.GetComponent<MonsterScript>();
 
+		//navdummy aktivieren
+		GameObject.Find ("NavDummy").transform.parent = null;
+
+
 		//speicher fps startwerte
 		FirstPersonController fpsc = player.GetComponent<FirstPersonController> ();
 		m_WalkSpeed = fpsc.m_WalkSpeed;
@@ -77,10 +81,17 @@ public class MonsterAuftritt : MonoBehaviour {
 			//wenn monster sich noch bewegt
 			if (!closeForAttack) {
 				//auf Spieler ausrichten
-				monster.transform.LookAt (playerpos + new Vector3 (0, -2.1f, 0));
+				//monster.transform.LookAt (playerpos + new Vector3 (0, -2.1f, 0));
 				//auf Boden setzen
-				monster.transform.position = new Vector3 (monster.transform.position.x, startY, monster.transform.position.z);
+				//monster.transform.position = new Vector3 (monster.transform.position.x, startY, monster.transform.position.z);
+				NavMeshAgent navmeshagent = GameObject.Find("NavDummy").GetComponent<NavMeshAgent>();
+				navmeshagent.destination = playerpos;
 
+				monster.transform.rotation = GameObject.Find("NavDummy").transform.rotation;
+				Vector3 dummypos = new Vector3(monster.transform.position.x, GameObject.Find("NavDummy").transform.position.y,monster.transform.position.z);
+				GameObject.Find("NavDummy").transform.position = dummypos;
+
+				Debug.Log(distance);
 
 				//ende ausloesen wenn monster sehr nah
 				if (distance < - 1.2) {
@@ -123,7 +134,7 @@ public class MonsterAuftritt : MonoBehaviour {
 					}
 				}
 				//Start wenn Monster nah
-				if (monster.GetComponent<MonsterScript> ().distanceToPlayer < 8f) {
+				if (monster.GetComponent<MonsterScript> ().distanceToPlayer < 6f) {
 					Debug.Log ("Monster close");
 					StartFight ();
 				}

@@ -2,14 +2,14 @@
 using System.Collections;
 
 public class MonsterTrigger : MonoBehaviour {
-
-	static bool wasInRoom = false;
-	static GameObject monster;
+	
 	public GameObject monsterprefab;
+	MonsterTriggerParent parentScript;
 	Transform monsterspawn;
 
 	// Use this for initialization
 	void Start () {
+		parentScript = gameObject.transform.parent.gameObject.GetComponent<MonsterTriggerParent>();
 	}
 	
 	// Update is called once per frame
@@ -21,18 +21,18 @@ public class MonsterTrigger : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 
 		if (other.gameObject.CompareTag ("Player")) {
-			if (name.Equals ("TriggerRaum") && !wasInRoom && !monster) {
-				wasInRoom = true;
+			if (name.Equals ("TriggerRaum") && !parentScript.wasInRoom && !parentScript.monster) {
+				parentScript.wasInRoom = true;
 				Debug.Log ("was in trigger box");
 				monsterspawn = gameObject.transform.GetChild(0);
-				monster = (GameObject) Instantiate(monsterprefab, monsterspawn.position, monsterspawn.rotation);
+				parentScript.monster = (GameObject) Instantiate(monsterprefab, monsterspawn.position, monsterspawn.rotation);
 				Destroy(gameObject);
 				Destroy(this);
-			} else if (wasInRoom){
-				if (monster && !monster.GetComponent<MonsterScript>().walkingStarted){
+			} else if (parentScript.wasInRoom){
+				if (parentScript.monster && !parentScript.monster.GetComponent<MonsterScript>().walkingStarted){
 					Debug.Log ("start monster by trigger");
-					monster.GetComponent<MonsterAuftritt>().StartWalking();
-					wasInRoom = false;
+					parentScript.monster.GetComponent<MonsterAuftritt>().StartWalking();
+					parentScript.wasInRoom = false;
 					Destroy(gameObject);
 					Destroy(this);
 				} else {
