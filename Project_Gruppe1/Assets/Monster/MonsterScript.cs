@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.ImageEffects;
 
 public class MonsterScript : MonoBehaviour {
 
@@ -22,6 +23,14 @@ public class MonsterScript : MonoBehaviour {
 		this.gameObject.GetComponent<MonsterAuftritt> ().ResetFPSController ();
 		GetComponentsInChildren<SkinnedMeshRenderer> () [0].enabled = false;
 		GetComponentsInChildren<SkinnedMeshRenderer> () [1].enabled = false;
+		Destroy (GameObject.Find ("NavDummy"));
+
+		NoiseAndScratches noiseScript = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<NoiseAndScratches> ();
+		noiseScript.grainIntensityMin = 0;
+		noiseScript.grainIntensityMax = 0;
+		noiseScript.scratchIntensityMax = 0;
+		noiseScript.scratchIntensityMin = 0;
+
 		Destroy (this.gameObject);
 		Destroy (this);
 	}

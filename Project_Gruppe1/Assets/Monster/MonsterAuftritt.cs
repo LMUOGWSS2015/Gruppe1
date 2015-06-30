@@ -96,8 +96,6 @@ public class MonsterAuftritt : MonoBehaviour {
 
 			//wenn monster sich noch bewegt
 			if (!closeForAttack) {
-				//auf Spieler ausrichten
-				//monster.transform.LookAt (playerpos + new Vector3 (0, -2.1f, 0));
 				//auf Boden setzen
 				//monster.transform.position = new Vector3 (monster.transform.position.x, startY, monster.transform.position.z);
 				NavMeshAgent navmeshagent = GameObject.Find("NavDummy").GetComponent<NavMeshAgent>();
@@ -108,7 +106,7 @@ public class MonsterAuftritt : MonoBehaviour {
 				GameObject.Find("NavDummy").transform.position = dummypos;
 
 				//ende ausloesen wenn monster sehr nah
-				if (distance < - 1.15) {
+				if (distance < - 1.12) {
 					if (monster.GetComponent<MonsterScript> ().playEndAnimation) {
 						//endanimation auslösen
 						StartEndAnimation ();
@@ -135,6 +133,10 @@ public class MonsterAuftritt : MonoBehaviour {
 				player.transform.rotation = Quaternion.Slerp (player.transform.rotation, Quaternion.LookRotation ((monster.transform.position + new Vector3 (0, 2.75f, 0)) - player.transform.position), 4f * Time.deltaTime);
 				//bewege spieler zu monster
 				player.transform.position = Vector3.Lerp (player.transform.position, monster.transform.position + monster.transform.forward * 2.6f + monster.transform.up * 2.6f, 1.5f * Time.deltaTime);
+
+				//richte Taschenlampe auf Monster
+				Transform flashlightTransform = GameObject.Find("FlashlightPlayer").transform;
+				flashlightTransform.rotation = Quaternion.Slerp (flashlightTransform.rotation, Quaternion.LookRotation ((monster.transform.position + new Vector3 (0, 4.5f, 0)) - flashlightTransform.position), 3.5f * Time.deltaTime);
 			}
 
 			//falls fight noch nicht laueft, starte ihn wenn monster nah genug oder gesehen
