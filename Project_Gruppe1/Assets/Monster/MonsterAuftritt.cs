@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityStandardAssets.Characters.FirstPerson;
+using UnityStandardAssets.ImageEffects;
 
 public class MonsterAuftritt : MonoBehaviour {
 
@@ -18,6 +19,11 @@ public class MonsterAuftritt : MonoBehaviour {
 	float XSensitivity;
 	float YSensitivity;
 
+	//grainwerte
+	float grainmin = 0.05f, grainmax = 0.15f, scratchmin = 0.05f, scratchmax = 0.25f;
+	NoiseAndScratches noiseScript;
+	bool noiseActive = true;
+
 	// Use this for initialization
 	void Start () {
 		monster = this.gameObject;
@@ -27,6 +33,8 @@ public class MonsterAuftritt : MonoBehaviour {
 		startY = monster.transform.position.y;
 
 		monsterscript = this.gameObject.GetComponent<MonsterScript>();
+
+		noiseScript = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<NoiseAndScratches> ();
 
 		//navdummy aktivieren
 		GameObject.Find ("NavDummy").transform.parent = null;
@@ -50,7 +58,15 @@ public class MonsterAuftritt : MonoBehaviour {
 		//arme heben
 		if (distance < 8 && distance >= 0) {
 			animator.SetLayerWeight (1, 1 - distance / 8);
+			if (noiseActive) {
+				noiseScript.grainIntensityMin = Map(grainmin, 0, 0,8f, distance);
+				noiseScript.grainIntensityMax = Map(grainmax, 0, 0,8f, distance);
+
+				noiseScript.scratchIntensityMin = Map(scratchmin,0, 0,8f, distance);
+				noiseScript.scratchIntensityMax = Map(scratchmax,0, 0,8f, distance);
+			}
 		}
+
 
 		Ray ray = new Ray ();
 		RaycastHit[] hits = Physics.RaycastAll (Camera.main.transform.position, Camera.main.transform.forward);
@@ -132,7 +148,7 @@ public class MonsterAuftritt : MonoBehaviour {
 					}
 				}
 				//Start wenn Monster nah
-				if (monster.GetComponent<MonsterScript> ().distanceToPlayer < 6f) {
+				if (monster.GetComponent<MonsterScript> ().distanceToPlayer < 5f) {
 					Debug.Log ("Monster close");
 					StartFight ();
 				}
@@ -159,6 +175,8 @@ public class MonsterAuftritt : MonoBehaviour {
 		fpsc.m_RunSpeed = 0.3f;
 		fpsc.m_MouseLook.XSensitivity = 0.2f;
 		fpsc.m_MouseLook.YSensitivity = 0.2f;
+
+		noiseActive = true;
 	}
 
 	//setzt fps controller auf startwerte zurueck
@@ -173,5 +191,15 @@ public class MonsterAuftritt : MonoBehaviour {
 	public void StartWalking(){
 		monsterscript.walkingStarted = true;
 		animator.applyRootMotion = true;
+	}
+
+	public float Map(float from, float to, float from2, float to2, float value){
+		if(value <= from2){
+			return from;
+		}else if(value >= to2){
+			return to;
+		}else{
+			return (to - from) * ((value - from2) / (to2 - from2)) + from;
+		}
 	}
 }
