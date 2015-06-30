@@ -74734,15 +74734,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 482970, guid: 23ea6477244500047bbc92ef8e8509a0, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -.449000001
+      value: -.104000002
       objectReference: {fileID: 0}
     - target: {fileID: 482970, guid: 23ea6477244500047bbc92ef8e8509a0, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -.492000014
+      value: -.49000001
       objectReference: {fileID: 0}
     - target: {fileID: 482970, guid: 23ea6477244500047bbc92ef8e8509a0, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -1.26800001
+      value: -1.96700001
       objectReference: {fileID: 0}
     - target: {fileID: 113162, guid: 23ea6477244500047bbc92ef8e8509a0, type: 2}
       propertyPath: m_Name

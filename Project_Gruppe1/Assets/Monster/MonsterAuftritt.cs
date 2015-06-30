@@ -91,10 +91,8 @@ public class MonsterAuftritt : MonoBehaviour {
 				Vector3 dummypos = new Vector3(monster.transform.position.x, GameObject.Find("NavDummy").transform.position.y,monster.transform.position.z);
 				GameObject.Find("NavDummy").transform.position = dummypos;
 
-				Debug.Log(distance);
-
 				//ende ausloesen wenn monster sehr nah
-				if (distance < - 1.2) {
+				if (distance < - 1.15) {
 					if (monster.GetComponent<MonsterScript> ().playEndAnimation) {
 						//endanimation auslösen
 						StartEndAnimation ();
