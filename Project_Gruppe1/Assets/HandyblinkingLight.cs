@@ -21,13 +21,17 @@ public class HandyblinkingLight : MonoBehaviour {
 	public void stopBlinking() {
 		blinking = false;
 		light. GetComponent<Light>().intensity = 0f;
+		GameObject.Find ("SmartphoneLightSphere").GetComponent<MeshRenderer>().enabled = false;
+		//GameObject.Find ("SmartphoneLightSphere").SetActive(false);
 	}
 
 	void changeLight() {
 		if (light.GetComponent<Light>().intensity == 0f) {
 			light. GetComponent<Light>().intensity = lightIntensity;
+			GameObject.Find ("SmartphoneLightSphere").GetComponent<MeshRenderer>().enabled = true;			
 		} else {
 			light. GetComponent<Light>().intensity = 0f;
+			GameObject.Find ("SmartphoneLightSphere").GetComponent<MeshRenderer>().enabled = false;
 		}
 		if (blinking) {
 			Invoke ("changeLight", 1);
