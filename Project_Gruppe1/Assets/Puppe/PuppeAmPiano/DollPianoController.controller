@@ -107,7 +107,7 @@ AnimatorState:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Piano
-  m_Speed: .860000014
+  m_Speed: 1.61000001
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 110134976}
