@@ -88,7 +88,6 @@ public class IntroAnimation : MonoBehaviour {
 		//GameObject.FindGameObjectWithTag("EyesOverlay").GetComponent<Animator>().SetBool("EyesClosed", false);
 		GameObject.Find ("black").GetComponent<Image>().color = new Color (255, 255, 255, 0);
 
-		GameObject.Find ("Player").GetComponent<AudioSource> ().Play ();
 		introFinished = true;
 		GameObject.FindGameObjectWithTag("Player").GetComponentInParent<Animator>().SetTrigger("start");
 	}

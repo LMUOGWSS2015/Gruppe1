@@ -150,14 +150,14 @@ public class PauseMenu1 : MonoBehaviour {
 
 		GUI.Label (new Rect (0, 0, 800 * guiFactor, 600 * guiFactor), (IsBeginning () ? "DON'T LOOK AT ME!" : "MENU"), guiStyle);
 		
-		if (GUI.Button (new Rect(0, 180*guiFactor, 200*guiFactor, 60*guiFactor), IsBeginning() ? "Play" : "Continue", buttonStyle)) { 
+		if (GUI.Button (new Rect(0, 180*guiFactor, 250*guiFactor, 60*guiFactor), IsBeginning() ? "Play" : "Continue", buttonStyle)) { 
 			UnPauseGame();
 		}
-		if (!IsBeginning() && GUI.Button (new Rect(0, 280*guiFactor, 200*guiFactor, 60*guiFactor), "Restart", buttonStyle)) { 
+		if (!IsBeginning() && GUI.Button (new Rect(0, 280*guiFactor, 250*guiFactor, 60*guiFactor), "Restart", buttonStyle)) { 
 			//UnPauseGame();
 			Application.LoadLevel(0);
 		}
-		if (GUI.Button (new Rect(0, IsBeginning() ? 280*guiFactor : 380*guiFactor, 200*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
+		if (GUI.Button (new Rect(0, IsBeginning() ? 280*guiFactor : 380*guiFactor, 250*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
 			currentPage = Page.Exit;
 		}
 
