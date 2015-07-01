@@ -4,32 +4,45 @@ using iView;
 
 public class GazeInteractions : MonoBehaviour {
 
-	// Turneye tracking on
-	public bool useEyeTracking = false;
+	// Scripts for eyes open / closed
+	private EyesScript es;
+	private EyesAnimation eyesAniScript;
 
+	private float eyesClosedTimepoint = 0;
+	private float eyesClosedDuration = 0;
+	private float eyesClosedDurationNeeded;
+	
 	//Safe last selection of a gazed object
 	private GameObject oldSelection;
 	
+	public GameObject monster;
+	public MonsterScript monsterscript;
+
+	// Turneye tracking on
+	public bool useEyeTracking = false;
+	
 	// Use this for initialization
 	void Start () {
+
+		eyesAniScript = GameObject.FindGameObjectWithTag("EyesOverlay").GetComponent<EyesAnimation>();
 
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 		// Track gaze if eye tracking is on
 		if (useEyeTracking) {
 			eyeTracking ();
 		}
 		
 	}
-
+	
 	/*
 	 * Track eyes and start interactions
 	 */
 	void eyeTracking() {
-
+		
 		//get the Sample from the Server
 		SampleData sample = SMIGazeController.Instance.GetSample();
 		
@@ -42,10 +55,22 @@ public class GazeInteractions : MonoBehaviour {
 		if (averageGazePosition.x == 0) {
 			
 			// Eyes are closed or out of tracker sight
-			//			Debug.Log ("Eyes are closed.");
+			eyesAniScript.CloseEyes();
+			eyesClosedTimepoint = Time.time;
 			
-		} else {
-			//			Debug.Log ("Eyes are open.");
+			if (monster && monsterscript.monsterFightStarted){
+				float distance = monsterscript.distanceToPlayer;
+				float timefactor = 0.6f;
+				//berechne, wie lange augen geschlossen bleiben muessen
+				eyesClosedDurationNeeded = (20f - distance)*timefactor + 2f;
+				Debug.Log("Augen sollten " + eyesClosedDurationNeeded + " secs zu sein.");
+				
+				//deaktiviere endanimation damit man nicht stirbt, waehrend augen zu sind
+				monsterscript.playEndAnimation = false;
+			}
+		} else if (eyesAniScript.eyesClosed){
+			// Debug.Log ("Eyes are open.");
+			eyesAniScript.OpenEyes();
 		}
 		
 		Ray rayGaze = Camera.main.ScreenPointToRay(SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords());
@@ -103,6 +128,6 @@ public class GazeInteractions : MonoBehaviour {
 			}
 			
 		}
-
+		
 	}
 }
