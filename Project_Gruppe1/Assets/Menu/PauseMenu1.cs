@@ -12,6 +12,7 @@ public class PauseMenu1 : MonoBehaviour {
 	// Bianka:
 	public Texture2D exitMenuOverlayImage;
 	public Texture2D mainMenuBackgroundImage;
+	public MovieTexture background;
 	//public Color buttonColor;
 	public Texture hintImage1;
 	public Texture hintImage2;
@@ -112,7 +113,26 @@ public class PauseMenu1 : MonoBehaviour {
 		}
 
 		if (IsGamePaused ()) {
-			GUI.DrawTexture (new Rect(0,0,Screen.width , Screen.height),mainMenuBackgroundImage);
+
+			GameObject plane = new GameObject("Plane");
+			MeshFilter meshFilter = (MeshFilter) plane.AddComponent(typeof(MeshFilter));
+			meshFilter.mesh = CreateMesh(Screen.width,Screen.height);
+			MeshRenderer renderer = plane.AddComponent(typeof(MeshRenderer)) as MeshRenderer;
+			renderer.material.shader = Shader.Find("Particles/Additive");
+			renderer.material.mainTexture = background;
+			plane.transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().transform.position); 
+			background.Play();
+
+			GUI.DrawTexture(new Rect(0,0,Screen.width , Screen.height), background);
+
+//			MovieTexture movie =  GetComponent<Renderer>().material.mainTexture as MovieTexture;
+//			movie.Play();
+
+//			GUITexture = movie;
+			//GUI.DrawTexture (new Rect(0,0,Screen.width , Screen.height),movie);
+//			GetComponent<Renderer>.material.mainTexture.Play();
+//			GetComponent.<Renderer>().material.mainTexture = movTexture;
+//			movTexture.Play();
 
 			switch (currentPage) {
 			case Page.Main:
@@ -237,5 +257,24 @@ public class PauseMenu1 : MonoBehaviour {
 	
 	bool IsGamePaused() {
 		return (Time.timeScale == 0);
+	}
+	Mesh CreateMesh(float width, float height) {
+		Mesh m = new Mesh ();
+		m.name = "ScriptedMesh";
+		m.vertices = new Vector3[] {
+			new Vector3 (-width, -height, 0.01f),
+			new Vector3 (width, -height, 0.01f),
+			new Vector3 (width, height, 0.01f),
+			new Vector3 (-width, height, 0.01f)
+		};
+		m.uv = new Vector2[] {
+			new Vector2 (0, 0),
+			new Vector2 (0, 1),
+			new Vector2 (1, 1),
+			new Vector2 (1, 0)
+		};
+		m.triangles = new int[] { 0,1,2,0,2,3};
+		m.RecalculateNormals ();
+		return m;
 	}
 }
