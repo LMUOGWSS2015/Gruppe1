@@ -5,6 +5,7 @@ public class Stromausfall : MonoBehaviour {
 
 	private GameObject[] lightsUpstairs;
 
+	private bool playOnce = true;
 
 	void OnTriggerEnter(Collider other) {
 		if (this.GetComponent<AudioSource>().isPlaying == false) {

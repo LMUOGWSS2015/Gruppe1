@@ -22,6 +22,9 @@ public class MonsterTrigger : MonoBehaviour {
 
 		if (other.gameObject.CompareTag ("Player")) {
 			if (name.Equals ("TriggerRaum") && !parentScript.wasInRoom && !parentScript.monster) {
+
+				GameObject.Find ("TriggerSound").GetComponent<AudioSource>().Play ();
+
 				parentScript.wasInRoom = true;
 				Debug.Log ("was in trigger box");
 				monsterspawn = gameObject.transform.GetChild(0);

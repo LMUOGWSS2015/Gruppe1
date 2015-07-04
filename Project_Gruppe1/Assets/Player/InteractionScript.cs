@@ -76,8 +76,9 @@ public class InteractionScript : MonoBehaviour {
 		if (Physics.Raycast (ray, out hit, 20f)) {
 			
 			if (hit.collider.CompareTag("DollBath")) {
-				if (dollB.GetComponent<AudioSource>().isPlaying == false) {
-					dollB.GetComponent<AudioSource>().Play ();
+
+				if (GameObject.Find("BathroomSoundeffect").GetComponent<AudioSource>().isPlaying == false) {
+					GameObject.Find("BathroomSoundeffect").GetComponent<AudioSource>().Play ();
 				}
 				Debug.Log ("Spieler schaut Puppe an");
 				dollB.GetComponent<Animator>().Play("BathWalk");

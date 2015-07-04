@@ -59,6 +59,9 @@ public class MonsterAuftritt : MonoBehaviour {
 		if (distance < 8 && distance >= 0) {
 			animator.SetLayerWeight (1, 1 - distance / 8);
 			if (noiseActive) {
+
+				GameObject.Find ("Rauschen").GetComponent<AudioSource> ().volume = (8.0f-distance)/8.0f;
+
 				noiseScript.grainIntensityMin = Map(grainmin, 0, 0,8f, distance);
 				noiseScript.grainIntensityMax = Map(grainmax, 0, 0,8f, distance);
 
@@ -87,6 +90,8 @@ public class MonsterAuftritt : MonoBehaviour {
 			if (hit) {
 				Debug.Log(hit.gameObject.name);
 				if (hit.CompareTag ("Monster")) {
+					GameObject.Find ("MonsterFeetSound").GetComponent<AudioSource> ().loop = true;
+					GameObject.Find ("MonsterFeetSound").GetComponent<AudioSource> ().Play ();
 					Debug.Log ("Monster seen, start walking");
 					StartWalking ();
 				}
@@ -107,9 +112,12 @@ public class MonsterAuftritt : MonoBehaviour {
 
 				//ende ausloesen wenn monster sehr nah
 				if (distance < - 1.12) {
+					GameObject.Find ("MonsterFeetSound").GetComponent<AudioSource> ().loop = false;
+
 					if (monster.GetComponent<MonsterScript> ().playEndAnimation) {
 						//endanimation auslösen
 						StartEndAnimation ();
+
 					} else {
 						//monster anhalten
 						animator.applyRootMotion = false;
@@ -118,6 +126,7 @@ public class MonsterAuftritt : MonoBehaviour {
 
 				//monster ranteleportieren, wenn augen zu frueh auf
 				if (monster.GetComponent<MonsterScript> ().setCloseup) {
+					GameObject.Find("SchockSound").GetComponent<AudioSource>().Play();
 					Vector3 vec = monster.transform.position - playerpos;
 					Vector3 pointbetween = playerpos + (vec.normalized * 4.3f);
 					monster.transform.position = new Vector3 (pointbetween.x, startY, pointbetween.z);
@@ -193,6 +202,7 @@ public class MonsterAuftritt : MonoBehaviour {
 	public void StartWalking(){
 		monsterscript.walkingStarted = true;
 		animator.applyRootMotion = true;
+
 	}
 
 	public float Map(float from, float to, float from2, float to2, float value){

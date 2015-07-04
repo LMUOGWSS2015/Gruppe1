@@ -7,6 +7,7 @@ public class EyesScript : MonoBehaviour {
 	float eyesClosedTimepoint = 0;
 	float eyesClosedDuration = 0;
 	float eyesClosedDurationNeeded;
+	bool monsterDefeated = false;
 	private bool introFinished = false;
 
 	public GameObject monster;
@@ -23,6 +24,7 @@ public class EyesScript : MonoBehaviour {
 	void Update () {
 		//rechtsklick down
 		if (Input.GetKeyDown (KeyCode.Mouse1) && !getEyesClosed()) {
+			eyesClosedDuration = 0;
 			eyesAniScript.CloseEyes();
 			eyesClosedTimepoint = Time.time;
 
@@ -32,6 +34,8 @@ public class EyesScript : MonoBehaviour {
 				//berechne, wie lange augen geschlossen bleiben muessen
 				eyesClosedDurationNeeded = (20f - distance)*timefactor + 2f;
 				Debug.Log("Augen sollten " + eyesClosedDurationNeeded + " secs zu sein.");
+
+				heartBeatSoundeffect();
 
 				//deaktiviere endanimation damit man nicht stirbt, waehrend augen zu sind
 				monsterscript.playEndAnimation = false;
@@ -60,6 +64,7 @@ public class EyesScript : MonoBehaviour {
 				monsterscript.setCloseup = true;
 			} else { //augen lange genug geschlossen
 				Debug.Log("closed: "+eyesClosedDuration + " needed: "+eyesClosedDurationNeeded);
+				monsterDefeated = true;
 				monsterscript.MonsterDefeated();
 			}
 		}
@@ -92,4 +97,35 @@ public class EyesScript : MonoBehaviour {
 		//eyesAnimator.SetBool("EyesClosed", false);
 		GameObject.Find ("black").GetComponent<Image>().color = new Color (255, 255, 255, 0);
 	}
+
+
+	public void heartBeatSoundeffect() {
+		
+		if (GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().isPlaying == false) {
+			GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().Play ();
+		}
+		
+		float nextHeartbeat = (Time.time - eyesClosedTimepoint) / eyesClosedDurationNeeded;
+		Debug.Log ("eyesClosedDuration:" + (Time.time - eyesClosedTimepoint));
+		Debug.Log ("eyesClosedDurationNeeded:" + eyesClosedDurationNeeded);
+		Debug.Log ("nextHeartbeat:" + nextHeartbeat); 
+		
+		if (!monsterDefeated) {
+			
+			if (nextHeartbeat < 0.50f) {
+				GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().volume = 1.0f;
+				Invoke("heartBeatSoundeffect", 0.02f);
+			} else if (nextHeartbeat > 0.50f) {
+				GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().volume = 1.0f;
+				Invoke("heartBeatSoundeffect", 0.8f);
+			}else if (nextHeartbeat > 0.70f) {
+				GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().volume = 0.8f;
+				Invoke("heartBeatSoundeffect", 1.3f);
+			} else if (nextHeartbeat > 1) {
+				GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().volume = 0.6f;
+				Invoke("heartBeatSoundeffect", 3.5f);
+			} 
+		}
+	}
+
 }
