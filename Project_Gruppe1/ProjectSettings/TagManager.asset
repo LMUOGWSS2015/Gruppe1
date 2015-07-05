@@ -28,6 +28,8 @@ TagManager:
   - Spider
   - Kakerlaken
   - Kakerlake
+  - Picture
+  - StandardSoundTrigger
   layers:
   - Default
   - TransparentFX

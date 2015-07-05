@@ -10,10 +10,13 @@ public class HideOutScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+
+
 		// Hide spot
 		openHideSpot = false;
 		go = GameObject.Find("hideOutDoor");
-		//		rb = go.GetComponent<Rigidbody>();
+
+				//		rb = go.GetComponent<Rigidbody>();
 		//		rb.isKinematic = true;
 		//		rb.useGravity = false;
 	}
@@ -25,14 +28,20 @@ public class HideOutScript : MonoBehaviour {
 				GameObject.Find ("TriggerHideOut").GetComponent<BoxCollider>().enabled = false;
 			}
 			Quaternion targetRotation = Quaternion.Euler (0, 91, 0);
-			go.transform.localRotation = Quaternion.Lerp (go.transform.localRotation, targetRotation, 2.0f * Time.deltaTime);
+			go.transform.localRotation = Quaternion.Lerp (go.transform.localRotation, targetRotation, 2.0f * Time.deltaTime);	
+
+
 		}
 	}
 
 	public void OpenHideSpot() {
 		if (!openHideSpot) {
-			openHideSpot = true;
 
+			if (this.GetComponent<AudioSource>().isPlaying == false) {
+				this.GetComponent<AudioSource>().Play();
+			}
+
+			openHideSpot = true;
 		}
 
 	}

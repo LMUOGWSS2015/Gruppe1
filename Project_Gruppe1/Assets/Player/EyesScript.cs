@@ -122,8 +122,8 @@ public class EyesScript : MonoBehaviour {
 				GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().volume = 0.8f;
 				Invoke("heartBeatSoundeffect", 1.3f);
 			} else if (nextHeartbeat > 1) {
-				GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().volume = 0.6f;
-				Invoke("heartBeatSoundeffect", 3.5f);
+				GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().volume = 0.4f;
+				Invoke("heartBeatSoundeffect", 5.5f);
 			} 
 		}
 	}

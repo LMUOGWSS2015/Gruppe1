@@ -74,6 +74,18 @@ public class InteractionScript : MonoBehaviour {
 		var dollW = GameObject.Find ("DollRoom");
 
 		if (Physics.Raycast (ray, out hit, 20f)) {
+
+			if (hit.collider.CompareTag("StandardSoundTrigger")) {
+				hit.collider.GetComponent<StandardSoundEffectScript>().startSound();
+			}
+
+			if (hit.collider.transform.parent.gameObject.name == "DoorChild" && gotKey == false) {
+				Debug.Log ("KinderzimmerTür");
+				if (GameObject.Find("Child").GetComponent<AudioSource>().isPlaying == false) {
+					GameObject.Find("Child").GetComponent<AudioSource>().Play();
+				} 
+			}
+
 			
 			if (hit.collider.CompareTag("DollBath")) {
 
@@ -96,6 +108,7 @@ public class InteractionScript : MonoBehaviour {
 			}
 			else if (hit.collider.CompareTag ("DollWindow")){
 				Debug.Log ("Spieler sieht wie Puppe stirbt!");
+				hit.collider.GetComponent<StandardSoundEffectScript>().startSound();
 				dollW.GetComponent<Animator>().Play("Window");
 			}
 			//Debug.Log ("Spieler schaut nicht auf Puppe");
@@ -114,6 +127,8 @@ public class InteractionScript : MonoBehaviour {
 					script.showObject2();
 				}
 			}
+
+
 
 		}
 		
@@ -159,6 +174,9 @@ public class InteractionScript : MonoBehaviour {
 					if (script != null) {
 						script.useObject ();
 					}
+
+
+
 				}
 			}
 			
@@ -168,8 +186,9 @@ public class InteractionScript : MonoBehaviour {
 //			kakerlaken.transform.parent.GetComponent<AudioSource>().Stop();   
 //			kakerlaken.transform.FindChild("Kakerlake").gameObject.SetActive(false);
 		}
+
 		
-		
+
 	}
 	
 	
