@@ -79,14 +79,7 @@ public class InteractionScript : MonoBehaviour {
 				hit.collider.GetComponent<StandardSoundEffectScript>().startSound();
 			}
 
-			if (hit.collider.transform.parent.gameObject.name == "DoorChild" && gotKey == false) {
-				Debug.Log ("KinderzimmerTür");
-				if (GameObject.Find("Child").GetComponent<AudioSource>().isPlaying == false) {
-					GameObject.Find("Child").GetComponent<AudioSource>().Play();
-				} 
-			}
-
-			
+					
 			if (hit.collider.CompareTag("DollBath")) {
 
 				if (GameObject.Find("BathroomSoundeffect").GetComponent<AudioSource>().isPlaying == false) {
@@ -135,6 +128,13 @@ public class InteractionScript : MonoBehaviour {
 		if (Physics.Raycast (ray, out hit, interactDistance)) {
 			
 			if (hit.collider.transform.parent != null) {
+				if (hit.collider.transform.parent.gameObject.name == "DoorChild" && gotKey == false) {
+					Debug.Log ("KinderzimmerTür");
+					if (GameObject.Find("Child").GetComponent<AudioSource>().isPlaying == false) {
+						GameObject.Find("Child").GetComponent<AudioSource>().Play();
+					} 
+				}
+
 				if (hit.collider.transform.parent.CompareTag ("usable") || hit.collider.CompareTag ("Door")) {
 					useIcon.enabled = true;
 				} 

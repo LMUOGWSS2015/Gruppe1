@@ -20,6 +20,7 @@ public class MonsterScript : MonoBehaviour {
 
 	public void MonsterDefeated(){
 		Debug.Log("Monster besiegt...");
+		GameObject.Find ("MonsterFeetSound").GetComponent<AudioSource> ().loop = false;
 		this.gameObject.GetComponent<MonsterAuftritt> ().ResetFPSController ();
 		GetComponentsInChildren<SkinnedMeshRenderer> () [0].enabled = false;
 		GetComponentsInChildren<SkinnedMeshRenderer> () [1].enabled = false;

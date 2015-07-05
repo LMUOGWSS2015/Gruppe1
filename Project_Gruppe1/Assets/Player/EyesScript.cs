@@ -65,6 +65,10 @@ public class EyesScript : MonoBehaviour {
 			} else { //augen lange genug geschlossen
 				Debug.Log("closed: "+eyesClosedDuration + " needed: "+eyesClosedDurationNeeded);
 				monsterDefeated = true;
+
+				eyesClosedDurationNeeded = 0;
+				eyesClosedTimepoint = 0;
+
 				monsterscript.MonsterDefeated();
 			}
 		}
@@ -106,26 +110,10 @@ public class EyesScript : MonoBehaviour {
 		}
 		
 		float nextHeartbeat = (Time.time - eyesClosedTimepoint) / eyesClosedDurationNeeded;
-		Debug.Log ("eyesClosedDuration:" + (Time.time - eyesClosedTimepoint));
-		Debug.Log ("eyesClosedDurationNeeded:" + eyesClosedDurationNeeded);
-		Debug.Log ("nextHeartbeat:" + nextHeartbeat); 
-		
+
 		if (!monsterDefeated) {
-			
-			if (nextHeartbeat < 0.50f) {
-				GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().volume = 1.0f;
-				Invoke("heartBeatSoundeffect", 0.02f);
-			} else if (nextHeartbeat > 0.50f) {
-				GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().volume = 1.0f;
-				Invoke("heartBeatSoundeffect", 0.8f);
-			}else if (nextHeartbeat > 0.70f) {
-				GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().volume = 0.8f;
-				Invoke("heartBeatSoundeffect", 1.3f);
-			} else if (nextHeartbeat > 1) {
-				GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().volume = 0.4f;
-				Invoke("heartBeatSoundeffect", 5.5f);
-			} 
-		}
+			Invoke ("heartBeatSoundeffect", nextHeartbeat);
+		} 
 	}
 
 }
