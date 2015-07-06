@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using UnityStandardAssets.Characters.FirstPerson;
 
 public class PauseMenu1 : MonoBehaviour {
 	public GUISkin skin;
@@ -8,6 +9,7 @@ public class PauseMenu1 : MonoBehaviour {
 	private float startTime = 0.1f;
 
 	private float savedTimeScale;
+	private bool savedFPSControllerEnabled;
 
 	// Bianka:
 	public Texture2D exitMenuOverlayImage;
@@ -41,9 +43,7 @@ public class PauseMenu1 : MonoBehaviour {
 		
 		pauseAudio = pauseMusic.GetComponent<AudioSource> ();
 		
-		Time.timeScale = 1;
-		if(IsBeginning())
-			PauseGame();
+		//Time.timeScale = 1;
 	}
 
 	void Start() {
@@ -85,8 +85,7 @@ public class PauseMenu1 : MonoBehaviour {
 				break;
 				
 			case Page.Main: 
-				if (!IsBeginning()) 
-					UnPauseGame(); 
+				UnPauseGame(); 
 				break;
 				
 			default: 
@@ -133,26 +132,10 @@ public class PauseMenu1 : MonoBehaviour {
 	void EndPage() {
 		GUILayout.EndArea();
 	}
-	
-	bool IsBeginning() {
-		return (Time.time < startTime);
-	}
+
 	
 	
 	void MainPauseMenu() {
-//		if (IsBeginning ()) {
-//			
-//			backgroundMoviePlane = new GameObject("Plane");
-//			MeshFilter meshFilter = (MeshFilter) backgroundMoviePlane.AddComponent(typeof(MeshFilter));
-//			meshFilter.mesh = CreateMesh(Screen.width,Screen.height);
-//			MeshRenderer renderer = backgroundMoviePlane.AddComponent(typeof(MeshRenderer)) as MeshRenderer;
-//			renderer.material.shader = Shader.Find("Particles/Additive");
-//			renderer.material.mainTexture = background;
-//			backgroundMoviePlane.transform.LookAt(GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>().transform.position); 
-//			background.Play();
-//			
-//			GUI.DrawTexture(new Rect(0,0,Screen.width , Screen.height), background);
-//		}
 		BeginPage(800*guiFactor,600*guiFactor);
 		GUIStyle guiStyle = new GUIStyle (GUI.skin.label);
 		guiStyle.fontSize  *= guiFactor;
@@ -162,48 +145,46 @@ public class PauseMenu1 : MonoBehaviour {
 		buttonStyle.fontSize *= guiFactor;
 
 
-		GUI.Label (new Rect (0, 0, 800 * guiFactor, 600 * guiFactor), (IsBeginning () ? "DON'T LOOK AT ME!" : "MENU"), guiStyle);
+		GUI.Label (new Rect (0, 0, 800 * guiFactor, 600 * guiFactor), "MENU", guiStyle);
 		
-		if (GUI.Button (new Rect(0, 180*guiFactor, 250*guiFactor, 60*guiFactor), IsBeginning() ? "Play" : "Continue", buttonStyle)) { 
+		if (GUI.Button (new Rect(0, 180*guiFactor, 250*guiFactor, 60*guiFactor),"Continue", buttonStyle)) { 
 			UnPauseGame();
 		}
-		if (!IsBeginning() && GUI.Button (new Rect(0, 280*guiFactor, 250*guiFactor, 60*guiFactor), "Restart", buttonStyle)) { 
+		if (GUI.Button (new Rect(0, 280*guiFactor, 250*guiFactor, 60*guiFactor), "Restart", buttonStyle)) { 
 			//UnPauseGame();
 			Application.LoadLevel(0);
 		}
-		if (GUI.Button (new Rect(0, IsBeginning() ? 280*guiFactor : 380*guiFactor, 250*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
+		if (GUI.Button (new Rect(0, 380*guiFactor, 250*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
 			currentPage = Page.Exit;
 		}
 
-		if (!IsBeginning ()) {
-			GUILayout.BeginArea (new Rect (350*guiFactor, 150*guiFactor, 400*guiFactor, 400*guiFactor));
-				GUILayoutOption[] itemImageOptions = new GUILayoutOption[] {GUILayout.Width (200f*guiFactor), GUILayout.Height (200f*guiFactor)};
-				GUIStyle itemImageStyle = new GUIStyle (GUI.skin.box);
-				itemImageStyle.margin = new RectOffset (0, 0, 0, 0);
-				itemImageStyle.padding = new RectOffset (5*guiFactor, 5*guiFactor, 5*guiFactor, 5*guiFactor);
-				//itemImageStyle.alignment = TextAnchor.MiddleCenter;
+		GUILayout.BeginArea (new Rect (350*guiFactor, 150*guiFactor, 400*guiFactor, 400*guiFactor));
+			GUILayoutOption[] itemImageOptions = new GUILayoutOption[] {GUILayout.Width (200f*guiFactor), GUILayout.Height (200f*guiFactor)};
+			GUIStyle itemImageStyle = new GUIStyle (GUI.skin.box);
+			itemImageStyle.margin = new RectOffset (0, 0, 0, 0);
+			itemImageStyle.padding = new RectOffset (5*guiFactor, 5*guiFactor, 5*guiFactor, 5*guiFactor);
+			//itemImageStyle.alignment = TextAnchor.MiddleCenter;
 
-				GUIStyle imageLOStyle = new GUIStyle(itemImageStyle);
-				imageLOStyle.alignment = TextAnchor.LowerRight;
-				GUIStyle imageLUStyle = new GUIStyle(itemImageStyle);
-				imageLUStyle.alignment = TextAnchor.UpperRight;
-				GUIStyle imageROStyle = new GUIStyle(itemImageStyle);
-				imageROStyle.alignment = TextAnchor.LowerLeft;
-				GUIStyle imageRUStyle = new GUIStyle(itemImageStyle);
-				imageRUStyle.alignment = TextAnchor.UpperLeft;
-				
-				GUILayout.BeginHorizontal ();
-				GUILayout.BeginVertical ();
-				GUILayout.Box ((foundHints >=1 ? hintImage1 : defaultHintImage), imageLOStyle, itemImageOptions);
-				GUILayout.Box ((foundHints >=2 ? hintImage2 : defaultHintImage), imageLUStyle, itemImageOptions);
-				GUILayout.EndVertical ();
-				GUILayout.BeginVertical ();
-				GUILayout.Box ((foundHints >=3 ? hintImage3 : defaultHintImage), imageROStyle, itemImageOptions);
-				GUILayout.Box ((foundHints >=4 ? hintImage4 : defaultHintImage), imageRUStyle, itemImageOptions);
-				GUILayout.EndVertical ();
-				GUILayout.EndHorizontal (); 
-			GUILayout.EndArea ();
-		}
+			GUIStyle imageLOStyle = new GUIStyle(itemImageStyle);
+			imageLOStyle.alignment = TextAnchor.LowerRight;
+			GUIStyle imageLUStyle = new GUIStyle(itemImageStyle);
+			imageLUStyle.alignment = TextAnchor.UpperRight;
+			GUIStyle imageROStyle = new GUIStyle(itemImageStyle);
+			imageROStyle.alignment = TextAnchor.LowerLeft;
+			GUIStyle imageRUStyle = new GUIStyle(itemImageStyle);
+			imageRUStyle.alignment = TextAnchor.UpperLeft;
+			
+			GUILayout.BeginHorizontal ();
+			GUILayout.BeginVertical ();
+			GUILayout.Box ((foundHints >=1 ? hintImage1 : defaultHintImage), imageLOStyle, itemImageOptions);
+			GUILayout.Box ((foundHints >=2 ? hintImage2 : defaultHintImage), imageLUStyle, itemImageOptions);
+			GUILayout.EndVertical ();
+			GUILayout.BeginVertical ();
+			GUILayout.Box ((foundHints >=3 ? hintImage3 : defaultHintImage), imageROStyle, itemImageOptions);
+			GUILayout.Box ((foundHints >=4 ? hintImage4 : defaultHintImage), imageRUStyle, itemImageOptions);
+			GUILayout.EndVertical ();
+			GUILayout.EndHorizontal (); 
+		GUILayout.EndArea ();
 		EndPage();
 	}
 
@@ -235,7 +216,9 @@ public class PauseMenu1 : MonoBehaviour {
 	
 	void PauseGame() {
 		savedTimeScale = Time.timeScale;
-		Time.timeScale = 0;
+		Time.timeScale = 0;  
+		savedFPSControllerEnabled = GameObject.FindGameObjectWithTag ("Player").GetComponent<FirstPersonController> ().enabled;
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<FirstPersonController> ().enabled = false;
 		foundHints = getCountHints ();
 		StartMusic ();
 		LockCursor (false);
@@ -243,8 +226,8 @@ public class PauseMenu1 : MonoBehaviour {
 	}
 	
 	void UnPauseGame() {
-//		Destroy(backgroundMoviePlane);
 		Time.timeScale = savedTimeScale;
+		GameObject.FindGameObjectWithTag ("Player").GetComponent<FirstPersonController> ().enabled = savedFPSControllerEnabled;
 		LockCursor (true);
 		StopMusic ();
 		currentPage = Page.None;
@@ -253,23 +236,4 @@ public class PauseMenu1 : MonoBehaviour {
 	bool IsGamePaused() {
 		return (Time.timeScale == 0);
 	}
-//	Mesh CreateMesh(float width, float height) {
-//		Mesh m = new Mesh ();
-//		m.name = "ScriptedMesh";
-//		m.vertices = new Vector3[] {
-//			new Vector3 (-width, -height, 0.01f),
-//			new Vector3 (width, -height, 0.01f),
-//			new Vector3 (width, height, 0.01f),
-//			new Vector3 (-width, height, 0.01f)
-//		};
-//		m.uv = new Vector2[] {
-//			new Vector2 (0, 0),
-//			new Vector2 (0, 1),
-//			new Vector2 (1, 1),
-//			new Vector2 (1, 0)
-//		};
-//		m.triangles = new int[] { 0,1,2,0,2,3};
-//		m.RecalculateNormals ();
-//		return m;
-//	}
 }
