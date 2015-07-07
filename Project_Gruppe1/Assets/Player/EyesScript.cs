@@ -91,7 +91,9 @@ public class EyesScript : MonoBehaviour {
 			if (eyesClosedDuration < eyesClosedDurationNeeded){
 				Debug.Log("closed: "+eyesClosedDuration + " needed: "+eyesClosedDurationNeeded);
 				//setze Monster vor das Gesicht
-				monsterscript.setCloseup = true;
+				if (eyesClosedDuration >= 0.7f) {
+					monsterscript.setCloseup = true;
+				}
 			} else { //augen lange genug geschlossen
 				Debug.Log("closed: "+eyesClosedDuration + " needed: "+eyesClosedDurationNeeded);
 				monsterDefeated = true;
