@@ -159,7 +159,7 @@ public class MonsterAuftritt : MonoBehaviour {
 					}
 				}
 				//Start wenn Monster nah
-				if (monster.GetComponent<MonsterScript> ().distanceToPlayer < 5f) {
+				if (monster.GetComponent<MonsterScript> ().distanceToPlayer < 1f) {
 					Debug.Log ("Monster close");
 					StartFight ();
 				}
