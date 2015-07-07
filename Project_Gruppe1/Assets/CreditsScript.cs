@@ -51,12 +51,9 @@ public class CreditsScript : MonoBehaviour {
 	}
 	
 	
-	void LateUpdate () {
-		if (getCountHints () == 1) {
-			showCredits = true;
-			StartMusic();
-		}
-
+	public void startCredits() {
+		showCredits = true;
+		StartMusic();
 	}
 	
 	void LockCursor(bool locking) {
@@ -68,7 +65,9 @@ public class CreditsScript : MonoBehaviour {
 			Cursor.visible = true;
 		}
 	}
-	
+
+
+
 	
 	void OnGUI () {
 		if (skin != null) {

@@ -3,7 +3,9 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class EyesScript : MonoBehaviour {
-	
+
+	public bool outro = false;
+
 	float eyesClosedTimepoint = 0;
 	float eyesClosedDuration = 0;
 	float eyesClosedDurationNeeded;
@@ -50,12 +52,25 @@ public class EyesScript : MonoBehaviour {
 			eyesAniScript.OpenEyes();
 		}
 
+		//Zeit mit geschlossenen Augen
+		if (getEyesClosed ()) {
+			eyesClosedDuration = Time.time - eyesClosedTimepoint;
+
+			if (outro && eyesClosedDuration >= eyesClosedDurationNeeded) {
+				// play Outro Soundefffect
+
+				if (GameObject.Find ("Relax").GetComponent<AudioSource> ().isPlaying == false) {
+					GameObject.Find ("Relax").GetComponent<AudioSource> ().Play ();
+				}
+
+			}
+		}
+
 	}
 
 	//damit erst alles ausgeloest wird, wenn animation startet, aufgerufen aus animation behaviour
 	public void EyesStartToOpen(){
-		//Zeit mit geschlossenen Augen
-		eyesClosedDuration = Time.time - eyesClosedTimepoint;
+
 		Debug.Log("Eyes closed for "+eyesClosedDuration);
 
 		//wenn in monsterfight
@@ -68,8 +83,11 @@ public class EyesScript : MonoBehaviour {
 			} else { //augen lange genug geschlossen
 				Debug.Log("closed: "+eyesClosedDuration + " needed: "+eyesClosedDurationNeeded);
 				monsterDefeated = true;
-
 				monsterscript.MonsterDefeated();
+
+				if (outro) {
+					GameObject.Find ("FPSController").GetComponent<CreditsScript>().startCredits();
+				}
 			}
 		}
 		else if (GameObject.FindGameObjectWithTag ("Player").GetComponent<Spiderinteraction>().getTutorialStarted()) {

@@ -18,7 +18,7 @@ public class CloseDoorEnd : MonoBehaviour {
 			GameObject.Find ("DoorChild").GetComponent<DoorOpenScript> ().ChangeDoorState (true);
 		}
 
-
+		GameObject.Find ("FirstPersonCharacter").GetComponent<EyesScript> ().outro = true;
 
 	}
 }
