@@ -7,6 +7,9 @@ public class EyesScript : MonoBehaviour {
 	float eyesClosedTimepoint = 0;
 	float eyesClosedDuration = 0;
 	float eyesClosedDurationNeeded;
+	float nextHeartbeat = 0.0f;
+	int switchHeartbeatSound = 0;
+
 	bool monsterDefeated = false;
 	private bool introFinished = false;
 
@@ -66,9 +69,6 @@ public class EyesScript : MonoBehaviour {
 				Debug.Log("closed: "+eyesClosedDuration + " needed: "+eyesClosedDurationNeeded);
 				monsterDefeated = true;
 
-				eyesClosedDurationNeeded = 0;
-				eyesClosedTimepoint = 0;
-
 				monsterscript.MonsterDefeated();
 			}
 		}
@@ -86,7 +86,9 @@ public class EyesScript : MonoBehaviour {
 				spiderinteraction.setTutorialFinished(true);
 			}
 		}
-		
+
+		eyesClosedDurationNeeded = 0;
+		eyesClosedTimepoint = 0;
 		eyesClosedDuration = 0;
 	}
 	
@@ -104,15 +106,23 @@ public class EyesScript : MonoBehaviour {
 
 
 	public void heartBeatSoundeffect() {
-		
-		if (GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().isPlaying == false) {
-			GameObject.Find ("Heart Beat").GetComponent<AudioSource> ().Play ();
+
+		nextHeartbeat = (Time.time - eyesClosedTimepoint) / eyesClosedDurationNeeded;
+
+		if (GameObject.Find ("Heart Beat A").GetComponent<AudioSource> ().isPlaying == false &&
+		    GameObject.Find ("Heart Beat B").GetComponent<AudioSource> ().isPlaying == false) {
+
+				if (switchHeartbeatSound == 0) {
+					GameObject.Find ("Heart Beat A").GetComponent<AudioSource> ().Play ();
+					switchHeartbeatSound = 1;
+				} else {
+					GameObject.Find ("Heart Beat B").GetComponent<AudioSource> ().Play ();
+					switchHeartbeatSound = 0;
+				}
 		}
-		
-		float nextHeartbeat = (Time.time - eyesClosedTimepoint) / eyesClosedDurationNeeded;
 
 		if (!monsterDefeated) {
-			Invoke ("heartBeatSoundeffect", nextHeartbeat);
+			Invoke("heartBeatSoundeffect", nextHeartbeat);
 		} 
 	}
 
