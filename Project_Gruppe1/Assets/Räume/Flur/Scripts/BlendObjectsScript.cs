@@ -6,7 +6,8 @@ public class BlendObjectsScript : MonoBehaviour {
 
 	public GameObject objectVisible; //object that is visible initially if player is not looking
 	public GameObject objectNotVisible; //object that is not visible initially
-
+	
+	private AudioSource pictureSound;
 	private bool object1 = false; // true if object1 visible
 	private float timer = 0; // certain time has to pass before object changes
 	private float coolDownTimer = 0;
@@ -18,8 +19,7 @@ public class BlendObjectsScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-
+		pictureSound = GetComponent<AudioSource>();
 		
 	}
 	
@@ -96,7 +96,7 @@ public class BlendObjectsScript : MonoBehaviour {
 			Debug.Log ("Time: " + Time.time);*/
 			if (Time.time - timer > threashold && timer != 0) {
 				//Debug.Log ("show object 2");
-
+				pictureSound.Play();
 				var script1 = objectVisible.GetComponent<FadeObjectInOut>();
 				var script2 = objectNotVisible.GetComponent<FadeObjectInOut>();
 			
