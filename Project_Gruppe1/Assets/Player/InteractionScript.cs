@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using iView;
+
 
 public class InteractionScript : MonoBehaviour {
 	
@@ -25,7 +27,19 @@ public class InteractionScript : MonoBehaviour {
 	private float strengthOfFlashlight;
 
 	private int screenshotCount = 0;
+	
+	private Ray ray;
 
+	// to reduce flickering of icon
+	private bool showIcon = false;
+	private Collider lastUsableCollider;
+
+	// position of usable icon
+	Vector3 targetPosition; 
+
+	// to smoooth movement of icon
+	public float smoothTime = 0.3F;
+	private Vector3 velocity = Vector3.zero;
 	
 	// Use this for initialization
 	void Start () {
@@ -57,14 +71,30 @@ public class InteractionScript : MonoBehaviour {
 			screenshotCount++;
 		}
 
-		useIcon.enabled = false;
-		
-		
+		if (!showIcon) {
+			useIcon.enabled = false;
+		} else {
+			if (lastUsableCollider != null) {
+				GameObject.Find ("Benutzen Icon").GetComponent<RectTransform> ().position = targetPosition;
+				//GameObject.Find ("Benutzen Icon").GetComponent<RectTransform> ().position = Camera.main.WorldToScreenPoint (lastUsableCollider.GetComponentInChildren<Renderer> ().bounds.center);
+			}
+
+		}
+			
+
+			
 		if (Input.GetKeyDown (KeyCode.Mouse0) && showGUIOverlay) {
 			showGUIOverlay = false;
 		}
-		
-		Ray ray = new Ray (transform.position, transform.forward);
+
+
+		if (GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions> ().useEyeTracking == true) {
+			ray = Camera.main.ScreenPointToRay(SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords());
+		} else {
+			ray = new Ray (transform.position, transform.forward);
+		}
+
+
 		RaycastHit hit;
 
 		// Player is looking at the doll and activate doll-animations
@@ -126,7 +156,7 @@ public class InteractionScript : MonoBehaviour {
 		}
 		
 		if (Physics.Raycast (ray, out hit, interactDistance)) {
-			
+
 			if (hit.collider.transform.parent != null) {
 				if (hit.collider.transform.parent.gameObject.name == "DoorChild" && gotKey == false) {
 					Debug.Log ("KinderzimmerTür");
@@ -134,11 +164,44 @@ public class InteractionScript : MonoBehaviour {
 						GameObject.Find("Child").GetComponent<AudioSource>().Play();
 					} 
 				}
-
+			
 				if (hit.collider.transform.parent.CompareTag ("usable") || hit.collider.CompareTag ("Door")) {
+
+					showIcon = true;
+
+					if (hit.collider != lastUsableCollider || lastUsableCollider == null) {
+						lastUsableCollider = hit.collider;
+
+						if (GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions> ().useEyeTracking == true) {
+							targetPosition = SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords();
+						} else {
+							targetPosition = new Vector3 (Screen.width/2, Screen.height/2, 0);
+						}
+					} 
+
+
+
+					/*if (GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions> ().useEyeTracking == true) {
+						Vector3 targetPosition;
+						targetPosition = SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords();
+						GameObject.Find ("Benutzen Icon").GetComponent<RectTransform> ().position = Vector3.SmoothDamp(GameObject.Find ("Benutzen Icon").GetComponent<RectTransform> ().position, targetPosition, ref velocity, smoothTime);
+					} */
+
+					GameObject.Find ("Benutzen Icon").GetComponent<RectTransform> ().position = targetPosition;
+
+					//Debug.Log("Hier ist icon: " + targetPosition);
+					//GameObject.Find ("Benutzen Icon").GetComponent<RectTransform> ().position = Camera.main.WorldToScreenPoint (lastUsableCollider.GetComponentInChildren<Renderer> ().bounds.center);
+
 					useIcon.enabled = true;
-				} 
+
+				} else {
+					Invoke("fadeOutIcon", 0.4f);
+				}
+
 			}
+
+
+
 			if (Input.GetKeyDown (KeyCode.Mouse0)) {
 				
 				if (hit.collider.CompareTag ("Door")) {
@@ -174,9 +237,6 @@ public class InteractionScript : MonoBehaviour {
 					if (script != null) {
 						script.useObject ();
 					}
-
-
-
 				}
 			}
 			
@@ -233,5 +293,10 @@ public class InteractionScript : MonoBehaviour {
 		Debug.Log("Dead...");
 		Application.LoadLevel(Application.loadedLevel);
 	}
+
+	void fadeOutIcon() {
+		showIcon = false;
+	}
+
 	
 }

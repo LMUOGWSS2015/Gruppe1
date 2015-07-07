@@ -23,7 +23,6 @@ public class GazeInteractions : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-
 		eyesAniScript = GameObject.FindGameObjectWithTag("EyesOverlay").GetComponent<EyesAnimation>();
 
 	}
@@ -74,7 +73,8 @@ public class GazeInteractions : MonoBehaviour {
 		}
 
  */
-		
+
+		/*
 		Ray rayGaze = Camera.main.ScreenPointToRay(SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords());
 		RaycastHit hit; 
 		
@@ -130,6 +130,8 @@ public class GazeInteractions : MonoBehaviour {
 			}
 			
 		}
+
+*/
 		
 	}
 }
