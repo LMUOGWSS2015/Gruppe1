@@ -84,6 +84,9 @@ public class EyesScript : MonoBehaviour {
 				}
 
 			}
+			if (eyesClosedDuration >= eyesClosedDurationNeeded) {
+				GameObject.Find ("MonsterFeetSound").GetComponent<AudioSource> ().loop = false;
+			}
 		}
 
 	}
@@ -156,11 +159,12 @@ public class EyesScript : MonoBehaviour {
 					switchHeartbeatSound = 1;
 				} else {
 					GameObject.Find ("Heart Beat B").GetComponent<AudioSource> ().Play ();
+					nextHeartbeat = nextHeartbeat/2;
 					switchHeartbeatSound = 0;
 				}
 		}
 
-		if (!monsterDefeated) {
+		if (getEyesClosed()) {
 			Invoke("heartBeatSoundeffect", nextHeartbeat);
 		} 
 	}
