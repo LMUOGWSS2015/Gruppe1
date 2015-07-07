@@ -39,11 +39,11 @@ public class Spiderinteraction : MonoBehaviour {
 	}
 
 	void Update(){
-		if (tutorialStarted && tutorialFinished) {
+		if (tutorialStarted && tutorialFinished) {/*
 			player.GetComponent<FirstPersonController> ().m_MouseLook.ResetRotation (
 				player.GetComponentInChildren<FirstPersonController>().transform,
 				player.GetComponentInChildren<FirstPersonController>().m_Camera.transform
-			);
+			);*/
 			es.GetComponent<SmoothLookAt>().enabled = false;
 			player.GetComponent<FirstPersonController>().enabled = true;
 			player.GetComponent<CharacterController>().enabled = true;
