@@ -11,9 +11,9 @@ public class Spiderinteraction : MonoBehaviour {
 	private EyesScript es;
 	private GameObject player;
 	private Text subtitles;
-	private float EyesClosedMinDuration = 3f;
-	private bool tutorialStarted = false;
-	private bool tutorialFinished = false;
+	private float EyesClosedMinDuration = 5.0f;
+	public bool tutorialStarted = false;
+	public bool tutorialFinished = false;
 
 	// Use this for initialization
 	void Start () 
@@ -33,7 +33,7 @@ public class Spiderinteraction : MonoBehaviour {
 			es.GetComponent<SmoothLookAt> ().enabled = true;
 
 			tutorialStarted = true;
-			subtitles.text = "See the giant spider? Close your Eyes!";
+			subtitles.text = "See the giant spider? Close your Eyes.";
 			GameObject.FindGameObjectWithTag ("Tutorial").GetComponent<Animator> ().SetTrigger ("TutorialTrigger");
 		}
 	}

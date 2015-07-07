@@ -20,6 +20,8 @@ public class EyesScript : MonoBehaviour {
 	public MonsterScript monsterscript;
 	EyesAnimation eyesAniScript;
 
+	Spiderinteraction spiderinteraction;
+
 	private bool useEyetracking = false;
 
 	// Use this for initialization
@@ -47,6 +49,12 @@ public class EyesScript : MonoBehaviour {
 			eyesAniScript.CloseEyes();
 			eyesClosedTimepoint = Time.time;
 
+			if (GameObject.Find("FPSController").GetComponent<Spiderinteraction>().tutorialStarted == true) {
+				spiderinteraction = GameObject.FindGameObjectWithTag ("Player").GetComponent<Spiderinteraction> ();
+				eyesClosedDurationNeeded = spiderinteraction.getEyesClosedMinDuration();
+				heartBeatSoundeffect();
+			}
+
 			if (monster && monsterscript.monsterFightStarted){
 				float distance = monsterscript.distanceToPlayer;
 				float timefactor = 0.6f;
@@ -59,7 +67,7 @@ public class EyesScript : MonoBehaviour {
 				//deaktiviere endanimation damit man nicht stirbt, waehrend augen zu sind
 				monsterscript.playEndAnimation = false;
 			}
-		}else if (getEyesClosed() && (Input.GetKeyUp (KeyCode.Mouse1) || averageGazePosition.x != 0 && useEyetracking)) {
+		} else if (getEyesClosed() && (Input.GetKeyUp (KeyCode.Mouse1) || averageGazePosition.x != 0 && useEyetracking)) {
 			//eyesAnimator.SetBool("EyesClosed", false);
 			eyesAniScript.OpenEyes();
 		}
@@ -105,16 +113,15 @@ public class EyesScript : MonoBehaviour {
 			}
 		}
 		else if (GameObject.FindGameObjectWithTag ("Player").GetComponent<Spiderinteraction>().getTutorialStarted()) {
-			Spiderinteraction spiderinteraction = GameObject.FindGameObjectWithTag ("Player").GetComponent<Spiderinteraction> ();
-			float EyesClosedMinDuration = spiderinteraction.getEyesClosedMinDuration();
-			Debug.Log("closed: "+eyesClosedDuration + " needed: "+EyesClosedMinDuration);
-			if (eyesClosedDuration < EyesClosedMinDuration){
+
+			Debug.Log("closed: "+eyesClosedDuration + " needed: " + eyesClosedDurationNeeded);
+			if (eyesClosedDuration < eyesClosedDurationNeeded){
 				//augen zu kurz geschlossen
 				spiderinteraction.setSubtitles("Close your eyes longer and you will calm down.");	
 			} else { 
 				//augen lange genug geschlossen
 				GameObject.FindGameObjectWithTag("Tutorial").SetActive(false);
-				spiderinteraction.setSubtitles("Open your Eyes again. See? She's gone! It was only your imagination.");
+				spiderinteraction.setSubtitles("It was only your imagination.");
 				spiderinteraction.setTutorialFinished(true);
 			}
 		}
@@ -139,7 +146,7 @@ public class EyesScript : MonoBehaviour {
 
 	public void heartBeatSoundeffect() {
 
-		nextHeartbeat = (Time.time - eyesClosedTimepoint) / eyesClosedDurationNeeded;
+		nextHeartbeat = Mathf.Clamp(((Time.time - eyesClosedTimepoint) / eyesClosedDurationNeeded), 0.01f, 1.0f);
 
 		if (GameObject.Find ("Heart Beat A").GetComponent<AudioSource> ().isPlaying == false &&
 		    GameObject.Find ("Heart Beat B").GetComponent<AudioSource> ().isPlaying == false) {

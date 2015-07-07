@@ -60,7 +60,7 @@ public class MonsterAuftritt : MonoBehaviour {
 			animator.SetLayerWeight (1, 1 - distance / 8);
 			if (noiseActive) {
 
-				GameObject.Find ("Rauschen").GetComponent<AudioSource> ().volume = (8.0f-distance)/8.0f;
+				//GameObject.Find ("Rauschen").GetComponent<AudioSource> ().volume = (8.0f-distance)/8.0f;
 
 				noiseScript.grainIntensityMin = Map(grainmin, 0, 0,8f, distance);
 				noiseScript.grainIntensityMax = Map(grainmax, 0, 0,8f, distance);
