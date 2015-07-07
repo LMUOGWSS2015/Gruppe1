@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using iView;
 
 public class EyesScript : MonoBehaviour {
 
@@ -19,16 +20,29 @@ public class EyesScript : MonoBehaviour {
 	public MonsterScript monsterscript;
 	EyesAnimation eyesAniScript;
 
+	private bool useEyetracking = false;
+
 	// Use this for initialization
 	void Start () {
+		useEyetracking = GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions>().useEyeTracking;
 		monsterscript = monster.GetComponent<MonsterScript> ();
 		eyesAniScript = GameObject.FindGameObjectWithTag("EyesOverlay").GetComponent<EyesAnimation>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		//get the Sample from the Server
+		SampleData sample = SMIGazeController.Instance.GetSample();
+		
+		//get the averaged GazePosition
+		Vector3 averageGazePosition = sample.averagedEye.gazePosInUnityScreenCoords ();
+		
+		//		Debug.Log ("AveragePos (Unity): " + averageGazePosition.x);
+
+
 		//rechtsklick down
-		if (Input.GetKeyDown (KeyCode.Mouse1) && !getEyesClosed()) {
+		if (!getEyesClosed() && (Input.GetKeyDown (KeyCode.Mouse1) ||  (averageGazePosition.x == 0 && useEyetracking))) {
 			eyesClosedDuration = 0;
 			eyesAniScript.CloseEyes();
 			eyesClosedTimepoint = Time.time;
@@ -45,9 +59,7 @@ public class EyesScript : MonoBehaviour {
 				//deaktiviere endanimation damit man nicht stirbt, waehrend augen zu sind
 				monsterscript.playEndAnimation = false;
 			}
-		}
-		//rechtsklick up
-		if (Input.GetKeyUp (KeyCode.Mouse1 ) && getEyesClosed()) {
+		}else if (getEyesClosed() && (Input.GetKeyUp (KeyCode.Mouse1) || averageGazePosition.x != 0 && useEyetracking)) {
 			//eyesAnimator.SetBool("EyesClosed", false);
 			eyesAniScript.OpenEyes();
 		}

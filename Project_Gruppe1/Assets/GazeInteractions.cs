@@ -43,7 +43,7 @@ public class GazeInteractions : MonoBehaviour {
 	 */
 	void eyeTracking() {
 		
-		//get the Sample from the Server
+	/*	//get the Sample from the Server
 		SampleData sample = SMIGazeController.Instance.GetSample();
 		
 		//get the averaged GazePosition
@@ -72,6 +72,8 @@ public class GazeInteractions : MonoBehaviour {
 			// Debug.Log ("Eyes are open.");
 			eyesAniScript.OpenEyes();
 		}
+
+ */
 		
 		Ray rayGaze = Camera.main.ScreenPointToRay(SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords());
 		RaycastHit hit; 
