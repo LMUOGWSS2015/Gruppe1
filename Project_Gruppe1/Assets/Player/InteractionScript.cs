@@ -175,7 +175,7 @@ public class InteractionScript : MonoBehaviour {
 						if (GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions> ().useEyeTracking == true) {
 							targetPosition = SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords();
 						} else {
-							targetPosition = new Vector3 (Screen.width/2, Screen.height/2, 0);
+							targetPosition = new Vector3 (((Screen.width/2) - 40.0f) , ((Screen.height/2)- 40.0f), 0);
 						}
 					} 
 
@@ -195,7 +195,12 @@ public class InteractionScript : MonoBehaviour {
 					useIcon.enabled = true;
 
 				} else {
-					Invoke("fadeOutIcon", 0.4f);
+					if (GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions> ().useEyeTracking == true) {
+						Invoke("fadeOutIcon", 0.4f);
+					} else {
+						Invoke("fadeOutIcon", 0.05f);
+					}
+
 				}
 
 			}
