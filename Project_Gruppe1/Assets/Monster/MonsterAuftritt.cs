@@ -88,7 +88,7 @@ public class MonsterAuftritt : MonoBehaviour {
 
 		if (!monsterscript.walkingStarted) {
 			if (hit) {
-				Debug.Log(hit.gameObject.name);
+				//Debug.Log(hit.gameObject.name);
 				if (hit.CompareTag ("Monster")) {
 					GameObject.Find ("MonsterFeetSound").GetComponent<AudioSource> ().loop = true;
 					GameObject.Find ("MonsterFeetSound").GetComponent<AudioSource> ().Play ();
@@ -159,7 +159,7 @@ public class MonsterAuftritt : MonoBehaviour {
 					}
 				}
 				//Start wenn Monster nah
-				if (monster.GetComponent<MonsterScript> ().distanceToPlayer < 1f) {
+				if (monster.GetComponent<MonsterScript> ().distanceToPlayer < 0.5f) {
 					Debug.Log ("Monster close");
 					StartFight ();
 				}
@@ -182,10 +182,10 @@ public class MonsterAuftritt : MonoBehaviour {
 
 		//Bewegung einschraenken
 		FirstPersonController fpsc = player.GetComponent<FirstPersonController> ();
-		fpsc.m_WalkSpeed = 0.3f;
-		fpsc.m_RunSpeed = 0.3f;
-		fpsc.m_MouseLook.XSensitivity = 0.2f;
-		fpsc.m_MouseLook.YSensitivity = 0.2f;
+		fpsc.m_WalkSpeed = 0.6f;
+		fpsc.m_RunSpeed = 0.6f;
+		fpsc.m_MouseLook.XSensitivity = 0.4f;
+		fpsc.m_MouseLook.YSensitivity = 0.4f;
 
 		noiseActive = true;
 	}
