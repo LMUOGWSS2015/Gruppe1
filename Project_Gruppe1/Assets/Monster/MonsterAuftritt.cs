@@ -111,7 +111,8 @@ public class MonsterAuftritt : MonoBehaviour {
 				GameObject.Find("NavDummy").transform.position = dummypos;
 
 				//ende ausloesen wenn monster sehr nah
-				if (distance < - 1.12) {
+				Debug.Log(distance);
+				if (distance < - 0.5) {
 					GameObject.Find ("MonsterFeetSound").GetComponent<AudioSource> ().loop = false;
 
 					if (monster.GetComponent<MonsterScript> ().playEndAnimation) {
