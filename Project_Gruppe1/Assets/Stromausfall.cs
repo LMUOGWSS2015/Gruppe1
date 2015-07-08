@@ -17,6 +17,9 @@ public class Stromausfall : MonoBehaviour {
 	}
 
 	private void turnLightsOff() {
+
+		GameObject.Find ("Grundriss").GetComponentInChildren<LightMapSwitcher> ().SetToNight ();
+
 		foreach (GameObject light in lightsUpstairs) {
 			light.SetActive(false);		
 		}
