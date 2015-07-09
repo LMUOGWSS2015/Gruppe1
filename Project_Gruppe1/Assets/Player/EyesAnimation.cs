@@ -32,14 +32,14 @@ public class EyesAnimation : MonoBehaviour {
 	}
 
 	public void CloseEyes(){
-		Debug.Log("CloseEyes");
+		//Debug.Log("CloseEyes");
 		closeEyesAnimation = true;
 		openEyesAnimation = false;
 		eyesClosed = true;
 	}
 
 	public void OpenEyes(){
-		Debug.Log("OpenEyes");
+		//Debug.Log("OpenEyes");
 		eyesClosed = false;
 		openEyesAnimation = true;
 		closeEyesAnimation = false;

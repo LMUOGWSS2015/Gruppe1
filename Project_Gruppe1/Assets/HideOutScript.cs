@@ -24,8 +24,8 @@ public class HideOutScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (openHideSpot) {
-			if (GameObject.Find ("TriggerHideOut").GetComponent<BoxCollider>().enabled == true) {
-				GameObject.Find ("TriggerHideOut").GetComponent<BoxCollider>().enabled = false;
+			if (this.GetComponent<BoxCollider>().enabled == true) {
+				this.GetComponent<BoxCollider>().enabled = false;
 			}
 			Quaternion targetRotation = Quaternion.Euler (0, 91, 0);
 			go.transform.localRotation = Quaternion.Lerp (go.transform.localRotation, targetRotation, 2.0f * Time.deltaTime);	
@@ -41,6 +41,9 @@ public class HideOutScript : MonoBehaviour {
 				this.GetComponent<AudioSource>().Play();
 			}
 
+			GameObject.Find ("TriggerKey").transform.parent.tag = "usable";
+
+		//	this.transform.parent.tag = "none";
 			openHideSpot = true;
 		}
 
