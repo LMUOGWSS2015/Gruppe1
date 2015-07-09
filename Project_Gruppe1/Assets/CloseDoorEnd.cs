@@ -3,6 +3,8 @@ using System.Collections;
 
 public class CloseDoorEnd : MonoBehaviour {
 
+	public GameObject monsterprefab;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -19,6 +21,12 @@ public class CloseDoorEnd : MonoBehaviour {
 		}
 
 		GameObject.Find ("FirstPersonCharacter").GetComponent<EyesScript> ().outro = true;
+		//spawn monster
+		Transform monsterspawn = GameObject.Find ("MonsterSpawnEnde").transform;
+		GameObject monster = (GameObject) Instantiate(monsterprefab, monsterspawn.position, monsterspawn.rotation);
 
+		//entferne trigger, damit nur einmal ausgeloest
+		Destroy (gameObject);
+		Destroy (this);
 	}
 }
