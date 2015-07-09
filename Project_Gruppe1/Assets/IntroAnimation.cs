@@ -16,6 +16,8 @@ public class IntroAnimation : MonoBehaviour {
 
 	public bool showIntro;
 
+	private bool playIntroSong = true;
+
 
 	// Use this for initialization
 	void Start () {
@@ -27,7 +29,8 @@ public class IntroAnimation : MonoBehaviour {
 
 
 		if (showIntro == true) {
-			if (this.gameObject.GetComponent<AudioSource>().isPlaying == false) {
+			if (this.gameObject.GetComponent<AudioSource>().isPlaying == false && playIntroSong) {
+				playIntroSong = false;
 				this.gameObject.GetComponent<AudioSource>().Play ();
 			}
 			Invoke ("displayPart1", 2);
@@ -90,6 +93,7 @@ public class IntroAnimation : MonoBehaviour {
 
 		introFinished = true;
 		GameObject.FindGameObjectWithTag("Player").GetComponentInParent<Animator>().SetTrigger("start");
+		GameObject.Find ("Player").GetComponent<AudioSource> ().Play ();
 	}
 
 	public bool getIntroFinished() {

@@ -34,13 +34,15 @@ public class CreditsScript : MonoBehaviour {
 		creditsAudio = creditsMusic.GetComponent<AudioSource> ();
 
 	}
-	
+
+	/*
 	void LateUpdate() {
 		// TODO: remove; only for testing
 		if (getCountHints() == 2) {
 			startCredits();
 		}
 	}
+	*/
 	
 	int getCountHints() {
 		InteractionScript iaScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<InteractionScript> ();

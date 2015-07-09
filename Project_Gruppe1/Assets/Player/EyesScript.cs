@@ -78,8 +78,11 @@ public class EyesScript : MonoBehaviour {
 
 			if (outro && eyesClosedDuration >= eyesClosedDurationNeeded) {
 				// play Outro Soundefffect
+				GameObject.Find ("Heart Beat A").GetComponent<AudioSource> ().volume = 0.0f;
+				GameObject.Find ("Heart Beat B").GetComponent<AudioSource> ().volume = 0.0f;
 
 				if (GameObject.Find ("Relax").GetComponent<AudioSource> ().isPlaying == false) {
+					Debug.Log("Jetzt spielt er Soundeffekt ende");
 					GameObject.Find ("Relax").GetComponent<AudioSource> ().Play ();
 				}
 

@@ -47,7 +47,8 @@ public class PauseMenu1 : MonoBehaviour {
 	}
 
 	void Start() {
-
+		AudioListener.pause = false;
+		pauseAudio.ignoreListenerPause = true;
 	}
 
 	int getCountHints() {
@@ -56,20 +57,27 @@ public class PauseMenu1 : MonoBehaviour {
 	}
 
 	void StartMusic() {
+		AudioListener.pause = true;
+		/*
 		AudioSource[] audios = FindObjectsOfType (typeof(AudioSource)) as AudioSource[];
 		foreach (AudioSource aud in audios) {
 			aud.Pause(); 
 		}
-		pauseAudio.Play ();
+		*/
+		pauseAudio.Play (); 
 	}
 
 	void StopMusic() {
+
+		AudioListener.pause = false;
+		/*
 		AudioSource[] audios = FindObjectsOfType (typeof(AudioSource)) as AudioSource[];
 		foreach (AudioSource aud in audios) {
 			if (aud.playOnAwake) {
 				aud.Play(); 
 			}
 		}
+		*/
 		pauseAudio.Stop ();
 	}
 

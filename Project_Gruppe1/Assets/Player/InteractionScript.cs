@@ -10,6 +10,7 @@ public class InteractionScript : MonoBehaviour {
 	public int numberOfHints;
 	public Light flashlight;
 	public Image useIcon;
+	private Color maxAlpha;
 	
 	public Texture gray_overlay;
 	public float fadeSpeed = 0.2f;
@@ -44,6 +45,7 @@ public class InteractionScript : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
+		maxAlpha = useIcon.color;
 		strengthOfFlashlight = flashlight.intensity;
 
 		if (gotFlashlight == false) {
@@ -72,15 +74,27 @@ public class InteractionScript : MonoBehaviour {
 			screenshotCount++;
 		}
 
-		if (!showIcon) {
-			useIcon.enabled = false;
-		} else {
+
+
+		if (!showIcon && useIcon.enabled == true) {
+			useIcon.color = Color.Lerp (useIcon.color, Color.clear, 3.5f * Time.deltaTime);
+
+			if (useIcon.color.a <= 0.05) {
+				useIcon.enabled = false;
+			}
+		} 
+
+		showIcon = false;
+
+		/*
+		if (showIcon) {
+			useIcon.enabled = true;
 			if (lastUsableCollider != null) {
 				GameObject.Find ("Benutzen Icon").GetComponent<RectTransform> ().position = targetPosition;
 				//GameObject.Find ("Benutzen Icon").GetComponent<RectTransform> ().position = Camera.main.WorldToScreenPoint (lastUsableCollider.GetComponentInChildren<Renderer> ().bounds.center);
 			}
+		} */
 
-		}
 			
 
 			
@@ -116,23 +130,23 @@ public class InteractionScript : MonoBehaviour {
 				if (GameObject.Find("BathroomSoundeffect").GetComponent<AudioSource>().isPlaying == false) {
 					GameObject.Find("BathroomSoundeffect").GetComponent<AudioSource>().Play ();
 				}
-				Debug.Log ("Spieler schaut Puppe an");
+				//Debug.Log ("Spieler schaut Puppe an");
 				dollB.GetComponent<Animator>().Play("BathWalk");
 
 
 			}
 			else if (hit.collider.CompareTag ("DollStep")){
-				Debug.Log ("Spieler schaut Puppe an der Treppe an");
+				//Debug.Log ("Spieler schaut Puppe an der Treppe an");
 
 				dollS.GetComponent<Animator>().Play("Step");
 			}
 			else if (hit.collider.CompareTag ("DollPiano")){
-				Debug.Log ("Spieler schaut Puppe im Wohnzimmer an");
+				//Debug.Log ("Spieler schaut Puppe im Wohnzimmer an");
 				dollP.GetComponent<Animator>().Play("Piano");
 			}
 			else if (hit.collider.CompareTag ("DollWindow")){
-				Debug.Log ("Spieler sieht wie Puppe stirbt!");
-				hit.collider.GetComponent<StandardSoundEffectScript>().startSound();
+				//Debug.Log ("Spieler sieht wie Puppe stirbt!");
+				GameObject.Find ("schrei puppe").GetComponent<StandardSoundEffectScript>().startSound();
 				dollW.GetComponent<Animator>().Play("Window");
 			}
 			//Debug.Log ("Spieler schaut nicht auf Puppe");
@@ -176,7 +190,7 @@ public class InteractionScript : MonoBehaviour {
 						if (GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions> ().useEyeTracking == true) {
 							targetPosition = SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords();
 						} else {
-							targetPosition = new Vector3 (((Screen.width/2) - 40.0f) , ((Screen.height/2)- 40.0f), 0);
+							targetPosition = new Vector3 (((Screen.width/2) - 40.0f) , ((Screen.height/2)- 60.0f), 0);
 						}
 					} 
 
@@ -193,14 +207,12 @@ public class InteractionScript : MonoBehaviour {
 					//Debug.Log("Hier ist icon: " + targetPosition);
 					//GameObject.Find ("Benutzen Icon").GetComponent<RectTransform> ().position = Camera.main.WorldToScreenPoint (lastUsableCollider.GetComponentInChildren<Renderer> ().bounds.center);
 
-					useIcon.enabled = true;
+					useIcon.color = maxAlpha;
 
-				} else {
-					if (GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions> ().useEyeTracking == true) {
-						Invoke("fadeOutIcon", 0.4f);
-					} else {
-						Invoke("fadeOutIcon", 0.05f);
+					if (GameObject.Find ("FPSController").GetComponent<CharacterController> ().enabled == true) {
+						useIcon.enabled = true;
 					}
+				} 
 
 				}
 
@@ -248,7 +260,7 @@ public class InteractionScript : MonoBehaviour {
 						script.useObject ();
 					}
 				}
-			}
+
 			
 		} else {
 		//	Debug.Log("Kakerlaken weg");
@@ -317,9 +329,7 @@ public class InteractionScript : MonoBehaviour {
 		Application.LoadLevel(Application.loadedLevel);
 	}
 
-	void fadeOutIcon() {
-		showIcon = false;
-	}
+
 
 	
 }

@@ -26,7 +26,7 @@ public class MainMenu : MonoBehaviour {
 		guiFactor = (guiFactor == 0) ? 1 : guiFactor;
 		
 		mainMenuAudio = mainMenuMusic.GetComponent<AudioSource> ();
-		mainMenuAudio.Play ();
+	//	mainMenuAudio.Play ();
 	}
 	
 	void Start() {
