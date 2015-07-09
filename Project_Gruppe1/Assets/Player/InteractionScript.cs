@@ -81,6 +81,7 @@ public class InteractionScript : MonoBehaviour {
 
 			if (useIcon.color.a <= 0.05) {
 				useIcon.enabled = false;
+				lastUsableCollider = null;
 			}
 		} 
 
@@ -180,7 +181,8 @@ public class InteractionScript : MonoBehaviour {
 					} 
 				}
 			
-				if (hit.collider.transform.parent.CompareTag ("usable") || hit.collider.CompareTag ("Door")) {
+				if ((hit.collider.transform.parent.CompareTag ("usable") || hit.collider.CompareTag ("Door")) 
+				    && GameObject.Find ("FPSController").GetComponent<CharacterController> ().enabled == true) {
 
 					showIcon = true;
 
@@ -208,10 +210,8 @@ public class InteractionScript : MonoBehaviour {
 					//GameObject.Find ("Benutzen Icon").GetComponent<RectTransform> ().position = Camera.main.WorldToScreenPoint (lastUsableCollider.GetComponentInChildren<Renderer> ().bounds.center);
 
 					useIcon.color = maxAlpha;
+					useIcon.enabled = true;
 
-					if (GameObject.Find ("FPSController").GetComponent<CharacterController> ().enabled == true) {
-						useIcon.enabled = true;
-					}
 				} 
 
 				}
