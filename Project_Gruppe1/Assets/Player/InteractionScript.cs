@@ -351,7 +351,11 @@ public class InteractionScript : MonoBehaviour {
 
 	public void PlayerDies(){
 		Debug.Log("Dead...");
-		Application.LoadLevel(Application.loadedLevel);
+		GameObject.FindGameObjectWithTag ("Monster").
+			GetComponent<MonsterScript> ().
+				MonsterDefeated ();
+		GameObject.Find ("Player").transform.position = GameObject.Find ("PlayerSpawn").transform.position;
+		//Application.LoadLevel(Application.loadedLevel);
 	}
 
 

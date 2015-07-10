@@ -193,6 +193,7 @@ public class MonsterAuftritt : MonoBehaviour {
 
 	//setzt fps controller auf startwerte zurueck
 	public void ResetFPSController(){
+		Debug.Log("Reset FPS Controller");
 		FirstPersonController fpsc = player.GetComponent<FirstPersonController> ();
 		fpsc.m_WalkSpeed = m_WalkSpeed;
 		fpsc.m_RunSpeed = m_RunSpeed;
