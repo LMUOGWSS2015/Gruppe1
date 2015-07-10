@@ -8,8 +8,9 @@ public class Stromausfall : MonoBehaviour {
 	private bool playOnce = true;
 
 	void OnTriggerEnter(Collider other) {
-		if (this.GetComponent<AudioSource>().isPlaying == false) {
+		if (this.GetComponent<AudioSource>().isPlaying == false && playOnce) {
 			this.GetComponent<AudioSource>().Play ();
+			playOnce = false;
 		}
 
 		lightsUpstairs = GameObject.FindGameObjectsWithTag("lightsUpstairs");	

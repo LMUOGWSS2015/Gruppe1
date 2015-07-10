@@ -42,6 +42,8 @@ public class InteractionScript : MonoBehaviour {
 	// to smoooth movement of icon
 	public float smoothTime = 0.3F;
 	private Vector3 velocity = Vector3.zero;
+
+	private bool firstTimeUsable = true;
 	
 	// Use this for initialization
 	void Start () {
@@ -81,7 +83,12 @@ public class InteractionScript : MonoBehaviour {
 
 			if (useIcon.color.a <= 0.05) {
 				useIcon.enabled = false;
-				lastUsableCollider = null;
+				lastUsableCollider = null;					
+
+				if(firstTimeUsable) {
+					GameObject.Find ("Subtitle").GetComponent<Text>().text = "";
+				}
+
 			}
 		} 
 
@@ -186,7 +193,15 @@ public class InteractionScript : MonoBehaviour {
 
 					showIcon = true;
 
+					
+					if (firstTimeUsable) {
+						GameObject.Find ("Subtitle").GetComponent<Text>().text = "Press Left Mouse Button to use Objects.";
+					}
+
 					if (hit.collider != lastUsableCollider || lastUsableCollider == null) {
+
+
+
 						lastUsableCollider = hit.collider;
 
 						if (GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions> ().useEyeTracking == true) {
@@ -223,6 +238,11 @@ public class InteractionScript : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.Mouse0)) {
 				
 				if (hit.collider.CompareTag ("Door")) {
+					if(firstTimeUsable) {
+						GameObject.Find ("Subtitle").GetComponent<Text>().text = "";
+						firstTimeUsable = false;
+					}
+
 					Debug.Log ("Tür");
 					hit.collider.transform.parent.GetComponent<DoorOpenScript> ().ChangeDoorState (gotKey);
 				}
@@ -253,6 +273,11 @@ public class InteractionScript : MonoBehaviour {
 				}
 				
 				if (hit.collider.transform.parent.CompareTag ("usable")) {
+					if(firstTimeUsable) {
+						GameObject.Find ("Subtitle").GetComponent<Text>().text = "";
+						firstTimeUsable = false;
+					}
+
 					Debug.Log ("usable");
 					var script = hit.collider.gameObject.GetComponent<UseObject> ();
 					
