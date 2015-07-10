@@ -19,7 +19,11 @@ public class DoorOpenScript : MonoBehaviour {
 	public float doorOpenAngle = 90f;
 	public float doorCloseAngle = 0f;
 	public float smooth = 2f;
-	
+
+	private bool hit = false;
+	private Vector3 hitPosition;
+	private Vector3 standardPosition;
+
 	// Use this for initialization
 	void Start () {
 		doorSound = GetComponent<AudioSource>();
@@ -27,9 +31,15 @@ public class DoorOpenScript : MonoBehaviour {
 		if (open == true) {
 			transform.Rotate(0, doorOpenAngle, 0);
 		}
+
+		standardPosition = transform.position; 
+		hitPosition = transform.position;
+		hitPosition.z -= 1.0f;
+
 	}
 	
 	public void ChangeDoorState(bool gotKey) {
+
 		if (locked == false || gotKey == true) {
 			open = !open;
 			if (open == true) {
@@ -39,11 +49,16 @@ public class DoorOpenScript : MonoBehaviour {
 			}
 			
 		} else {
+			hitAgainstDoor();
 			Debug.Log("Tür verschloßen!");
 			doorSound.clip = DoorLockedSound;
 		}
 		
 		doorSound.Play ();
+	}
+
+	public void hitAgainstDoor() {
+		hit = true;
 	}
 	
 	// Update is called once per frame
@@ -55,5 +70,17 @@ public class DoorOpenScript : MonoBehaviour {
 			Quaternion targetRotation2 = Quaternion.Euler (0, doorCloseAngle, 0);
 			transform.localRotation = Quaternion.Slerp (transform.localRotation, targetRotation2, smooth * Time.deltaTime);
 		}
-	}
+
+		if (hit) {
+			transform.position = Vector3.Lerp (transform.position, hitPosition, 0.8f * Time.deltaTime);
+
+		} else {
+			transform.position = Vector3.Lerp (transform.position, standardPosition, 0.8f * Time.deltaTime);
+
+		}
+
+		if (transform.position.z <= -6.5f) {
+			hit = false;
+		}
+	} 
 }

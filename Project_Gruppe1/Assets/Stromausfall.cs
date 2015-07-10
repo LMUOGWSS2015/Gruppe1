@@ -24,5 +24,13 @@ public class Stromausfall : MonoBehaviour {
 		foreach (GameObject light in lightsUpstairs) {
 			light.SetActive(false);		
 		}
+
+		Invoke ("Doorknocking", 1.0f);
+		Invoke ("Doorknocking", 2.0f);
+		Invoke ("Doorknocking", 2.0f);
+	}
+
+	private void Doorknocking() {
+		GameObject.Find ("Childdoor").GetComponent<DoorOpenScript>().hitAgainstDoor();
 	}
 }
