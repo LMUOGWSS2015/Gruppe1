@@ -24,6 +24,8 @@ public class EyesScript : MonoBehaviour {
 
 	private bool useEyetracking = false;
 
+	bool playEndDialog = true;
+
 	// Use this for initialization
 	void Start () {
 		useEyetracking = GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions>().useEyeTracking;
@@ -76,14 +78,15 @@ public class EyesScript : MonoBehaviour {
 		if (getEyesClosed ()) {
 			eyesClosedDuration = Time.time - eyesClosedTimepoint;
 
-			if (outro && eyesClosedDuration >= eyesClosedDurationNeeded) {
+			if (outro && eyesClosedDuration >= eyesClosedDurationNeeded && monster && monsterscript.monsterFightStarted) {
 				// play Outro Soundefffect
 				GameObject.Find ("Heart Beat A").GetComponent<AudioSource> ().volume = 0.0f;
 				GameObject.Find ("Heart Beat B").GetComponent<AudioSource> ().volume = 0.0f;
 
-				if (GameObject.Find ("Relax").GetComponent<AudioSource> ().isPlaying == false) {
+				if (GameObject.Find ("Relax").GetComponent<AudioSource> ().isPlaying == false && playEndDialog) {
 					Debug.Log("Jetzt spielt er Soundeffekt ende");
 					GameObject.Find ("Relax").GetComponent<AudioSource> ().Play ();
+					playEndDialog = false;
 				}
 
 			}
@@ -97,19 +100,19 @@ public class EyesScript : MonoBehaviour {
 	//damit erst alles ausgeloest wird, wenn animation startet, aufgerufen aus animation behaviour
 	public void EyesStartToOpen(){
 
-		Debug.Log("Eyes closed for "+eyesClosedDuration);
+	//	Debug.Log("Eyes closed for "+eyesClosedDuration);
 
 		//wenn in monsterfight
 		if (monster && monsterscript.monsterFightStarted){
 			//augen zu kurz geschlossen
 			if (eyesClosedDuration < eyesClosedDurationNeeded){
-				Debug.Log("closed: "+eyesClosedDuration + " needed: "+eyesClosedDurationNeeded);
+			//	Debug.Log("closed: "+eyesClosedDuration + " needed: "+eyesClosedDurationNeeded);
 				//setze Monster vor das Gesicht
 				if (eyesClosedDuration >= 0.7f) {
 					monsterscript.setCloseup = true;
 				}
 			} else { //augen lange genug geschlossen
-				Debug.Log("closed: "+eyesClosedDuration + " needed: "+eyesClosedDurationNeeded);
+				//Debug.Log("closed: "+eyesClosedDuration + " needed: "+eyesClosedDurationNeeded);
 				monsterDefeated = true;
 				monsterscript.MonsterDefeated();
 
@@ -144,7 +147,7 @@ public class EyesScript : MonoBehaviour {
 	}
 
 	public void setIntroFinished() {
-		Debug.Log ("Geht er hier rein");
+		//Debug.Log ("Geht er hier rein");
 		//eyesAnimator.SetBool("EyesClosed", false);
 		GameObject.Find ("black").GetComponent<Image>().color = new Color (255, 255, 255, 0);
 	}

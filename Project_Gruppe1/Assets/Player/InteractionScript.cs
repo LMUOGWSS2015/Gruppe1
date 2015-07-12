@@ -44,6 +44,7 @@ public class InteractionScript : MonoBehaviour {
 	private Vector3 velocity = Vector3.zero;
 
 	private bool firstTimeUsable = true;
+	private bool doorKnockEnd = true;
 	
 	// Use this for initialization
 	void Start () {
@@ -132,6 +133,11 @@ public class InteractionScript : MonoBehaviour {
 				hit.collider.GetComponent<StandardSoundEffectScript>().startSound();
 			}
 
+
+			if (hit.collider.CompareTag("Door") && hit.collider.transform.parent.gameObject.name == "DoorChild" && doorKnockEnd) {
+				GameObject.Find ("Trigger End Door").GetComponent<CloseDoorEnd>().knockDoor();
+				doorKnockEnd = false;
+			}
 					
 			if (hit.collider.CompareTag("DollBath")) {
 

@@ -34,6 +34,7 @@ public class StandardSoundEffectScript : MonoBehaviour {
 				playSound = true;
 			}
 		}
+
 		
 		if (playSound == true) {
 			if (this.GetComponent<AudioSource> ().isPlaying == false) {

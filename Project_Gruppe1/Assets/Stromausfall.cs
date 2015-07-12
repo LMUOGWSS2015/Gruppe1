@@ -9,12 +9,12 @@ public class Stromausfall : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 		if (this.GetComponent<AudioSource>().isPlaying == false && playOnce) {
-			this.GetComponent<AudioSource>().Play ();
+			this.GetComponent<AudioSource>().Play();
 			playOnce = false;
 		}
 
 		lightsUpstairs = GameObject.FindGameObjectsWithTag("lightsUpstairs");	
-		Invoke("turnLightsOff", 0.7f);
+		Invoke("turnLightsOff", 0.3f);
 	}
 
 	private void turnLightsOff() {
@@ -25,12 +25,6 @@ public class Stromausfall : MonoBehaviour {
 			light.SetActive(false);		
 		}
 
-		Invoke ("Doorknocking", 1.0f);
-		Invoke ("Doorknocking", 2.0f);
-		Invoke ("Doorknocking", 2.0f);
 	}
-
-	private void Doorknocking() {
-		GameObject.Find ("Childdoor").GetComponent<DoorOpenScript>().hitAgainstDoor();
-	}
+	
 }

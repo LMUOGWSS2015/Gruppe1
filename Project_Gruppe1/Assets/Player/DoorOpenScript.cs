@@ -47,17 +47,22 @@ public class DoorOpenScript : MonoBehaviour {
 			} else {
 				doorSound.clip = closeDoorSound;
 			}
+
+			doorSound.Play ();
 			
 		} else {
 			hitAgainstDoor();
 			Debug.Log("Tür verschloßen!");
-			doorSound.clip = DoorLockedSound;
+
 		}
 		
-		doorSound.Play ();
+
 	}
 
 	public void hitAgainstDoor() {
+		Debug.Log("in door object");
+		doorSound.clip = DoorLockedSound;
+		doorSound.Play ();
 		hit = true;
 	}
 	
@@ -72,10 +77,10 @@ public class DoorOpenScript : MonoBehaviour {
 		}
 
 		if (hit) {
-			transform.position = Vector3.Lerp (transform.position, hitPosition, 0.8f * Time.deltaTime);
+			transform.position = Vector3.Lerp (transform.position, hitPosition, 0.9f * Time.deltaTime);
 
 		} else {
-			transform.position = Vector3.Lerp (transform.position, standardPosition, 0.8f * Time.deltaTime);
+			transform.position = Vector3.Lerp (transform.position, standardPosition, 0.9f * Time.deltaTime);
 
 		}
 
