@@ -16,7 +16,7 @@ public class Window : StateMachineBehaviour {
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 		var doll = GameObject.Find ("DollRoom");
-		Debug.Log ("vierter AnimationCollider wird gelöscht");
+	//	Debug.Log ("vierter AnimationCollider wird gelöscht");
 		Destroy (doll);
 	
 	}
