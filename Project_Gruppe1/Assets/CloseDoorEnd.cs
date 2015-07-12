@@ -6,6 +6,7 @@ public class CloseDoorEnd : MonoBehaviour {
 	public GameObject monsterprefab;
 	private bool trigger = true;
 	private bool startKnocking = false;
+	private int numberOfKnocks = 0;
 
 	// Use this for initialization
 	void Start () {
@@ -18,12 +19,12 @@ public class CloseDoorEnd : MonoBehaviour {
 		    && this.GetComponent<AudioSource>().isPlaying == false) {
 			GameObject.Find ("DoorChild").GetComponent<DoorOpenScript> ().hitAgainstDoor ();
 			startKnocking = false;
-			Invoke("delayKnock", 1.5f);
+			Invoke("delayKnock", Random.Range(0.6F, 1.3F));
 		}
 	}
 
 	void OnTriggerEnter(Collider other) {
-		if (GameObject.Find ("DoorChild").GetComponent<DoorOpenScript> ().open == true) {
+		if (GameObject.Find ("DoorChild").GetComponent<DoorOpenScript> ().open == true && trigger == true) {
 			GameObject.Find ("DoorChild").GetComponent<DoorOpenScript> ().ChangeDoorState (true);
 		}
 
@@ -45,6 +46,11 @@ public class CloseDoorEnd : MonoBehaviour {
 	}
 
 	private void delayKnock() {
-		knockDoor ();
+		numberOfKnocks++;
+		if (numberOfKnocks < 5) {
+			knockDoor ();
+		} else {
+			GameObject.Find ("DoorChild").GetComponent<DoorOpenScript> ().kickOpenDoor();
+		}
 	}
 }

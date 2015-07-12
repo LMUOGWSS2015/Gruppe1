@@ -11,6 +11,8 @@ public class DoorOpenScript : MonoBehaviour {
 	public AudioClip openDoorSound;
 	public AudioClip closeDoorSound;
 	public AudioClip DoorLockedSound;
+	public AudioClip DoorKnockSound;
+	public AudioClip KickOpenDoorSound;
 	
 	
 	public bool open;
@@ -18,7 +20,7 @@ public class DoorOpenScript : MonoBehaviour {
 	public bool locked;
 	public float doorOpenAngle = 90f;
 	public float doorCloseAngle = 0f;
-	public float smooth = 2f;
+	public float smooth;
 
 	private bool hit = false;
 	private Vector3 hitPosition;
@@ -41,6 +43,7 @@ public class DoorOpenScript : MonoBehaviour {
 	public void ChangeDoorState(bool gotKey) {
 
 		if (locked == false || gotKey == true) {
+			doorSound.minDistance = 2.0f;
 			open = !open;
 			if (open == true) {
 				doorSound.clip = openDoorSound;
@@ -51,19 +54,31 @@ public class DoorOpenScript : MonoBehaviour {
 			doorSound.Play ();
 			
 		} else {
-			hitAgainstDoor();
+			//hitAgainstDoor();
 			Debug.Log("Tür verschloßen!");
-
+			doorSound.clip = DoorLockedSound;
+			doorSound.Play ();
 		}
 		
 
 	}
 
 	public void hitAgainstDoor() {
+		doorSound.minDistance = 15.0f;
 		Debug.Log("in door object");
-		doorSound.clip = DoorLockedSound;
+		doorSound.clip = DoorKnockSound;
 		doorSound.Play ();
 		hit = true;
+	}
+
+	public void kickOpenDoor() {
+		if (open == false) {
+			doorSound.minDistance = 15.0f;
+			smooth = 6;
+			open = !open;
+			doorSound.clip = KickOpenDoorSound;
+			doorSound.Play ();
+		}
 	}
 	
 	// Update is called once per frame
