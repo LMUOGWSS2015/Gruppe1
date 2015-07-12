@@ -22,9 +22,13 @@ public class CreditsScript : MonoBehaviour {
 	
 	private int foundHints = 0;
 	private AudioSource creditsAudio;
-	
-	private bool showNames = true;
-	private bool hideNames = false;
+
+	private bool showGameTitle = true;
+	private bool hideGameTitle = false;
+	private bool showNames = false;
+	private bool hideNames = true;
+	private bool showCourseInfo = false;
+	private bool hideCourseInfo = true;
 
 
 	void Start() {
@@ -35,14 +39,12 @@ public class CreditsScript : MonoBehaviour {
 
 	}
 
-	/*
 	void LateUpdate() {
 		// TODO: remove; only for testing
-		if (getCountHints() == 2) {
+		if (getCountHints() == 1) {
 			startCredits();
 		}
 	}
-	*/
 	
 	int getCountHints() {
 		InteractionScript iaScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<InteractionScript> ();
@@ -94,7 +96,35 @@ public class CreditsScript : MonoBehaviour {
 	
 	void creditsGUI() {
 		GUI.DrawTexture (new Rect(0,0,Screen.width , Screen.height),creditsBackgroundImage);
+
+		GUIStyle titleStyle = new GUIStyle (GUI.skin.label);
+		titleStyle.alignment = TextAnchor.MiddleCenter;
+		titleStyle.fontSize *= guiFactor;
+
+		GUIStyle textStyleContent = new GUIStyle (GUI.skin.label);
+		textStyleContent.alignment = TextAnchor.MiddleCenter;
+		textStyleContent.fontSize = Mathf.FloorToInt (Mathf.Floor (textStyleContent.fontSize * guiFactor * 0.5f));
 		
+		GUIStyle textStyleTitle = new GUIStyle (GUI.skin.label);
+		textStyleTitle.alignment = TextAnchor.MiddleCenter;
+		textStyleTitle.fontSize = Mathf.FloorToInt (Mathf.Floor (textStyleTitle.fontSize * guiFactor * 0.7f));
+		if (!hideGameTitle) {
+			alpha += fadeDir * fadeSpeed * Time.deltaTime;	
+			alpha = Mathf.Clamp01 (alpha);	
+			
+			Color thisColor = GUI.color;
+			thisColor.a = alpha;
+			GUI.color = thisColor;
+
+			GUI.Label (new Rect (0, Screen.height/2 -  100 * guiFactor, Screen.width, 200 * guiFactor), "DON'T LOOK AT ME!", titleStyle);
+
+		}
+		if (showGameTitle) {
+			Invoke ("hideGUIGameTitle", 3.0f);
+		}
+		else if (!showGameTitle && !(hideGameTitle)) {
+			Invoke ("hiddenGUIGameTitle", 3.0f);
+		}
 		if (!hideNames) {
 			alpha += fadeDir * fadeSpeed * Time.deltaTime;	
 			alpha = Mathf.Clamp01 (alpha);	
@@ -102,23 +132,6 @@ public class CreditsScript : MonoBehaviour {
 			Color thisColor = GUI.color;
 			thisColor.a = alpha;
 			GUI.color = thisColor;
-			
-			
-			GUIStyle titleStyle = new GUIStyle (GUI.skin.label);
-			titleStyle.alignment = TextAnchor.MiddleCenter;
-			titleStyle.fontSize *= guiFactor;
-			
-			GUI.Label (new Rect (0, 0, Screen.width, 200 * guiFactor), "DON'T LOOK AT ME!", titleStyle);
-			
-			
-			
-			GUIStyle textStyleContent = new GUIStyle (GUI.skin.label);
-			textStyleContent.alignment = TextAnchor.MiddleCenter;
-			textStyleContent.fontSize = Mathf.FloorToInt (Mathf.Floor (textStyleContent.fontSize * guiFactor * 0.5f));
-			
-			GUIStyle textStyleTitle = new GUIStyle (GUI.skin.label);
-			textStyleTitle.alignment = TextAnchor.MiddleCenter;
-			textStyleTitle.fontSize = Mathf.FloorToInt (Mathf.Floor (textStyleTitle.fontSize * guiFactor * 0.7f));
 			
 			float heightContent = 50 * guiFactor;
 			float heightTitle = 90 * guiFactor;
@@ -133,9 +146,9 @@ public class CreditsScript : MonoBehaviour {
 			mitgliederArray.Add ("Inga Brehm");
 			mitgliederArray.Add ("Bianka Roppelt");
 			
-			GUI.Label (new Rect (0, 200 * guiFactor, Screen.width, heightTitle), "Gruppenmitglieder:", textStyleTitle);
+			GUI.Label (new Rect (0, 100 * guiFactor, Screen.width, heightTitle), "Group members:", textStyleTitle);
 			for (var i=0; i<mitgliederArray.Count; i++) {
-				GUI.Label (new Rect (0, 200 * guiFactor + heightTitle + (i * heightContent), Screen.width, heightContent), (string)mitgliederArray [i], textStyleContent);
+				GUI.Label (new Rect (0, 100 * guiFactor + heightTitle + (i * heightContent), Screen.width, heightContent), (string)mitgliederArray [i], textStyleContent);
 			}
 		}
 		if (showNames) {
@@ -144,6 +157,39 @@ public class CreditsScript : MonoBehaviour {
 		else if (!showNames && !(hideNames)) {
 			Invoke ("hiddenGUINames", 3.0f);
 		}
+		if (!hideCourseInfo) {
+			alpha += fadeDir * fadeSpeed * Time.deltaTime;	
+			alpha = Mathf.Clamp01 (alpha);	
+			
+			Color thisColor = GUI.color;
+			thisColor.a = alpha;
+			GUI.color = thisColor;
+			
+			GUI.Label (new Rect (0, Screen.height/2 -  200 * guiFactor, Screen.width, 200 * guiFactor), "Developed within the framework of the", textStyleContent);
+			GUI.Label (new Rect (0, Screen.height/2 , Screen.width, 200 * guiFactor), "Open Games Workshop 2015 - LMU Munich", textStyleContent);
+			
+		}
+		if (showCourseInfo) {
+			Invoke ("hideGUICourseInfo", 3.0f);
+		}
+		else if (!showCourseInfo && !(hideCourseInfo)) {
+			Invoke ("hiddenGUICourseInfo", 3.0f);
+		}
+	}
+	
+	void showGUIGameTitle() {
+		fadeDir = 1;
+		hideGameTitle = false;
+		showGameTitle = true;		
+	}
+	void hideGUIGameTitle() {
+		fadeDir = -1;
+		hideGameTitle = false;
+		showGameTitle = false;		
+	}
+	void hiddenGUIGameTitle() {
+		hideGameTitle = true;	
+		showGUINames ();
 	}
 
 	void showGUINames() {
@@ -158,6 +204,21 @@ public class CreditsScript : MonoBehaviour {
 	}
 	void hiddenGUINames() {
 		hideNames = true;	
+		showGUICourseInfo ();
+	}
+	
+	void showGUICourseInfo() {
+		fadeDir = 1;
+		hideCourseInfo = false;
+		showCourseInfo = true;		
+	}
+	void hideGUICourseInfo() {
+		fadeDir = -1;
+		hideCourseInfo = false;
+		showCourseInfo = false;		
+	}
+	void hiddenGUICourseInfo() {
+		hideCourseInfo = true;	
 		Application.LoadLevel (0);
 	}
 }
