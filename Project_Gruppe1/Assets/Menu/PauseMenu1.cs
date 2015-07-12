@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using UnityStandardAssets.Characters.FirstPerson;
+using iView;
 
 public class PauseMenu1 : MonoBehaviour {
 	public GUISkin skin;
@@ -162,7 +163,12 @@ public class PauseMenu1 : MonoBehaviour {
 			//UnPauseGame();
 			Application.LoadLevel(0);
 		}
-		if (GUI.Button (new Rect(0, 380*guiFactor, 250*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
+		if (SMIGazeController.Instance.ConnectionEstablished ()) {
+			if (GUI.Button (new Rect (0, 380 * guiFactor, 350 * guiFactor, 60 * guiFactor), "Calibration", buttonStyle)) { 
+				SMIGazeController.Instance.StartCalibration (5);
+			}
+		}
+		if (GUI.Button (new Rect(0, SMIGazeController.Instance.ConnectionEstablished ()? 480*guiFactor : 380*guiFactor, 250*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
 			currentPage = Page.Exit;
 		}
 

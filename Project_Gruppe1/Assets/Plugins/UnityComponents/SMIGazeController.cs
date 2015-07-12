@@ -306,6 +306,10 @@ namespace iView
             return ET_Device.getAcessToGazeModel().statusID;
         }
 
+		public bool ConnectionEstablished() {
+			return (GetErrorID () != -1 && GetErrorID () != 100 && GetErrorID () != 101);
+		}
+
 
         #endregion
 
