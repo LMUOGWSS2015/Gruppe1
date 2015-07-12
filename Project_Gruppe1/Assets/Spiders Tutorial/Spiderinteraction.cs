@@ -52,13 +52,15 @@ public class Spiderinteraction : MonoBehaviour {
 			es.GetComponent<SmoothLookAt>().enabled = false;
 			player.GetComponent<FirstPersonController>().enabled = true;
 			player.GetComponent<CharacterController>().enabled = true;
-			StartCoroutine(eraseSubtitlesAfterSecs(5));
+			StartCoroutine(eraseSubtitlesAfterSecs(3));
 			tutorialStarted = false;
 		}
 	}
 
+
 	IEnumerator eraseSubtitlesAfterSecs(int x) {
 		yield return new WaitForSeconds (x);
+		//TODO fadeOut
 		subtitles.text = "";
 	}
 
@@ -71,6 +73,8 @@ public class Spiderinteraction : MonoBehaviour {
 	}
 
 	public void setSubtitles(string t){
+		eraseSubtitlesAfterSecs (1);
+		//TODO fadeIn
 		subtitles.text = t;
 	}
 
