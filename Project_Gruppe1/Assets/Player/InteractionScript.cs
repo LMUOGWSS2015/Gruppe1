@@ -82,14 +82,13 @@ public class InteractionScript : MonoBehaviour {
 		if (!showIcon && useIcon.enabled == true) {
 			useIcon.color = Color.Lerp (useIcon.color, Color.clear, 3.5f * Time.deltaTime);
 
+			if(firstTimeUsable) {
+				GameObject.Find ("Subtitle").GetComponent<subtitlesScript>().fadeOutText();
+			}
+
 			if (useIcon.color.a <= 0.05) {
 				useIcon.enabled = false;
 				lastUsableCollider = null;					
-
-				if(firstTimeUsable) {
-					GameObject.Find ("Subtitle").GetComponent<Text>().text = "";
-				}
-
 			}
 		} 
 
@@ -202,6 +201,9 @@ public class InteractionScript : MonoBehaviour {
 					
 					if (firstTimeUsable) {
 						GameObject.Find ("Subtitle").GetComponent<Text>().text = "Press Left Mouse Button to use Objects.";
+					/*	if (GameObject.Find ("Subtitle").GetComponent<Text>().color.a == 0.0f) {
+							GameObject.Find ("Subtitle").GetComponent<subtitlesScript>().fadeInText();
+						} */
 					}
 
 					if (hit.collider != lastUsableCollider || lastUsableCollider == null) {
@@ -233,7 +235,7 @@ public class InteractionScript : MonoBehaviour {
 					useIcon.color = maxAlpha;
 					useIcon.enabled = true;
 
-				} 
+				}
 
 				}
 
@@ -245,19 +247,21 @@ public class InteractionScript : MonoBehaviour {
 				
 				if (hit.collider.CompareTag ("Door")) {
 					if(firstTimeUsable) {
-						GameObject.Find ("Subtitle").GetComponent<Text>().text = "";
+						GameObject.Find ("Subtitle").GetComponent<subtitlesScript>().fadeOutText();
 						firstTimeUsable = false;
 					}
 
 					Debug.Log ("Tür");
 					hit.collider.transform.parent.GetComponent<DoorOpenScript> ().ChangeDoorState (gotKey);
 				}
+
 				if (hit.collider.CompareTag ("Schublade")) {
 					Debug.Log ("Schublade");
 					hit.collider.transform.parent.GetComponent<openKitchenDrawer> ().ChangeDrawerState ();
 				} else if (hit.collider.CompareTag ("Hint")) {
 					Debug.Log ("Hint gefunden");
 					foundHints++;
+					GameObject.Find ("Subtitle").GetComponent<Text>().text = "Found hint " + foundHints + "/4";
 					Renderer[] renderers = hit.transform.parent.GetComponentsInChildren<Renderer>();
 					foreach(Renderer r in renderers) {
 						r.enabled = false;
@@ -280,7 +284,8 @@ public class InteractionScript : MonoBehaviour {
 				
 				if (hit.collider.transform.parent.CompareTag ("usable")) {
 					if(firstTimeUsable) {
-						GameObject.Find ("Subtitle").GetComponent<Text>().text = "";
+					Debug.Log("Fade out Text because of click");
+					GameObject.Find ("Subtitle").GetComponent<subtitlesScript>().fadeOutText();
 						firstTimeUsable = false;
 					}
 
@@ -314,7 +319,8 @@ public class InteractionScript : MonoBehaviour {
 			Color thisColor = GUI.color;
 			thisColor.a = alpha;
 			GUI.color = thisColor;
-
+			
+			GUI.depth = -5;
 			GUIStyle itemImageStyle = new GUIStyle (GUI.skin.label);
 			
 			GUIStyle imageLOStyle = new GUIStyle(itemImageStyle);
@@ -326,7 +332,6 @@ public class InteractionScript : MonoBehaviour {
 			GUIStyle imageRUStyle = new GUIStyle(itemImageStyle);
 			imageRUStyle.alignment = TextAnchor.UpperLeft;
 
-			
 			GUI.DrawTexture (new Rect (0f, 0f, Screen.width, Screen.height), gray_overlay);
 			if(foundHints == 1) {
 				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2 - 200, 800, 400), hint1, itemImageStyle);
@@ -373,10 +378,9 @@ public class InteractionScript : MonoBehaviour {
 
 	public void PlayerDies(){
 		Debug.Log("Dead...");
-		GameObject.FindGameObjectWithTag ("Monster").
-			GetComponent<MonsterScript> ().
-				MonsterDefeated ();
-		GameObject.Find ("Player").transform.position = GameObject.Find ("PlayerSpawn").transform.position;
+		GameObject.Find ("Monster(Clone)").GetComponent<MonsterScript> ().MonsterDefeated ();
+		GameObject.Find ("Player").GetComponent<Animator> ().SetTrigger ("die");
+
 		//Application.LoadLevel(Application.loadedLevel);
 	}
 

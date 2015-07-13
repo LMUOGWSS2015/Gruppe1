@@ -7,8 +7,6 @@ public class Wakeup : StateMachineBehaviour{
 	
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-//		var eyesScript = GameObject.Find ("EyesCanvas").GetComponentInChildren<EyesAnimation> ();
-//		eyesScript.OpenEyes ();
 		//Player Control zurücksetzen, damit animation an richtiger stelle läuft
 		GameObject.FindGameObjectWithTag("Player").transform.localPosition =  new Vector3(0,0,0);
 		GameObject.FindGameObjectWithTag ("Player").transform.localRotation = Quaternion.identity;
