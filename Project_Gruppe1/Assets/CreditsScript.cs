@@ -5,7 +5,6 @@ using System.Collections;
 public class CreditsScript : MonoBehaviour {
 	public GUISkin skin;
 	public Texture2D creditsBackgroundImage;
-	public GameObject creditsMusic;
 	
 	public float fadeSpeed = 0.2f;
 	private float alpha = 0f;
@@ -21,7 +20,6 @@ public class CreditsScript : MonoBehaviour {
 	private int guiFactor;
 	
 	private int foundHints = 0;
-	private AudioSource creditsAudio;
 
 	private bool showGameTitle = true;
 	private bool hideGameTitle = false;
@@ -34,44 +32,10 @@ public class CreditsScript : MonoBehaviour {
 	void Start() {
 		guiFactor = (int) Mathf.Floor (Screen.width/1024);
 		guiFactor = (guiFactor == 0) ? 1 : guiFactor;
-		
-		creditsAudio = creditsMusic.GetComponent<AudioSource> ();
-
 	}
 
-//	void LateUpdate() {
-//		// TODO: remove; only for testing
-//		if (getCountHints() == 1) {
-//			startCredits();
-//		}
-//	}
-//	
-//	int getCountHints() {
-//		InteractionScript iaScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<InteractionScript> ();
-//		return iaScript.GetFoundHints ();
-//	}
-
-	
-	void StartMusic() {
-		AudioSource[] audios = FindObjectsOfType (typeof(AudioSource)) as AudioSource[];
-		foreach (AudioSource aud in audios) {
-			aud.Pause(); 
-		}
-		creditsAudio.Play ();
-	}
-	
-	void StopMusic() {
-		AudioSource[] audios = FindObjectsOfType (typeof(AudioSource)) as AudioSource[];
-		foreach (AudioSource aud in audios) {
-			aud.Play(); 
-		}
-		creditsAudio.Stop ();
-	}
-	
-	
 	public void startCredits() {
 		showCredits = true;
-		StartMusic();
 	}
 	
 	void LockCursor(bool locking) {

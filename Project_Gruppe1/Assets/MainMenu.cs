@@ -71,12 +71,13 @@ public class MainMenu : MonoBehaviour {
 			Application.LoadLevel(1);
 			LockCursor(true);
 		}
-		if (SMIGazeController.Instance.ConnectionEstablished ()) {
+
+		if (GazeInteractions.useEyeTracking) {
 			if (GUI.Button (new Rect (0, 280 * guiFactor, 350 * guiFactor, 60 * guiFactor), "Calibration", buttonStyle)) { 
 				SMIGazeController.Instance.StartCalibration (5);
 			}
 		}
-		if (GUI.Button (new Rect(0, SMIGazeController.Instance.ConnectionEstablished() ? 380*guiFactor : 280*guiFactor, 200*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
+		if (GUI.Button (new Rect(0, GazeInteractions.useEyeTracking ? 380*guiFactor : 280*guiFactor, 200*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
 			isExitMenu = true;
 		}
 

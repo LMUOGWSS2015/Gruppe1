@@ -35,7 +35,7 @@ public class Spiderinteraction : MonoBehaviour {
 			tutorialStarted = true;
 			subtitles.text = "See the giant spider? Close your Eyes.";
 
-			if (GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions> ().useEyeTracking == false) {
+			if (!GazeInteractions.useEyeTracking) {
 				subtitles.text += "\n [Press Right Mouse Button]";
 			}
 

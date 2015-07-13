@@ -28,7 +28,7 @@ public class EyesScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		useEyetracking = GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions>().useEyeTracking;
+		useEyetracking = GazeInteractions.useEyeTracking;
 		monsterscript = monster.GetComponent<MonsterScript> ();
 		eyesAniScript = GameObject.FindGameObjectWithTag("EyesOverlay").GetComponent<EyesAnimation>();
 	}

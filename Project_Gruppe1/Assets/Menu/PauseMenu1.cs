@@ -163,12 +163,12 @@ public class PauseMenu1 : MonoBehaviour {
 			//UnPauseGame();
 			Application.LoadLevel(0);
 		}
-		if (SMIGazeController.Instance.ConnectionEstablished ()) {
+		if (GazeInteractions.useEyeTracking) {
 			if (GUI.Button (new Rect (0, 380 * guiFactor, 350 * guiFactor, 60 * guiFactor), "Calibration", buttonStyle)) { 
 				SMIGazeController.Instance.StartCalibration (5);
 			}
 		}
-		if (GUI.Button (new Rect(0, SMIGazeController.Instance.ConnectionEstablished ()? 480*guiFactor : 380*guiFactor, 250*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
+		if (GUI.Button (new Rect(0, GazeInteractions.useEyeTracking ? 480*guiFactor : 380*guiFactor, 250*guiFactor, 60*guiFactor), "Exit", buttonStyle)) { 
 			currentPage = Page.Exit;
 		}
 
