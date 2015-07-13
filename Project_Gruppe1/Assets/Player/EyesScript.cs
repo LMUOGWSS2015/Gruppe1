@@ -55,6 +55,7 @@ public class EyesScript : MonoBehaviour {
 				spiderinteraction = GameObject.FindGameObjectWithTag ("Player").GetComponent<Spiderinteraction> ();
 				eyesClosedDurationNeeded = spiderinteraction.getEyesClosedMinDuration();
 				heartBeatSoundeffect();
+				GameObject.Find ("Subtitle").GetComponent<subtitlesScript>().fadeOutText();
 			}
 
 			if (monster && monsterscript.monsterFightStarted){
@@ -122,7 +123,7 @@ public class EyesScript : MonoBehaviour {
 			}
 		}
 		else if (GameObject.FindGameObjectWithTag ("Player").GetComponent<Spiderinteraction>().getTutorialStarted()) {
-
+				
 			Debug.Log("closed: "+eyesClosedDuration + " needed: " + eyesClosedDurationNeeded);
 			if (eyesClosedDuration < eyesClosedDurationNeeded){
 				//augen zu kurz geschlossen
