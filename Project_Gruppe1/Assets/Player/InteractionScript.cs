@@ -331,7 +331,7 @@ public class InteractionScript : MonoBehaviour {
 			GUI.color = thisColor;
 			
 			GUI.DrawTexture (new Rect (0f, 0f, Screen.width, Screen.height), gray_overlay);
-			GUI.DrawTexture (new Rect (Screen.width / 2 - 200, Screen.height / 2 - 200, 400, 400), hint); 
+			GUI.DrawTexture (new Rect (Screen.width / 2 - 200, Screen.height / 2 - 100, 400, 200), hint); 
 			
 			if (showGUIOverlay) {
 				Invoke ("hideGUI", 3.0f);
