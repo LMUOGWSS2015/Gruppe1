@@ -39,17 +39,17 @@ public class CreditsScript : MonoBehaviour {
 
 	}
 
-	void LateUpdate() {
-		// TODO: remove; only for testing
-		if (getCountHints() == 1) {
-			startCredits();
-		}
-	}
-	
-	int getCountHints() {
-		InteractionScript iaScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<InteractionScript> ();
-		return iaScript.GetFoundHints ();
-	}
+//	void LateUpdate() {
+//		// TODO: remove; only for testing
+//		if (getCountHints() == 1) {
+//			startCredits();
+//		}
+//	}
+//	
+//	int getCountHints() {
+//		InteractionScript iaScript = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<InteractionScript> ();
+//		return iaScript.GetFoundHints ();
+//	}
 
 	
 	void StartMusic() {
@@ -165,8 +165,8 @@ public class CreditsScript : MonoBehaviour {
 			thisColor.a = alpha;
 			GUI.color = thisColor;
 			
-			GUI.Label (new Rect (0, Screen.height/2 -  200 * guiFactor, Screen.width, 200 * guiFactor), "Developed within the framework of the", textStyleContent);
-			GUI.Label (new Rect (0, Screen.height/2 , Screen.width, 200 * guiFactor), "Open Games Workshop 2015 - LMU Munich", textStyleContent);
+			GUI.Label (new Rect (0, Screen.height/2 -  50 * guiFactor, Screen.width, 50 * guiFactor), "Developed within the framework of the", textStyleContent);
+			GUI.Label (new Rect (0, Screen.height/2 , Screen.width, 50 * guiFactor), "Open Games Workshop 2015 - LMU Munich", textStyleContent);
 			
 		}
 		if (showCourseInfo) {
