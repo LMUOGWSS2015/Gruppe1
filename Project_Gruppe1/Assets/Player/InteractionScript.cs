@@ -45,9 +45,7 @@ public class InteractionScript : MonoBehaviour {
 
 	private bool firstTimeUsable = true;
 	private bool doorKnockEnd = true;
-
-	GameObject fsp;
-	Vector3 startPosPlayer;
+	
 	// Use this for initialization
 	void Start () {
 		maxAlpha = useIcon.color;
@@ -56,9 +54,6 @@ public class InteractionScript : MonoBehaviour {
 		if (gotFlashlight == false) {
 			flashlight.intensity = 0f;
 		}
-		fsp = GameObject.FindGameObjectWithTag ("Player");
-		startPosPlayer = fsp.transform.position;
-		Debug.Log (startPosPlayer);
 	}
 	
 	void turnOnFlashlight() {
@@ -117,7 +112,7 @@ public class InteractionScript : MonoBehaviour {
 		}
 
 
-		if (GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions> ().useEyeTracking == true) {
+		if (GazeInteractions.useEyeTracking) {
 			ray = Camera.main.ScreenPointToRay(SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords());
 		} else {
 			ray = new Ray (transform.position, transform.forward);
@@ -215,7 +210,7 @@ public class InteractionScript : MonoBehaviour {
 
 						lastUsableCollider = hit.collider;
 
-						if (GameObject.Find ("EyeTrackingController").GetComponent<GazeInteractions> ().useEyeTracking == true) {
+						if (GazeInteractions.useEyeTracking) {
 							targetPosition = SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords();
 						} else {
 							targetPosition = new Vector3 (((Screen.width/2) - 40.0f) , ((Screen.height/2)- 60.0f), 0);
@@ -362,12 +357,11 @@ public class InteractionScript : MonoBehaviour {
 
 	public void PlayerDies(){
 		Debug.Log("Dead...");
-		GameObject.Find ("Monster(Clone)").GetComponent<MonsterScript> ().MonsterDefeated ();
-//		GameObject.Find ("Player").transform.position = GameObject.Find ("PlayerSpawn").transform.position;
+		GameObject.FindGameObjectWithTag ("Monster").
+			GetComponent<MonsterScript> ().
+				MonsterDefeated ();
+		GameObject.Find ("Player").transform.position = GameObject.Find ("PlayerSpawn").transform.position;
 		//Application.LoadLevel(Application.loadedLevel);
-
-		fsp.transform.position = GameObject.Find ("PlayerSpawn").transform.position;
-
 	}
 
 
