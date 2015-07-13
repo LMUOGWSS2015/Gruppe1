@@ -365,8 +365,7 @@ public class InteractionScript : MonoBehaviour {
 		GameObject.Find ("Monster(Clone)").GetComponent<MonsterScript> ().MonsterDefeated ();
 //		GameObject.Find ("Player").transform.position = GameObject.Find ("PlayerSpawn").transform.position;
 		//Application.LoadLevel(Application.loadedLevel);
-		var eyesScript = GameObject.Find ("EyesCanvas").GetComponentInChildren<EyesAnimation> ();
-		eyesScript.CloseEyes ();
+
 		fsp.transform.position = GameObject.Find ("PlayerSpawn").transform.position;
 
 	}
