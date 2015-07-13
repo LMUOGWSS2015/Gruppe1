@@ -319,9 +319,9 @@ public class InteractionScript : MonoBehaviour {
 			Color thisColor = GUI.color;
 			thisColor.a = alpha;
 			GUI.color = thisColor;
-			
-			GUI.depth = -5;
+
 			GUIStyle itemImageStyle = new GUIStyle (GUI.skin.label);
+			itemImageStyle.alignment = TextAnchor.MiddleCenter;
 			
 			GUIStyle imageLOStyle = new GUIStyle(itemImageStyle);
 			imageLOStyle.alignment = TextAnchor.LowerRight;
@@ -333,12 +333,13 @@ public class InteractionScript : MonoBehaviour {
 			imageRUStyle.alignment = TextAnchor.UpperLeft;
 
 			GUI.DrawTexture (new Rect (0f, 0f, Screen.width, Screen.height), gray_overlay);
+			GUI.depth = -5;
 			if(foundHints == 1) {
 				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2 - 200, 800, 400), hint1, itemImageStyle);
 			}
 			if(foundHints == 2) {
-				GUI.Box(new Rect(Screen.width/2 - 300, Screen.height/2 - 300, 600, 300), hint1, itemImageStyle);
-				GUI.Box(new Rect(Screen.width/2 - 300, Screen.height/2, 600, 300), hint2, itemImageStyle);
+				GUI.Box(new Rect(Screen.width/2 - 200, Screen.height/2 - 200, 400, 200), hint1, itemImageStyle);
+				GUI.Box(new Rect(Screen.width/2 - 200, Screen.height/2, 400, 200), hint2, itemImageStyle);
 			}
 			if(foundHints == 3) {
 				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2 - 200, 400, 200), hint1, imageLOStyle);
