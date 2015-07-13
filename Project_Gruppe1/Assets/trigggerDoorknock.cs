@@ -20,6 +20,8 @@ public class trigggerDoorknock : MonoBehaviour {
 	}
 
 	public void hitAgainstDoor(){
-		GameObject.Find ("DoorChild").GetComponent<DoorOpenScript> ().hitAgainstDoor ();
+		if (GameObject.Find ("DoorChild").GetComponent<DoorOpenScript> ().open = false) {
+			GameObject.Find ("DoorChild").GetComponent<DoorOpenScript> ().hitAgainstDoor ();
+		}
 	}
 }

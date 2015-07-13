@@ -4,7 +4,7 @@ using System.Collections;
 public class CloseDoorEnd : MonoBehaviour {
 
 	public GameObject monsterprefab;
-	private bool trigger = true;
+	public bool trigger = true;
 	private bool startKnocking = false;
 	private int numberOfKnocks = 0;
 
@@ -52,5 +52,11 @@ public class CloseDoorEnd : MonoBehaviour {
 		} else {
 			GameObject.Find ("DoorChild").GetComponent<DoorOpenScript> ().kickOpenDoor();
 		}
+	}
+
+	public void restartEnding() {
+		trigger = true;
+		startKnocking = true;
+		this.GetComponent<StandardSoundEffectScript> ().restart ();
 	}
 }

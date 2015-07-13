@@ -46,5 +46,9 @@ public class StandardSoundEffectScript : MonoBehaviour {
 			playSound = false;
 		}
 	}
+
+	public void restart() {
+		playSound = true;
+	}
 		
 	}

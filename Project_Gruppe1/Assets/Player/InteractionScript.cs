@@ -239,7 +239,7 @@ public class InteractionScript : MonoBehaviour {
 
 				}
 
-			}
+
 
 
 
@@ -298,14 +298,9 @@ public class InteractionScript : MonoBehaviour {
 				}
 
 			
-		} else {
-		//	Debug.Log("Kakerlaken weg");
-//			GameObject kakerlaken = GameObject.FindGameObjectWithTag("Kakerlaken");
-//			kakerlaken.transform.parent.GetComponent<AudioSource>().Stop();   
-//			kakerlaken.transform.FindChild("Kakerlake").gameObject.SetActive(false);
-		}
+		} 
 
-		
+		}
 
 	}
 	
@@ -378,12 +373,21 @@ public class InteractionScript : MonoBehaviour {
 	}
 
 	public void PlayerDies(){
+		var eyesScript = GameObject.Find ("EyesCanvas").GetComponentInChildren<EyesAnimation> ();
+		eyesScript.CloseEyes ();
+		GameObject.Find ("Trigger End Door").GetComponent<CloseDoorEnd> ().restartEnding();
 		GameObject.Find ("FirstPersonCharacter").GetComponent<EyesScript> ().stopHeartBeat = true;
 		Debug.Log("Dead...");
+
+		Invoke ("ending", 0.6f);
+
+		//Application.LoadLevel(Application.loadedLevel);
+	}
+
+	public void ending() {
 		GameObject.Find ("Monster(Clone)").GetComponent<MonsterScript> ().MonsterDefeated ();
 		GameObject.Find ("Player").GetComponent<Animator> ().SetTrigger ("die");
 
-		//Application.LoadLevel(Application.loadedLevel);
 	}
 
 
