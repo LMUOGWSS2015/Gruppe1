@@ -32,6 +32,9 @@ public class MonsterScript : MonoBehaviour {
 		noiseScript.scratchIntensityMax = 0;
 		noiseScript.scratchIntensityMin = 0;
 
+		var eyesScript = GameObject.Find ("EyesCanvas").GetComponentInChildren<EyesAnimation> ();
+		eyesScript.CloseEyes ();
+
 		Destroy (this.gameObject);
 		Destroy (this);
 	}
