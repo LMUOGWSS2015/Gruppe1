@@ -95,6 +95,8 @@ public class MonsterAuftritt : MonoBehaviour {
 					GameObject.Find ("MonsterFeetSound").GetComponent<AudioSource> ().loop = true;
 					GameObject.Find ("MonsterFeetSound").GetComponent<AudioSource> ().Play ();
 					Debug.Log ("Monster seen, start walking");
+					GameObject.Find ("SchockSound").GetComponent<AudioSource> ().Play ();
+					GameObject.Find ("Monster Incoming").GetComponent<AudioSource> ().Play ();
 					StartWalking ();
 				}
 			}

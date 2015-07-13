@@ -101,7 +101,7 @@ public class EyesScript : MonoBehaviour {
 	public void EyesStartToOpen(){
 
 	//	Debug.Log("Eyes closed for "+eyesClosedDuration);
-		stopHeartBeat = true;
+		//stopHeartBeat = true;
 
 		//wenn in monsterfight
 		if (monster && monsterscript.monsterFightStarted){
@@ -120,6 +120,8 @@ public class EyesScript : MonoBehaviour {
 				if (outro) {
 					GameObject.Find ("FPSController").GetComponent<CreditsScript>().startCredits();
 				}
+				stopHeartBeat = true;
+
 			}
 		}
 		else if (GameObject.FindGameObjectWithTag ("Player").GetComponent<Spiderinteraction>().getTutorialStarted()) {
@@ -128,11 +130,14 @@ public class EyesScript : MonoBehaviour {
 			if (eyesClosedDuration < eyesClosedDurationNeeded){
 				//augen zu kurz geschlossen
 				spiderinteraction.setSubtitles("Close your eyes longer and you will calm down.");	
+
 			} else { 
 				//augen lange genug geschlossen
 				GameObject.FindGameObjectWithTag("Tutorial").SetActive(false);
 				spiderinteraction.setSubtitles("It was only your imagination.");
 				spiderinteraction.setTutorialFinished(true);
+				stopHeartBeat = true;
+
 			}
 		}
 
@@ -180,7 +185,6 @@ public class EyesScript : MonoBehaviour {
 		Debug.Log ("stop hear beat: " + stopHeartBeat); 
 
 		if (!stopHeartBeat) {
-			Debug.Log("nächster heartbeat nach " + nextHeartbeat);
 			Invoke ("heartBeatSoundeffect", nextHeartbeat);
 		} else {
 			switchHeartbeatSound = 0;
