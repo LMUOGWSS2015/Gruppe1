@@ -19,7 +19,7 @@ public class GazeInteractions : MonoBehaviour {
 	public MonsterScript monsterscript;
 
 	// Turneye tracking on
-	static public bool useEyeTracking = true;
+	static public bool useEyeTracking = false;
 	
 	// Use this for initialization
 	void Start () {
