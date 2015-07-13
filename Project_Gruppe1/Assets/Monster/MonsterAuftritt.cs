@@ -206,6 +206,8 @@ public class MonsterAuftritt : MonoBehaviour {
 	public void StartWalking(){
 		monsterscript.walkingStarted = true;
 		animator.applyRootMotion = true;
+		GameObject.Find ("FirstPersonCharacter").GetComponent<EyesScript> ().stopHeartBeat = false;
+		GameObject.Find ("FirstPersonCharacter").GetComponent<EyesScript>().heartBeatSoundeffect ();
 
 	}
 

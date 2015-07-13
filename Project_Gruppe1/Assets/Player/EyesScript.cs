@@ -6,6 +6,7 @@ using iView;
 public class EyesScript : MonoBehaviour {
 
 	public bool outro = false;
+	public bool stopHeartBeat = false;
 
 	float eyesClosedTimepoint = 0;
 	float eyesClosedDuration = 0;
@@ -31,6 +32,7 @@ public class EyesScript : MonoBehaviour {
 		useEyetracking = GazeInteractions.useEyeTracking;
 		monsterscript = monster.GetComponent<MonsterScript> ();
 		eyesAniScript = GameObject.FindGameObjectWithTag("EyesOverlay").GetComponent<EyesAnimation>();
+		stopHeartBeat = false;
 	}
 	
 	// Update is called once per frame
@@ -54,7 +56,6 @@ public class EyesScript : MonoBehaviour {
 			if (GameObject.Find("FPSController").GetComponent<Spiderinteraction>().tutorialStarted == true) {
 				spiderinteraction = GameObject.FindGameObjectWithTag ("Player").GetComponent<Spiderinteraction> ();
 				eyesClosedDurationNeeded = spiderinteraction.getEyesClosedMinDuration();
-				heartBeatSoundeffect();
 				GameObject.Find ("Subtitle").GetComponent<subtitlesScript>().fadeOutText();
 			}
 
@@ -64,8 +65,6 @@ public class EyesScript : MonoBehaviour {
 				//berechne, wie lange augen geschlossen bleiben muessen
 				eyesClosedDurationNeeded = (20f - distance)*timefactor + 2f;
 				Debug.Log("Augen sollten " + eyesClosedDurationNeeded + " secs zu sein.");
-
-				heartBeatSoundeffect();
 
 				//deaktiviere endanimation damit man nicht stirbt, waehrend augen zu sind
 				monsterscript.playEndAnimation = false;
@@ -102,6 +101,7 @@ public class EyesScript : MonoBehaviour {
 	public void EyesStartToOpen(){
 
 	//	Debug.Log("Eyes closed for "+eyesClosedDuration);
+		stopHeartBeat = true;
 
 		//wenn in monsterfight
 		if (monster && monsterscript.monsterFightStarted){
@@ -155,8 +155,15 @@ public class EyesScript : MonoBehaviour {
 
 
 	public void heartBeatSoundeffect() {
+		if (getEyesClosed ()) {
+			nextHeartbeat = Mathf.Clamp (((Time.time - eyesClosedTimepoint) / eyesClosedDurationNeeded), 0.01f, 1.0f);
+		} else if(GameObject.Find("FPSController").GetComponent<Spiderinteraction>().tutorialStarted == true) {
+			nextHeartbeat = 0.2f;
+		} else {
+			Debug.Log ("So weit ist monster weg: " + monsterscript.distanceToPlayer);
+			nextHeartbeat = monsterscript.distanceToPlayer/12.0f;
+		}
 
-		nextHeartbeat = Mathf.Clamp(((Time.time - eyesClosedTimepoint) / eyesClosedDurationNeeded), 0.01f, 1.0f);
 
 		if (GameObject.Find ("Heart Beat A").GetComponent<AudioSource> ().isPlaying == false &&
 		    GameObject.Find ("Heart Beat B").GetComponent<AudioSource> ().isPlaying == false) {
@@ -170,10 +177,15 @@ public class EyesScript : MonoBehaviour {
 					switchHeartbeatSound = 0;
 				}
 		}
+		Debug.Log ("stop hear beat: " + stopHeartBeat); 
 
-		if (getEyesClosed()) {
-			Invoke("heartBeatSoundeffect", nextHeartbeat);
-		} 
+		if (!stopHeartBeat) {
+			Debug.Log("nächster heartbeat nach " + nextHeartbeat);
+			Invoke ("heartBeatSoundeffect", nextHeartbeat);
+		} else {
+			switchHeartbeatSound = 0;
+		}
+
 	}
 
 }

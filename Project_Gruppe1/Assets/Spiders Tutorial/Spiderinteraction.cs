@@ -35,6 +35,9 @@ public class Spiderinteraction : MonoBehaviour {
 			tutorialStarted = true;
 			subtitles.text = "See the giant spider? Close your Eyes.";
 
+			GameObject.Find ("FirstPersonCharacter").GetComponent<EyesScript> ().stopHeartBeat = false;
+			GameObject.Find ("FirstPersonCharacter").GetComponent<EyesScript>().heartBeatSoundeffect ();
+
 			if (!GazeInteractions.useEyeTracking) {
 				subtitles.text += "\n [Press Right Mouse Button]";
 			}

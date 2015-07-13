@@ -378,6 +378,7 @@ public class InteractionScript : MonoBehaviour {
 	}
 
 	public void PlayerDies(){
+		GameObject.Find ("FirstPersonCharacter").GetComponent<EyesScript> ().stopHeartBeat = true;
 		Debug.Log("Dead...");
 		GameObject.Find ("Monster(Clone)").GetComponent<MonsterScript> ().MonsterDefeated ();
 		GameObject.Find ("Player").GetComponent<Animator> ().SetTrigger ("die");
