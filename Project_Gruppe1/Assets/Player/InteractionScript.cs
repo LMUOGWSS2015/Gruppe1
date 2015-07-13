@@ -82,13 +82,14 @@ public class InteractionScript : MonoBehaviour {
 		if (!showIcon && useIcon.enabled == true) {
 			useIcon.color = Color.Lerp (useIcon.color, Color.clear, 3.5f * Time.deltaTime);
 
-			if(firstTimeUsable) {
-				GameObject.Find ("Subtitle").GetComponent<subtitlesScript>().fadeOutText();
-			}
-
 			if (useIcon.color.a <= 0.05) {
 				useIcon.enabled = false;
 				lastUsableCollider = null;					
+
+				if(firstTimeUsable) {
+					GameObject.Find ("Subtitle").GetComponent<Text>().text = "";
+				}
+
 			}
 		} 
 
@@ -201,9 +202,6 @@ public class InteractionScript : MonoBehaviour {
 					
 					if (firstTimeUsable) {
 						GameObject.Find ("Subtitle").GetComponent<Text>().text = "Press Left Mouse Button to use Objects.";
-					/*	if (GameObject.Find ("Subtitle").GetComponent<Text>().color.a == 0.0f) {
-							GameObject.Find ("Subtitle").GetComponent<subtitlesScript>().fadeInText();
-						} */
 					}
 
 					if (hit.collider != lastUsableCollider || lastUsableCollider == null) {
@@ -212,8 +210,17 @@ public class InteractionScript : MonoBehaviour {
 
 						lastUsableCollider = hit.collider;
 
+						targetPosition = new Vector3 (((Screen.width/2) - 40.0f) , ((Screen.height/2)- 60.0f), 0);
+						
 						if (GazeInteractions.useEyeTracking) {
-							targetPosition = SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords();
+//							var usableTransform = hit.collider.transform.parent.gameObject.GetComponent<Renderer>;
+//							Debug.Log(hit.collider.transform.parent.gameObject.GetComponent<Renderer>());
+//							targetPosition = hit.collider.transform.parent.position;
+
+//							Debug.Log("Transform: " + hit.collider.transform.position + " | Center: " + hit.collider.gameObject.GetComponent<Renderer>().bounds.center);
+//							targetPosition = SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords();
+//							targetPosition = SMIGazeController.Instance.GetSample().averagedEye.gazePosInScreenCoords();
+
 						} else {
 							targetPosition = new Vector3 (((Screen.width/2) - 40.0f) , ((Screen.height/2)- 60.0f), 0);
 						}
@@ -228,18 +235,18 @@ public class InteractionScript : MonoBehaviour {
 					} */
 
 					GameObject.Find ("Benutzen Icon").GetComponent<RectTransform> ().position = targetPosition;
+//					Debug.Log("Hier ist icon: " + targetPosition);
 
-					//Debug.Log("Hier ist icon: " + targetPosition);
 					//GameObject.Find ("Benutzen Icon").GetComponent<RectTransform> ().position = Camera.main.WorldToScreenPoint (lastUsableCollider.GetComponentInChildren<Renderer> ().bounds.center);
 
 					useIcon.color = maxAlpha;
 					useIcon.enabled = true;
 
-				}
+				} 
 
 				}
 
-
+			}
 
 
 
@@ -247,21 +254,19 @@ public class InteractionScript : MonoBehaviour {
 				
 				if (hit.collider.CompareTag ("Door")) {
 					if(firstTimeUsable) {
-						GameObject.Find ("Subtitle").GetComponent<subtitlesScript>().fadeOutText();
+						GameObject.Find ("Subtitle").GetComponent<Text>().text = "";
 						firstTimeUsable = false;
 					}
 
 					Debug.Log ("Tür");
 					hit.collider.transform.parent.GetComponent<DoorOpenScript> ().ChangeDoorState (gotKey);
 				}
-
 				if (hit.collider.CompareTag ("Schublade")) {
 					Debug.Log ("Schublade");
 					hit.collider.transform.parent.GetComponent<openKitchenDrawer> ().ChangeDrawerState ();
 				} else if (hit.collider.CompareTag ("Hint")) {
 					Debug.Log ("Hint gefunden");
 					foundHints++;
-					GameObject.Find ("Subtitle").GetComponent<Text>().text = "Found hint " + foundHints + "/4";
 					Renderer[] renderers = hit.transform.parent.GetComponentsInChildren<Renderer>();
 					foreach(Renderer r in renderers) {
 						r.enabled = false;
@@ -284,8 +289,7 @@ public class InteractionScript : MonoBehaviour {
 				
 				if (hit.collider.transform.parent.CompareTag ("usable")) {
 					if(firstTimeUsable) {
-					Debug.Log("Fade out Text because of click");
-					GameObject.Find ("Subtitle").GetComponent<subtitlesScript>().fadeOutText();
+						GameObject.Find ("Subtitle").GetComponent<Text>().text = "";
 						firstTimeUsable = false;
 					}
 
@@ -298,15 +302,35 @@ public class InteractionScript : MonoBehaviour {
 				}
 
 			
-		} 
-
+		} else {
+		//	Debug.Log("Kakerlaken weg");
+//			GameObject kakerlaken = GameObject.FindGameObjectWithTag("Kakerlaken");
+//			kakerlaken.transform.parent.GetComponent<AudioSource>().Stop();   
+//			kakerlaken.transform.FindChild("Kakerlake").gameObject.SetActive(false);
 		}
+
+		
 
 	}
 	
 	
 	
 	void OnGUI() {     
+		Texture hint = gray_overlay;
+		switch (foundHints) {
+		case 1: 
+			hint = hint1;
+			break;
+		case 2: 
+			hint = hint2;
+			break;
+		case 3: 
+			hint = hint3;
+			break;
+		case 4: 
+			hint = hint4;
+			break;
+		}
 		if (!hideGUIOverlay) {
 			alpha += fadeDir * fadeSpeed * Time.deltaTime;	
 			alpha = Mathf.Clamp01 (alpha);	
@@ -314,46 +338,15 @@ public class InteractionScript : MonoBehaviour {
 			Color thisColor = GUI.color;
 			thisColor.a = alpha;
 			GUI.color = thisColor;
-
-			GUIStyle itemImageStyle = new GUIStyle (GUI.skin.label);
-			itemImageStyle.alignment = TextAnchor.MiddleCenter;
 			
-			GUIStyle imageLOStyle = new GUIStyle(itemImageStyle);
-			imageLOStyle.alignment = TextAnchor.LowerRight;
-			GUIStyle imageLUStyle = new GUIStyle(itemImageStyle);
-			imageLUStyle.alignment = TextAnchor.UpperRight;
-			GUIStyle imageROStyle = new GUIStyle(itemImageStyle);
-			imageROStyle.alignment = TextAnchor.LowerLeft;
-			GUIStyle imageRUStyle = new GUIStyle(itemImageStyle);
-			imageRUStyle.alignment = TextAnchor.UpperLeft;
-
 			GUI.DrawTexture (new Rect (0f, 0f, Screen.width, Screen.height), gray_overlay);
-			GUI.depth = -5;
-			if(foundHints == 1) {
-				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2 - 200, 800, 400), hint1, itemImageStyle);
-			}
-			if(foundHints == 2) {
-				GUI.Box(new Rect(Screen.width/2 - 200, Screen.height/2 - 200, 400, 200), hint1, itemImageStyle);
-				GUI.Box(new Rect(Screen.width/2 - 200, Screen.height/2, 400, 200), hint2, itemImageStyle);
-			}
-			if(foundHints == 3) {
-				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2 - 200, 400, 200), hint1, imageLOStyle);
-				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2, 400, 200), hint2, imageLUStyle);
-				GUI.Box(new Rect(Screen.width/2, Screen.height/2 - 200, 400, 200), hint3, imageROStyle);
-			}
-			if(foundHints == 4) {
-				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2 - 200, 400, 200), hint1, imageLOStyle);
-				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2, 400, 200), hint2, imageLUStyle);
-				GUI.Box(new Rect(Screen.width/2, Screen.height/2 - 200, 400, 200), hint3, imageROStyle);
-				GUI.Box(new Rect(Screen.width/2, Screen.height/2, 400, 200), hint4, imageRUStyle);
-			}
+			GUI.DrawTexture (new Rect (Screen.width / 2 - 200, Screen.height / 2 - 100, 400, 200), hint); 
 			
 			if (showGUIOverlay) {
 				Invoke ("hideGUI", 3.0f);
 			} else if (!showGUIOverlay && !(hideGUIOverlay)) {
 				Invoke ("hiddenGUI", 3.0f);
 			}
-
 		}
 	}
 
@@ -363,7 +356,6 @@ public class InteractionScript : MonoBehaviour {
 		showGUIOverlay = true;		
 	}
 	void hideGUI() {
-		GameObject.Find ("Subtitle").GetComponent<subtitlesScript>().fadeOutText();
 		fadeDir = -1;
 		hideGUIOverlay = false;
 		showGUIOverlay = false;		
@@ -373,21 +365,12 @@ public class InteractionScript : MonoBehaviour {
 	}
 
 	public void PlayerDies(){
-		var eyesScript = GameObject.Find ("EyesCanvas").GetComponentInChildren<EyesAnimation> ();
-		eyesScript.CloseEyes ();
-		GameObject.Find ("Trigger End Door").GetComponent<CloseDoorEnd> ().restartEnding();
-		GameObject.Find ("FirstPersonCharacter").GetComponent<EyesScript> ().stopHeartBeat = true;
 		Debug.Log("Dead...");
-
-		Invoke ("ending", 0.6f);
-
+		GameObject.FindGameObjectWithTag ("Monster").
+			GetComponent<MonsterScript> ().
+				MonsterDefeated ();
+		GameObject.Find ("Player").transform.position = GameObject.Find ("PlayerSpawn").transform.position;
 		//Application.LoadLevel(Application.loadedLevel);
-	}
-
-	public void ending() {
-		GameObject.Find ("Monster(Clone)").GetComponent<MonsterScript> ().MonsterDefeated ();
-		GameObject.Find ("Player").GetComponent<Animator> ().SetTrigger ("die");
-
 	}
 
 
