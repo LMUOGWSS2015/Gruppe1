@@ -3,13 +3,13 @@ using System.Collections;
 
 public class HandyblinkingLight : MonoBehaviour {
 
-	public GameObject light;
+	public GameObject handyLight;
 	private float lightIntensity;
 	private bool blinking = true;
 
 	// Use this for initialization
 	void Start () {
-		lightIntensity = light. GetComponent<Light>().intensity;
+		lightIntensity = handyLight. GetComponent<Light>().intensity;
 		Invoke ("changeLight", 1);
 	}
 	
@@ -20,14 +20,14 @@ public class HandyblinkingLight : MonoBehaviour {
 
 	public void stopBlinking() {
 		blinking = false;
-		light. GetComponent<Light>().intensity = 0f;
+		handyLight. GetComponent<Light>().intensity = 0f;
 	}
 
 	void changeLight() {
-		if (light.GetComponent<Light>().intensity == 0f) {
-			light. GetComponent<Light>().intensity = lightIntensity;
+		if (handyLight.GetComponent<Light>().intensity == 0f) {
+			handyLight. GetComponent<Light>().intensity = lightIntensity;
 		} else {
-			light. GetComponent<Light>().intensity = 0f;
+			handyLight. GetComponent<Light>().intensity = 0f;
 		}
 		if (blinking) {
 			Invoke ("changeLight", 1);
