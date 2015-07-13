@@ -1,30 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEngine.UI;
-using UnityStandardAssets.Characters.FirstPerson;
 
-public class Wakeup : StateMachineBehaviour{
-	
+public class DieScript : StateMachineBehaviour {
+
 	 // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
 	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
-		//Player Control zurücksetzen, damit animation an richtiger stelle läuft
-		GameObject.FindGameObjectWithTag("Player").transform.localPosition =  new Vector3(0,0,0);
-		GameObject.FindGameObjectWithTag ("Player").transform.localRotation = Quaternion.identity;
-
-		//camera rotation zurücksetzen
-		Camera.main.transform.localRotation = Quaternion.identity;
-		animator.gameObject.GetComponentInChildren<FirstPersonController> ().m_MouseLook.ResetRotation ();
-
-
-
+	//
+		var eyesScript = GameObject.Find ("EyesCanvas").GetComponentInChildren<EyesAnimation> ();
+		eyesScript.CloseEyes ();
 	}
 
-
 	// OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-//	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
+	//override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	//
-
-//	}
+	//}
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
 	//override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
@@ -40,5 +29,4 @@ public class Wakeup : StateMachineBehaviour{
 	//override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
 	//
 	//}
-	
 }
