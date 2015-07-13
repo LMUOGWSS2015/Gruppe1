@@ -172,12 +172,10 @@ public class PauseMenu1 : MonoBehaviour {
 			currentPage = Page.Exit;
 		}
 
-		GUILayout.BeginArea (new Rect (350*guiFactor, 150*guiFactor, 400*guiFactor, 400*guiFactor));
-			GUILayoutOption[] itemImageOptions = new GUILayoutOption[] {GUILayout.Width (200f*guiFactor), GUILayout.Height (200f*guiFactor)};
+		GUILayout.BeginArea (new Rect (350*guiFactor, 200*guiFactor, 400*guiFactor, 200*guiFactor));
+			GUILayoutOption[] itemImageOptions = new GUILayoutOption[] {GUILayout.Width (200f*guiFactor), GUILayout.Height (100f*guiFactor)};
 			GUIStyle itemImageStyle = new GUIStyle (GUI.skin.box);
 			itemImageStyle.margin = new RectOffset (0, 0, 0, 0);
-			itemImageStyle.padding = new RectOffset (5*guiFactor, 5*guiFactor, 5*guiFactor, 5*guiFactor);
-			//itemImageStyle.alignment = TextAnchor.MiddleCenter;
 
 			GUIStyle imageLOStyle = new GUIStyle(itemImageStyle);
 			imageLOStyle.alignment = TextAnchor.LowerRight;
