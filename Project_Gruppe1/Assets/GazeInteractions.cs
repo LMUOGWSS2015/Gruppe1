@@ -19,7 +19,7 @@ public class GazeInteractions : MonoBehaviour {
 	public MonsterScript monsterscript;
 
 	// Turneye tracking on
-	static public bool useEyeTracking = false;
+	static public bool useEyeTracking = true;
 	
 	// Use this for initialization
 	void Start () {
@@ -74,7 +74,7 @@ public class GazeInteractions : MonoBehaviour {
 
  */
 
-		/*
+
 		Ray rayGaze = Camera.main.ScreenPointToRay(SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords());
 		RaycastHit hit; 
 		
@@ -131,7 +131,7 @@ public class GazeInteractions : MonoBehaviour {
 			
 		}
 
-*/
+
 		
 	}
 }

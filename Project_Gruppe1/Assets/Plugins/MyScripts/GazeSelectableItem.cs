@@ -14,13 +14,13 @@ public class GazeSelectableItem : MonoBehaviour {
 	}
 	
 	public void OnGazeEnter() {
-		Debug.Log ("++++++++++++++++++++++++++++++++ OnGazeEnter()");
+		Debug.Log ("++++++++++++++++++++++ Bedroom door --> OnGazeEnter()");
 		GetComponent<Renderer>().enabled = true; // only for testing important
 		GetComponent<Renderer>().material.color = Color.blue;
 	}
 	
 	public void OnGazeExit() {
-		Debug.Log ("------------------------------------------------------------------------ OnGazeExit()");
+		Debug.Log ("--------------------------------------------------- OnGazeExit()");
 		GetComponent<Renderer>().material.color = Color.black;
 		CancelInvoke("WaitForMissingsample");
 		StartCoroutine(WaitForMissingsample());
