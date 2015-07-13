@@ -307,21 +307,6 @@ public class InteractionScript : MonoBehaviour {
 	
 	
 	void OnGUI() {     
-		Texture hint = gray_overlay;
-		switch (foundHints) {
-		case 1: 
-			hint = hint1;
-			break;
-		case 2: 
-			hint = hint2;
-			break;
-		case 3: 
-			hint = hint3;
-			break;
-		case 4: 
-			hint = hint4;
-			break;
-		}
 		if (!hideGUIOverlay) {
 			alpha += fadeDir * fadeSpeed * Time.deltaTime;	
 			alpha = Mathf.Clamp01 (alpha);	
@@ -329,15 +314,45 @@ public class InteractionScript : MonoBehaviour {
 			Color thisColor = GUI.color;
 			thisColor.a = alpha;
 			GUI.color = thisColor;
+
+			GUIStyle itemImageStyle = new GUIStyle (GUI.skin.label);
+			
+			GUIStyle imageLOStyle = new GUIStyle(itemImageStyle);
+			imageLOStyle.alignment = TextAnchor.LowerRight;
+			GUIStyle imageLUStyle = new GUIStyle(itemImageStyle);
+			imageLUStyle.alignment = TextAnchor.UpperRight;
+			GUIStyle imageROStyle = new GUIStyle(itemImageStyle);
+			imageROStyle.alignment = TextAnchor.LowerLeft;
+			GUIStyle imageRUStyle = new GUIStyle(itemImageStyle);
+			imageRUStyle.alignment = TextAnchor.UpperLeft;
+
 			
 			GUI.DrawTexture (new Rect (0f, 0f, Screen.width, Screen.height), gray_overlay);
-			GUI.DrawTexture (new Rect (Screen.width / 2 - 200, Screen.height / 2 - 100, 400, 200), hint); 
+			if(foundHints == 1) {
+				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2 - 200, 800, 400), hint1, itemImageStyle);
+			}
+			if(foundHints == 2) {
+				GUI.Box(new Rect(Screen.width/2 - 300, Screen.height/2 - 300, 600, 300), hint1, itemImageStyle);
+				GUI.Box(new Rect(Screen.width/2 - 300, Screen.height/2, 600, 300), hint2, itemImageStyle);
+			}
+			if(foundHints == 3) {
+				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2 - 200, 400, 200), hint1, imageLOStyle);
+				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2, 400, 200), hint2, imageLUStyle);
+				GUI.Box(new Rect(Screen.width/2, Screen.height/2 - 200, 400, 200), hint3, imageROStyle);
+			}
+			if(foundHints == 4) {
+				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2 - 200, 400, 200), hint1, imageLOStyle);
+				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2, 400, 200), hint2, imageLUStyle);
+				GUI.Box(new Rect(Screen.width/2, Screen.height/2 - 200, 400, 200), hint3, imageROStyle);
+				GUI.Box(new Rect(Screen.width/2, Screen.height/2, 400, 200), hint4, imageRUStyle);
+			}
 			
 			if (showGUIOverlay) {
 				Invoke ("hideGUI", 3.0f);
 			} else if (!showGUIOverlay && !(hideGUIOverlay)) {
 				Invoke ("hiddenGUI", 3.0f);
 			}
+
 		}
 	}
 
@@ -347,6 +362,7 @@ public class InteractionScript : MonoBehaviour {
 		showGUIOverlay = true;		
 	}
 	void hideGUI() {
+		GameObject.Find ("Subtitle").GetComponent<subtitlesScript>().fadeOutText();
 		fadeDir = -1;
 		hideGUIOverlay = false;
 		showGUIOverlay = false;		
