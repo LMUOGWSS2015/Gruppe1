@@ -45,7 +45,9 @@ public class InteractionScript : MonoBehaviour {
 
 	private bool firstTimeUsable = true;
 	private bool doorKnockEnd = true;
-	
+
+	GameObject fsp;
+	Vector3 startPosPlayer;
 	// Use this for initialization
 	void Start () {
 		maxAlpha = useIcon.color;
@@ -54,6 +56,9 @@ public class InteractionScript : MonoBehaviour {
 		if (gotFlashlight == false) {
 			flashlight.intensity = 0f;
 		}
+		fsp = GameObject.FindGameObjectWithTag ("Player");
+		startPosPlayer = fsp.transform.position;
+		Debug.Log (startPosPlayer);
 	}
 	
 	void turnOnFlashlight() {
@@ -357,11 +362,13 @@ public class InteractionScript : MonoBehaviour {
 
 	public void PlayerDies(){
 		Debug.Log("Dead...");
-		GameObject.FindGameObjectWithTag ("Monster").
-			GetComponent<MonsterScript> ().
-				MonsterDefeated ();
-		GameObject.Find ("Player").transform.position = GameObject.Find ("PlayerSpawn").transform.position;
+		GameObject.Find ("Monster(Clone)").GetComponent<MonsterScript> ().MonsterDefeated ();
+//		GameObject.Find ("Player").transform.position = GameObject.Find ("PlayerSpawn").transform.position;
 		//Application.LoadLevel(Application.loadedLevel);
+		var eyesScript = GameObject.Find ("EyesCanvas").GetComponentInChildren<EyesAnimation> ();
+		eyesScript.CloseEyes ();
+		fsp.transform.position = GameObject.Find ("PlayerSpawn").transform.position;
+
 	}
 
 

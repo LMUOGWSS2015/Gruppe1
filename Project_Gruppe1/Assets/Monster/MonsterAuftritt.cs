@@ -13,6 +13,7 @@ public class MonsterAuftritt : MonoBehaviour {
 
 	MonsterScript monsterscript;
 
+
 	//fpscontroller werte zum zuruecksetzen
 	float m_WalkSpeed;
 	float m_RunSpeed;
@@ -43,6 +44,7 @@ public class MonsterAuftritt : MonoBehaviour {
 		//speicher fps startwerte
 		FirstPersonController fpsc = player.GetComponent<FirstPersonController> ();
 		m_WalkSpeed = fpsc.m_WalkSpeed;
+		Debug.Log (m_WalkSpeed);
 		m_RunSpeed = fpsc.m_RunSpeed;
 		XSensitivity = fpsc.m_MouseLook.XSensitivity;
 		YSensitivity = fpsc.m_MouseLook.YSensitivity;
