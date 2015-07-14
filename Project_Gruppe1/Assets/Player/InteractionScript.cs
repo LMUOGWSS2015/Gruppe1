@@ -212,11 +212,11 @@ public class InteractionScript : MonoBehaviour {
 
 						lastUsableCollider = hit.collider;
 
-						if (GazeInteractions.useEyeTracking) {
-							targetPosition = SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords();
-						} else {
+//						if (GazeInteractions.useEyeTracking) {
+//							targetPosition = SMIGazeController.Instance.GetSample().averagedEye.gazePosInUnityScreenCoords();
+//						} else {
 							targetPosition = new Vector3 (((Screen.width/2) - 40.0f) , ((Screen.height/2)- 60.0f), 0);
-						}
+//						}
 					} 
 
 
