@@ -9,6 +9,8 @@ public class InteractionScript : MonoBehaviour {
 	public float interactDistance = 5f;
 	public int numberOfHints;
 	public Light flashlight;
+	public Vector3 flashlightstartPosition, flashlightStartScale;
+	public Quaternion flashlightstartRotation;
 	public Image useIcon;
 	private Color maxAlpha;
 	
@@ -60,6 +62,10 @@ public class InteractionScript : MonoBehaviour {
 		if (gotFlashlight == false) {
 			flashlight.intensity = 0f;
 		}
+
+		flashlightstartPosition = flashlight.transform.localPosition;
+		flashlightstartRotation = flashlight.transform.localRotation;
+		flashlightStartScale = flashlight.transform.localScale;
 	}
 	
 	void turnOnFlashlight() {

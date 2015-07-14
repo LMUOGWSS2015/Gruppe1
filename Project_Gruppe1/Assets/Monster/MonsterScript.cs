@@ -32,6 +32,11 @@ public class MonsterScript : MonoBehaviour {
 		noiseScript.scratchIntensityMax = 0;
 		noiseScript.scratchIntensityMin = 0;
 
+		InteractionScript scr = GameObject.FindGameObjectWithTag ("Player").GetComponentInChildren<InteractionScript> ();
+		GameObject.Find("FlashlightPlayer").transform.localPosition = scr.flashlightstartPosition;
+		GameObject.Find("FlashlightPlayer").transform.localRotation = scr.flashlightstartRotation;
+		GameObject.Find("FlashlightPlayer").transform.localScale = scr.flashlightStartScale;
+
 		Destroy (this.gameObject);
 		Destroy (this);
 	}
