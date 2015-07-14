@@ -45,7 +45,7 @@ public class InteractionScript : MonoBehaviour {
 
 	private bool firstTimeUsable = true;
 	private bool doorKnockEnd = true;
-	
+
 	// Use this for initialization
 	void Start () {
 		maxAlpha = useIcon.color;
@@ -385,8 +385,15 @@ public class InteractionScript : MonoBehaviour {
 	}
 
 	public void ending() {
-		GameObject.Find ("Monster(Clone)").GetComponent<MonsterScript> ().MonsterDefeated ();
-		GameObject.Find ("Player").GetComponent<Animator> ().SetTrigger ("die");
+
+
+		if (GameObject.Find ("FirstPersonCharacter").GetComponent<EyesScript> ().outro) {
+			//go to main menu
+			Application.LoadLevel (0);
+		} else {
+			GameObject.Find ("Monster(Clone)").GetComponent<MonsterScript> ().MonsterDefeated ();
+			GameObject.Find ("Player").GetComponent<Animator> ().SetTrigger ("die");
+		}
 
 	}
 
