@@ -44,7 +44,8 @@ public class EyesScript : MonoBehaviour {
 		//get the averaged GazePosition
 		Vector3 averageGazePosition = sample.averagedEye.gazePosInUnityScreenCoords ();
 		
-		//		Debug.Log ("AveragePos (Unity): " + averageGazePosition.x);
+		//Debug.Log ("AveragePos (Unity): " + averageGazePosition.x);
+
 
 
 		//rechtsklick down
@@ -182,7 +183,7 @@ public class EyesScript : MonoBehaviour {
 					switchHeartbeatSound = 0;
 				}
 		}
-		Debug.Log ("stop hear beat: " + stopHeartBeat); 
+		Debug.Log ("stop heart beat: " + stopHeartBeat); 
 
 		if (!stopHeartBeat) {
 			Invoke ("heartBeatSoundeffect", nextHeartbeat);
