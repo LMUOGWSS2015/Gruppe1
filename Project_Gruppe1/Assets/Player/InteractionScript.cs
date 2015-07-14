@@ -268,7 +268,8 @@ public class InteractionScript : MonoBehaviour {
 					}
 					Debug.Log ("Hinweise nr: " + foundHints);
 					if (numberOfHints == foundHints) {
-						Debug.Log ("Alle Hinweise da");	
+						Debug.Log ("Alle Hinweise da");
+						GameObject.Find("Versteck 1").tag = "usable";
 					}	
 					showGUI();	
 				} else if (hit.collider.CompareTag ("Key")) {
