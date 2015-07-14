@@ -14,13 +14,14 @@ public class trigggerDoorknock : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other) {
+		Debug.Log ("Knock door!");
 		Invoke ("hitAgainstDoor", 0.1f);
 		Invoke ("hitAgainstDoor", 1.1f);
 		Invoke ("hitAgainstDoor", 1.8f);
 	}
 
 	public void hitAgainstDoor(){
-		if (GameObject.Find ("DoorChild").GetComponent<DoorOpenScript> ().open = false) {
+		if (GameObject.Find ("DoorChild").GetComponent<DoorOpenScript> ().open == false) {
 			GameObject.Find ("DoorChild").GetComponent<DoorOpenScript> ().hitAgainstDoor ();
 		}
 	}
