@@ -131,7 +131,6 @@ public class MonsterAuftritt : MonoBehaviour {
 
 				//monster ranteleportieren, wenn augen zu frueh auf
 				if (monster.GetComponent<MonsterScript> ().setCloseup) {
-					GameObject.Find("SchockSound").GetComponent<AudioSource>().Play();
 					Vector3 vec = monster.transform.position - playerpos;
 					Vector3 pointbetween = playerpos + (vec.normalized * 4.3f);
 					monster.transform.position = new Vector3 (pointbetween.x, startY, pointbetween.z);
@@ -174,6 +173,7 @@ public class MonsterAuftritt : MonoBehaviour {
 
 	//startet die endanimation
 	public void StartEndAnimation(){
+		GameObject.Find("SchockSound").GetComponent<AudioSource>().Play();
 		Debug.Log("Endanimation started");
 		animator.SetBool("stehen", true);
 		animator.applyRootMotion = false;
