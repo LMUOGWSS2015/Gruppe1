@@ -46,8 +46,14 @@ public class InteractionScript : MonoBehaviour {
 	private bool firstTimeUsable = true;
 	private bool doorKnockEnd = true;
 	
+	// For different resolutions
+	private int guiFactor;
+
 	// Use this for initialization
 	void Start () {
+		guiFactor = (int) Mathf.Floor (Screen.width/1024);
+		guiFactor = (guiFactor == 0) ? 1 : guiFactor;
+
 		maxAlpha = useIcon.color;
 		strengthOfFlashlight = flashlight.intensity;
 
@@ -331,22 +337,22 @@ public class InteractionScript : MonoBehaviour {
 			GUI.DrawTexture (new Rect (0f, 0f, Screen.width, Screen.height), gray_overlay);
 			GUI.depth = -5;
 			if(foundHints == 1) {
-				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2 - 200, 800, 400), hint1, itemImageStyle);
+				GUI.Box(new Rect(Screen.width/2 - 400 * guiFactor, Screen.height/2 - 200 * guiFactor, 800 * guiFactor, 400 * guiFactor), hint1, itemImageStyle);
 			}
 			if(foundHints == 2) {
-				GUI.Box(new Rect(Screen.width/2 - 200, Screen.height/2 - 200, 400, 200), hint1, itemImageStyle);
-				GUI.Box(new Rect(Screen.width/2 - 200, Screen.height/2, 400, 200), hint2, itemImageStyle);
+				GUI.Box(new Rect(Screen.width/2 - 200 * guiFactor, Screen.height/2 - 200 * guiFactor, 400 * guiFactor, 200 * guiFactor), hint1, itemImageStyle);
+				GUI.Box(new Rect(Screen.width/2 - 200 * guiFactor, Screen.height/2, 400 * guiFactor, 200 * guiFactor), hint2, itemImageStyle);
 			}
 			if(foundHints == 3) {
-				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2 - 200, 400, 200), hint1, imageLOStyle);
-				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2, 400, 200), hint2, imageLUStyle);
-				GUI.Box(new Rect(Screen.width/2, Screen.height/2 - 200, 400, 200), hint3, imageROStyle);
+				GUI.Box(new Rect(Screen.width/2 - 400 * guiFactor, Screen.height/2 - 200 * guiFactor, 400 * guiFactor, 200 * guiFactor), hint1, imageLOStyle);
+				GUI.Box(new Rect(Screen.width/2 - 400 * guiFactor, Screen.height/2, 400 * guiFactor, 200 * guiFactor), hint2, imageLUStyle);
+				GUI.Box(new Rect(Screen.width/2, Screen.height/2 - 200 * guiFactor, 400 * guiFactor, 200 * guiFactor), hint3, imageROStyle);
 			}
 			if(foundHints == 4) {
-				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2 - 200, 400, 200), hint1, imageLOStyle);
-				GUI.Box(new Rect(Screen.width/2 - 400, Screen.height/2, 400, 200), hint2, imageLUStyle);
-				GUI.Box(new Rect(Screen.width/2, Screen.height/2 - 200, 400, 200), hint3, imageROStyle);
-				GUI.Box(new Rect(Screen.width/2, Screen.height/2, 400, 200), hint4, imageRUStyle);
+				GUI.Box(new Rect(Screen.width/2 - 400 * guiFactor, Screen.height/2 - 200 * guiFactor, 400 * guiFactor, 200 * guiFactor), hint1, imageLOStyle);
+				GUI.Box(new Rect(Screen.width/2 - 400 * guiFactor, Screen.height/2, 400 * guiFactor, 200 * guiFactor), hint2, imageLUStyle);
+				GUI.Box(new Rect(Screen.width/2, Screen.height/2 - 200 * guiFactor, 400 * guiFactor, 200 * guiFactor), hint3, imageROStyle);
+				GUI.Box(new Rect(Screen.width/2, Screen.height/2 * guiFactor, 400 * guiFactor, 200 * guiFactor), hint4, imageRUStyle);
 			}
 			
 			if (showGUIOverlay) {
